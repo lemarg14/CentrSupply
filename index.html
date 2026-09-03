@@ -240,10 +240,11 @@ a{color:inherit}
    Etat par defaut (repli) : conteneur ouvert, liste complete.
    La couche de scroll, plus bas, anime la chute, les portes, les cartons. */
 .cargo-section{background:var(--bg)}
-.cargo-track{padding-block:clamp(72px,11vw,144px)}
+.cargo-intro{padding-top:clamp(72px,11vw,144px)}
+.cargo-intro .lead{margin-top:22px}
+.cargo-track{padding-block:clamp(40px,6vw,72px) clamp(72px,11vw,144px)}
 .cargo-grid{display:grid;grid-template-columns:1fr;gap:clamp(36px,5vw,64px);align-items:center}
-.cargo-lead{margin-top:22px}
-.cargo-list{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:18px}
+.cargo-list{list-style:none;margin:0;padding:0;display:grid;gap:18px}
 .cargo-item{padding-left:22px;position:relative}
 .cargo-item::before{
   content:"";position:absolute;left:0;top:.45em;width:8px;height:8px;
@@ -315,7 +316,7 @@ a{color:inherit}
   display:flex;flex-direction:column-reverse;align-items:center;gap:5px;padding:0 0 10px;
 }
 .carton{
-  width:66%;height:23%;border-radius:3px;
+  width:66%;height:19%;border-radius:3px;
   background:#EEF1EF;border:1px solid #C9D2CD;
   box-shadow:inset 0 -6px 0 rgba(0,0,0,.05);
   display:grid;place-items:center;position:relative;
@@ -359,10 +360,17 @@ a{color:inherit}
   .cargo-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(40px,6vw,96px)}
 }
 @media (max-width:900px){
-  .cargo-scene{--s:.72;height:400px}
+  .cargo-grid{display:flex;flex-direction:column;gap:0;isolation:isolate}
+  .cargo-scene{
+    --s:.62;order:-1;height:40vh;min-height:230px;max-height:340px;
+    overflow:hidden;perspective-origin:50% 50%;
+  }
+  .cargo-shadow{width:300px;height:70px;transform:translate(-46%,86px) scale(var(--s))}
+  .cargo-list{gap:14vh;margin-top:5vh;padding-bottom:6vh}
+  .cargo-item p{max-width:none}
 }
 @media (max-width:520px){
-  .cargo-scene{--s:.56;height:320px}
+  .cargo-scene{--s:.46;height:34vh;min-height:200px}
 }
 
 /* ---------- zones de distribution ---------- */
@@ -645,8 +653,7 @@ a{color:inherit}
     }
     @keyframes globeExit{from{opacity:1}to{opacity:.12}}
 
-    /* --- sequence epinglee de la methode (desktop uniquement) --- */
-    @media (min-width:901px){
+    /* --- sequences epinglees : desktop ET mobile --- */
       .pin-track{
         height:320vh;padding-block:0;
         view-timeline-name:--methode;view-timeline-axis:block;
@@ -755,15 +762,70 @@ a{color:inherit}
         50%,100%{transform:rotateY(160deg)}
       }
       /* 3. les cartons et le texte, un par un */
-      .c1{animation-name:cartonIn1}.c2{animation-name:cartonIn2}.c3{animation-name:cartonIn3}
-      @keyframes cartonIn1{0%,50%{opacity:0;transform:translateY(16px) scale(.9)}57%,100%{opacity:1;transform:none}}
-      @keyframes cartonIn2{0%,60%{opacity:0;transform:translateY(16px) scale(.9)}67%,100%{opacity:1;transform:none}}
-      @keyframes cartonIn3{0%,70%{opacity:0;transform:translateY(16px) scale(.9)}77%,100%{opacity:1;transform:none}}
-      .i1{animation-name:itemIn1}.i2{animation-name:itemIn2}.i3{animation-name:itemIn3}
-      @keyframes itemIn1{0%,50%{opacity:0;transform:translateX(-16px)}57%,100%{opacity:1;transform:none}}
-      @keyframes itemIn2{0%,60%{opacity:0;transform:translateX(-16px)}67%,100%{opacity:1;transform:none}}
-      @keyframes itemIn3{0%,70%{opacity:0;transform:translateX(-16px)}77%,100%{opacity:1;transform:none}}
-    }
+      .c1{animation-name:cartonIn1}.c2{animation-name:cartonIn2}
+      .c3{animation-name:cartonIn3}.c4{animation-name:cartonIn4}
+      @keyframes cartonIn1{0%,52%{opacity:0;transform:translateY(16px) scale(.9)}58%,100%{opacity:1;transform:none}}
+      @keyframes cartonIn2{0%,62%{opacity:0;transform:translateY(16px) scale(.9)}68%,100%{opacity:1;transform:none}}
+      @keyframes cartonIn3{0%,72%{opacity:0;transform:translateY(16px) scale(.9)}78%,100%{opacity:1;transform:none}}
+      @keyframes cartonIn4{0%,82%{opacity:0;transform:translateY(16px) scale(.9)}88%,100%{opacity:1;transform:none}}
+      .i1{animation-name:itemIn1}.i2{animation-name:itemIn2}
+      .i3{animation-name:itemIn3}.i4{animation-name:itemIn4}
+      @keyframes itemIn1{0%,52%{opacity:0;transform:translateX(-16px)}58%,100%{opacity:1;transform:none}}
+      @keyframes itemIn2{0%,62%{opacity:0;transform:translateX(-16px)}68%,100%{opacity:1;transform:none}}
+      @keyframes itemIn3{0%,72%{opacity:0;transform:translateX(-16px)}78%,100%{opacity:1;transform:none}}
+      @keyframes itemIn4{0%,82%{opacity:0;transform:translateX(-16px)}88%,100%{opacity:1;transform:none}}
+
+      /* --- adaptation mobile : seule la scene est collee ---
+         Le conteneur reste en haut de l'ecran pendant que la liste
+         defile dessous, un bloc a la fois. */
+      @media (max-width:900px){
+        .pin-track{height:280vh}
+        .pin-stage{top:68px;height:calc(100dvh - 68px);align-items:flex-start;padding-top:6vh}
+        .pin-left .h2{font-size:clamp(1.9rem,7vw,2.4rem)}
+        .pin-rail{margin-top:28px}
+        .pin-steps{min-height:230px;margin-top:6vh}
+        .pin-step h3{font-size:clamp(1.35rem,5.6vw,1.8rem);margin-bottom:12px}
+        .pin-step p{font-size:1rem}
+
+        .cargo-track{height:auto;padding-block:clamp(24px,4vh,40px) clamp(72px,11vw,120px)}
+        .cargo-stage{position:static;height:auto;display:block;overflow:visible}
+        .cargo-grid{display:flex;flex-direction:column;gap:0}
+        .cargo-scene{
+          position:sticky;top:76px;z-index:3;
+          background:var(--bg);
+          box-shadow:0 12px 18px -12px rgba(26,29,28,.14);
+        }
+        .cargo-list{position:relative;z-index:1}
+        /* chaque bloc apparait quand il entre a l'ecran, pas selon
+           la progression globale : sur un ecran etroit les deux se
+           desynchronisent sinon. */
+        .cargo-item{
+          animation-name:itemInMob;animation-timeline:view();
+          animation-range:entry 8% entry 62%;
+        }
+        @keyframes itemInMob{
+          from{opacity:0;transform:translateY(22px)}
+          to{opacity:1;transform:none}
+        }
+        /* cartons : cadence resserree pour tenir dans la zone collee */
+        @keyframes cartonIn1{0%,26%{opacity:0;transform:translateY(14px) scale(.9)}34%,100%{opacity:1;transform:none}}
+        @keyframes cartonIn2{0%,40%{opacity:0;transform:translateY(14px) scale(.9)}48%,100%{opacity:1;transform:none}}
+        @keyframes cartonIn3{0%,54%{opacity:0;transform:translateY(14px) scale(.9)}62%,100%{opacity:1;transform:none}}
+        @keyframes cartonIn4{0%,68%{opacity:0;transform:translateY(14px) scale(.9)}76%,100%{opacity:1;transform:none}}
+        @keyframes doorL{0%,12%{transform:rotateY(0deg)}22%{transform:rotateY(-100deg)}30%,100%{transform:rotateY(-160deg)}}
+        @keyframes doorR{0%,14%{transform:rotateY(0deg)}24%{transform:rotateY(100deg)}32%,100%{transform:rotateY(160deg)}}
+        /* la chute part du haut de la zone, pas de tout l'ecran */
+        @keyframes cargoDrop{
+          0%{transform:translateY(-48vh) scale(var(--s))}
+          15%{transform:translateY(0) scale(var(--s))}
+          17.5%{transform:translateY(6px) scale(var(--s))}
+          20%,100%{transform:translateY(0) scale(var(--s))}
+        }
+        @keyframes cargoShadow{
+          0%{opacity:0;transform:translate(-46%,86px) scale(calc(var(--s) * .35))}
+          15%,100%{opacity:1;transform:translate(-46%,86px) scale(var(--s))}
+        }
+      }
   }
 }
 
@@ -821,33 +883,39 @@ a{color:inherit}
   </section>
 
   <!-- ============ CATEGORIES : le conteneur ============
-       Sequence epinglee : le conteneur tombe, ses portes s'ouvrent,
-       les cartons apparaissent et la liste de gauche se remplit.
-       Sans timelines de scroll, sur mobile ou en mouvement reduit :
-       conteneur ouvert, liste complete, rien n'est perdu.
+       Sequence epinglee, desktop ET mobile : le conteneur tombe,
+       ses portes s'ouvrent, les cartons apparaissent et la liste
+       se remplit. Sur mobile seule la scene est collee, la liste
+       defile dessous. Sans timelines de scroll ou en mouvement
+       reduit : conteneur ouvert, liste complete, rien n'est perdu.
        ======================================================== -->
   <section class="cargo-section" id="categories">
+    <div class="shell cargo-intro">
+      <h2 class="h2 rv">Un fournisseur.<br>Plusieurs besoins.</h2>
+      <p class="lead rv" style="--i:1">Gérer une entreprise implique de trouver constamment les bons produits, les bons fournisseurs et les bons prix. Nous identifions les besoins des professionnels, recherchons les meilleures sources d’approvisionnement et construisons des offres adaptées à leurs volumes et à leur activité.</p>
+    </div>
+
     <div class="cargo-track">
       <div class="cargo-stage">
         <div class="shell cargo-grid">
-          <div class="cargo-copy">
-            <h2 class="h2">Un fournisseur.<br>Plusieurs besoins.</h2>
-            <p class="lead cargo-lead">Gérer une entreprise implique de trouver constamment les bons produits, les bons fournisseurs et les bons prix. Nous identifions les besoins des professionnels, recherchons les meilleures sources d’approvisionnement et construisons des offres adaptées à leurs volumes et à leur activité.</p>
-            <ol class="cargo-list">
-              <li class="cargo-item i1">
-                <span class="tag">Hygiène &amp; consommables</span>
-                <p>Papier toilette, essuie-tout, bobines d’essuyage, gants nitrile et autres consommables indispensables au quotidien.</p>
-              </li>
-              <li class="cargo-item i2">
-                <span class="tag">Équipement professionnel</span>
-                <p>Mobilier, équipements et produits destinés aux commerces, restaurants, hôtels et autres établissements professionnels.</p>
-              </li>
-              <li class="cargo-item i3">
-                <span class="tag">Solutions pour les professionnels</span>
-                <p>Des produits sélectionnés pour répondre à des besoins concrets : visibilité, fonctionnement quotidien, hygiène, équipement et approvisionnement.</p>
-              </li>
-            </ol>
-          </div>
+          <ol class="cargo-list">
+            <li class="cargo-item i1">
+              <span class="tag">Hygiène &amp; consommables</span>
+              <p>Papier toilette, essuie-tout, bobines d’essuyage, gants nitrile et autres consommables indispensables au quotidien.</p>
+            </li>
+            <li class="cargo-item i2">
+              <span class="tag">Équipement professionnel</span>
+              <p>Mobilier, équipements et produits destinés aux commerces, restaurants, hôtels et autres établissements professionnels.</p>
+            </li>
+            <li class="cargo-item i3">
+              <span class="tag">Marques pour la revente</span>
+              <p>Des marques reconnues, achetées en volume et destinées aux revendeurs, grossistes et distributeurs qui veulent une marge nette sur des références qui tournent.</p>
+            </li>
+            <li class="cargo-item i4">
+              <span class="tag">Solutions pour les professionnels</span>
+              <p>Des produits sélectionnés pour répondre à des besoins concrets : visibilité, fonctionnement quotidien, hygiène, équipement et approvisionnement.</p>
+            </li>
+          </ol>
 
           <div class="cargo-scene" aria-hidden="true">
             <div class="cargo-shadow"></div>
@@ -861,7 +929,8 @@ a{color:inherit}
                 <div class="cartons">
                   <div class="carton c1"><span>Hygiène</span></div>
                   <div class="carton c2"><span>Équipement</span></div>
-                  <div class="carton c3"><span>Solutions</span></div>
+                  <div class="carton c3"><span>Marques</span></div>
+                  <div class="carton c4"><span>Solutions</span></div>
                 </div>
                 <div class="f f-frame"></div>
                 <div class="doors">
