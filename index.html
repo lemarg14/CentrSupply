@@ -101,7 +101,8 @@ body::after{
 .hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em}
 .hero h1 .w > span{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease)}
 .hero.ready h1 .w > span{transform:none}
-.hero h1 em{font-style:normal;color:var(--accent)}
+.hero h1 em{font-style:normal;color:var(--accent);white-space:nowrap}
+.hero h1 .dot-w{color:var(--text)}
 .hero p.lead{font-size:clamp(17px,1.4vw,20px);max-width:46ch;margin-bottom:36px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 .fade-up{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
@@ -118,7 +119,7 @@ body::after{
 .photo img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
 .photo .slot{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:14px;padding:20px}
 .photo .slot i{display:block;font-size:34px;margin:0 auto 8px;color:var(--text)}
-.hero .photo{aspect-ratio:4/5;transform:scale(.94);opacity:0;transition:transform 1.4s var(--ease) .2s,opacity 1.2s var(--ease) .2s}
+.hero .photo{aspect-ratio:3/4;transform:scale(.94);opacity:0;transition:transform 1.4s var(--ease) .2s,opacity 1.2s var(--ease) .2s}
 .hero.ready .photo{transform:none;opacity:1}
 .hero .photo img{transition:transform 8s linear}
 .hero.ready .photo img{transform:scale(1.06)}
@@ -403,7 +404,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
 <section class="hero" id="hero">
   <div class="wrap hero-grid">
     <div>
-      <h1 id="heroTitle">Stocker, expédier, importer. En <em>simple</em>.</h1>
+      <h1 id="heroTitle">Stocker, expédier, importer. En <em>simple<span class="dot-w">.</span></em></h1>
       <p class="lead fade-up d1">Logistique, import et produits pour pros, depuis Caen. <strong>Un seul interlocuteur</strong>, des <strong>prix clairs</strong>, sans engagement.</p>
       <div class="hero-ctas fade-up d2">
         <a href="#contact" class="btn btn-primary magnetic">Demander un devis <i class="ph-bold ph-arrow-right"></i></a>
@@ -413,7 +414,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
     <div class="photo">
       <!-- Remplacer par une vraie photo de l'entrepôt : images/entrepot.jpg (1200x1500 conseillé) -->
       <div class="slot"><div><i class="ph ph-warehouse"></i>Photo de l'entrepôt<br>images/entrepot.jpg</div></div>
-      <img src="images/entrepot.jpg" alt="L'entrepôt Centr Supply à Caen" onerror="this.remove()">
+      <img src="images/entrepot.jpg" alt="L'entrepôt Centr Supply à Caen, porte grande ouverte" onerror="this.remove()">
     </div>
   </div>
 </section>
@@ -563,12 +564,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
       <span class="eyebrow reveal">Logistique e-commerce à Caen</span>
       <h2 class="reveal" style="--i:1">Votre stock à Caen. On s'occupe du reste.</h2>
       <p class="reveal" style="--i:2">Petits ou moyens volumes, sans engagement de durée. <strong>Vous payez ce que vous utilisez.</strong></p>
-      <div class="photo reveal" style="--i:3">
-        <!-- Remplacer : images/preparation.jpg (1600x1000 conseillé) -->
-        <div class="slot"><div><i class="ph ph-package"></i>Photo du poste de préparation<br>images/preparation.jpg</div></div>
-        <img src="images/preparation.jpg" alt="Poste de préparation de commandes" loading="lazy" onerror="this.remove()">
-      </div>
-      <div class="cond reveal" style="--i:4">
+      <div class="cond reveal" style="--i:3">
         <div><i class="ph-bold ph-check"></i>Colis, cartons et palettes</div>
         <div><i class="ph-bold ph-check"></i>Palettes : livraison avec hayon obligatoire</div>
         <div><i class="ph-bold ph-x"></i>Pas de semi-remorque complet</div>
