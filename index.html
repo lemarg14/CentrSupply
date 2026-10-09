@@ -134,6 +134,23 @@ body::after{
 
 
 
+
+/* Catégories produits */
+.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.cat{position:relative;border:1px solid var(--line);border-radius:var(--r-card);background:var(--bg-2);padding:24px;overflow:hidden;transition:transform .5s var(--ease),border-color .3s}
+.cat:hover{transform:translateY(-4px);border-color:rgba(255,122,61,.5)}
+.cat::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(255,122,61,.14),transparent 45%)}
+.cat:hover::before{opacity:1}
+.cat > *{position:relative}
+.cat i{font-size:30px;color:var(--text);display:block;margin-bottom:18px;transition:transform .5s var(--ease),color .3s}
+.cat:hover i{transform:rotate(-8deg) scale(1.1);color:var(--accent)}
+.cat h3{font-size:18px;margin-bottom:6px}
+.cat p{font-size:14.5px;line-height:1.5}
+.cat-cta{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:linear-gradient(120deg,rgba(255,122,61,.16),transparent 60%),var(--bg-2);border-color:rgba(255,122,61,.45)}
+.cat-cta h3{font-size:22px}
+@media (max-width:1000px){.cats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.cats{grid-template-columns:1fr}}
+
 /* Bandeau clients */
 .clients{border-block:1px solid var(--line);padding:26px 0}
 .clients .wrap{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
@@ -398,9 +415,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
   <div class="wrap">
     <a href="#top" class="logo" aria-label="Centr Supply, accueil"><span class="logo-mark">C</span>Centr Supply</a>
     <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
-      <a href="#produits">Produits pros</a>
       <a href="#logistique">Logistique</a>
       <a href="#import">Sourcing et import</a>
+      <a href="#produits">Produits pros</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="#contact" class="btn btn-primary magnetic">Demander un devis</a>
@@ -484,25 +501,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
   <div class="wrap">
     <h2 class="reveal">Selon votre activité</h2>
     <div class="tabs reveal" role="tablist" aria-label="Choisir votre profil" style="--i:1">
-      <button class="tab" role="tab" aria-selected="true" aria-controls="p1" id="t1">Je suis un commerce</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p2" id="t2">Je vends en ligne</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3">Je suis revendeur ou je veux faire fabriquer</button>
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p2" id="t2">Je vends en ligne</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3">Je veux importer ou revendre</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p1" id="t1">Je suis un commerce</button>
     </div>
     <div class="panel-box reveal" style="--i:2">
-      <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
-        <div>
-          <h3>Commandez ce qu'il vous faut, en petite quantité.</h3>
-          <p>Restaurants, salons, boutiques, hôtels, locations courte durée : on fournit <strong>en petites quantités</strong> et on livre vite dans le Calvados.</p>
-          <a href="#produits" class="link">Voir les produits pros <i class="ph-bold ph-arrow-right"></i></a>
-        </div>
-        <ul>
-          <li><i class="ph-bold ph-check"></i><span><strong>Plaques NFC avis Google</strong> configurées et prêtes à poser</span></li>
-          <li><i class="ph-bold ph-check"></i><span>Cartes de visite NFC, signalétique, porte-menus LED</span></li>
-          <li><i class="ph-bold ph-check"></i><span>Packaging et sacs à votre logo, sur devis</span></li>
-          <li><i class="ph-bold ph-check"></i><span>Réponse rapide sur <strong>WhatsApp</strong></span></li>
-        </ul>
-      </div>
-      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2">
         <div>
           <h3>Vous vendez, on s'occupe des colis.</h3>
           <p>Boutiques en ligne, marques, vendeurs sur marketplaces : on gère la <strong>préparation</strong>, le <strong>kitting</strong> et les <strong>retours</strong>, à votre volume.</p>
@@ -527,6 +531,19 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
           <li><i class="ph-bold ph-check"></i><span>Réception et stockage à Caen</span></li>
         </ul>
       </div>
+      <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+        <div>
+          <h3>Commandez ce qu'il vous faut, en petite quantité.</h3>
+          <p>Restaurants, salons, boutiques, hôtels, locations courte durée : on fournit <strong>en petites quantités</strong> et on livre vite dans le Calvados.</p>
+          <a href="#produits" class="link">Voir les produits pros <i class="ph-bold ph-arrow-right"></i></a>
+        </div>
+        <ul>
+          <li><i class="ph-bold ph-check"></i><span><strong>Avis clients et signalétique</strong> pour votre vitrine et votre comptoir</span></li>
+          <li><i class="ph-bold ph-check"></i><span>Packaging, hygiène, textile pro, consommables</span></li>
+          <li><i class="ph-bold ph-check"></i><span>Produits à votre logo, même en petite série</span></li>
+          <li><i class="ph-bold ph-check"></i><span>Réponse rapide sur <strong>WhatsApp</strong></span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -539,47 +556,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
   </div>
 </div>
 
-<!-- PRODUITS PROS -->
-<section class="sec" id="produits">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="reveal">Produits pour pros</h2>
-      <p class="reveal" style="--i:1">Des produits qui <strong>font vendre</strong> ou qui <strong>donnent une image pro</strong>. En stock à Caen, livrés vite.</p>
-    </div>
-    <div class="bento">
-      <article class="cell c-a reveal spot">
-        <i class="ph ph-star ic"></i>
-        <h3>Plaques NFC avis Google</h3>
-        <p>Le client approche son téléphone, il arrive directement sur votre page d'avis. <strong>Configuration incluse</strong>, vous n'avez rien à faire.</p>
-        <span class="tag">Pour restaurants, salons, boutiques</span>
-      </article>
-      <article class="cell c-b reveal spot" style="--i:1">
-        <i class="ph ph-identification-card ic"></i>
-        <h3>Cartes NFC</h3>
-        <p>Votre carte de visite en un geste, pour les indépendants.</p>
-      </article>
-      <article class="cell c-c reveal spot" style="--i:2">
-        <i class="ph ph-lightbulb-filament ic"></i>
-        <h3>Signalétique et LED</h3>
-        <p>Porte-menus lumineux, affichage comptoir, signalétique.</p>
-      </article>
-      <article class="cell c-d reveal spot" style="--i:1">
-        <i class="ph ph-scissors ic"></i>
-        <h3>Salons de coiffure</h3>
-        <p>Distribution de <strong>Namilka</strong>, camouflage capillaire, en packs pros avec marge revendeur.</p>
-      </article>
-      <article class="cell c-e reveal" style="--i:2">
-        <i class="ph ph-package ic"></i>
-        <h3>Besoin d'autre chose ?</h3>
-        <p>Packaging, sacs kraft, textile pro, kits pour locations courte durée : on le source pour vous.</p>
-        <a href="#import" class="link">Sourcing sur mesure <i class="ph-bold ph-arrow-right"></i></a>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- LOGISTIQUE -->
-<section class="sec" id="logistique" style="padding-top:40px">
+<section class="sec" id="logistique">
   <div class="wrap logi-grid">
     <div class="logi-side">
       <span class="eyebrow reveal">Logistique e-commerce à Caen</span>
@@ -678,6 +656,85 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
   </div>
 </section>
 
+<!-- PRODUITS PROS -->
+<section class="sec" id="produits">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="reveal">Produits pour pros</h2>
+      <p class="reveal" style="--i:1">Tout ce qu'il faut pour équiper un commerce, <strong>en petites quantités</strong> et livré vite. Quelques exemples de ce qu'on fournit :</p>
+    </div>
+    <div class="cats">
+      <article class="cat reveal spot" style="--i:0">
+        <i class="ph ph-star"></i>
+        <h3>Avis et fidélisation</h3>
+        <p>Plaques NFC, QR codes, cartes de fidélité</p>
+      </article>
+      <article class="cat reveal spot" style="--i:1">
+        <i class="ph ph-signpost"></i>
+        <h3>Signalétique et affichage</h3>
+        <p>Panneaux, porte-menus lumineux, vitrophanie</p>
+      </article>
+      <article class="cat reveal spot" style="--i:2">
+        <i class="ph ph-package"></i>
+        <h3>Packaging et emballage</h3>
+        <p>Boîtes, sacs kraft, papier de soie à votre logo</p>
+      </article>
+      <article class="cat reveal spot" style="--i:3">
+        <i class="ph ph-spray-bottle"></i>
+        <h3>Hygiène et entretien</h3>
+        <p>Papier, essuie-tout, gants, lessive, en volume</p>
+      </article>
+      <article class="cat reveal spot" style="--i:0">
+        <i class="ph ph-coffee"></i>
+        <h3>Consommables CHR</h3>
+        <p>Pour cafés, hôtels et restaurants</p>
+      </article>
+      <article class="cat reveal spot" style="--i:1">
+        <i class="ph ph-bed"></i>
+        <h3>Hôtellerie et locations</h3>
+        <p>Kits d'accueil, linge, produits d'accueil</p>
+      </article>
+      <article class="cat reveal spot" style="--i:2">
+        <i class="ph ph-t-shirt"></i>
+        <h3>Textile pro</h3>
+        <p>Tabliers, tee-shirts, tenues à votre logo</p>
+      </article>
+      <article class="cat reveal spot" style="--i:3">
+        <i class="ph ph-gift"></i>
+        <h3>Objets publicitaires</h3>
+        <p>Goodies, cartes NFC, cadeaux clients</p>
+      </article>
+      <article class="cat reveal spot" style="--i:0">
+        <i class="ph ph-scissors"></i>
+        <h3>Beauté et salons</h3>
+        <p>Produits pros pour coiffeurs et instituts</p>
+      </article>
+      <article class="cat reveal spot" style="--i:1">
+        <i class="ph ph-flower-lotus"></i>
+        <h3>Ambiance et parfum</h3>
+        <p>Diffuseurs, parfums d'ambiance, bougies</p>
+      </article>
+      <article class="cat reveal spot" style="--i:2">
+        <i class="ph ph-archive"></i>
+        <h3>Rangement et mobilier</h3>
+        <p>Bacs, étagères, chaises pliantes</p>
+      </article>
+      <article class="cat reveal spot" style="--i:3">
+        <i class="ph ph-storefront"></i>
+        <h3>Équipement de comptoir</h3>
+        <p>Présentoirs, supports, accessoires de caisse</p>
+      </article>
+      <article class="cat cat-cta reveal" style="--i:1">
+        <div>
+          <h3>Votre besoin n'est pas dans la liste ?</h3>
+          <p>On le source pour vous, à votre marque si besoin.</p>
+        </div>
+        <a href="#contact" class="btn btn-primary magnetic">Demander un devis <i class="ph-bold ph-arrow-right"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- POURQUOI -->
 <section class="why">
   <div class="wrap">
@@ -746,7 +803,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
       </div>
       <div>
         <h4>Services</h4>
-        <ul><li><a href="#produits">Produits pros</a></li><li><a href="#logistique">Logistique</a></li><li><a href="#import">Sourcing et import</a></li></ul>
+        <ul><li><a href="#logistique">Logistique</a></li><li><a href="#import">Sourcing et import</a></li><li><a href="#produits">Produits pros</a></li></ul>
       </div>
       <div>
         <h4>Contact</h4>
