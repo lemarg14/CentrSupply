@@ -151,6 +151,10 @@ body::after{
 @media (max-width:1000px){.cats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:480px){.cats{grid-template-columns:1fr}}
 
+
+.dl{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;color:var(--text);font-weight:700;border-bottom:2px solid var(--accent);padding-bottom:3px}
+.dl i{transition:transform .3s var(--ease)}.dl:hover i{transform:translateY(3px)}
+
 /* Bandeau clients */
 .clients{border-block:1px solid var(--line);padding:26px 0}
 .clients .wrap{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
@@ -563,6 +567,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
       <span class="eyebrow reveal">Logistique e-commerce à Caen</span>
       <h2 class="reveal" style="--i:1">Votre stock à Caen. On s'occupe du reste.</h2>
       <p class="reveal" style="--i:2">Petits ou moyens volumes, sans engagement de durée. <strong>Vous payez ce que vous utilisez.</strong></p>
+      <a class="dl reveal" href="plaquette-centr-supply-fr.pdf" download><i class="ph-bold ph-download-simple"></i>Télécharger la plaquette et les tarifs</a>
       <div class="cond reveal" style="--i:3">
         <div><i class="ph-bold ph-check"></i>Colis, cartons et palettes</div>
         <div><i class="ph-bold ph-check"></i>Palettes : livraison avec hayon obligatoire</div>
@@ -757,7 +762,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14.5px}
       <div class="direct">
         <a class="reveal" style="--i:2" id="waLink" href="#" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i><div>WhatsApp<span>Le plus rapide</span></div></a>
         <a class="reveal" style="--i:3" id="mailLink" href="#"><i class="ph ph-envelope-simple"></i><div>E-mail<span id="mailText">contact@centrsupply.com</span></div></a>
-        <a class="reveal" style="--i:4" href="#" aria-disabled="true" title="Catalogue bientôt disponible"><i class="ph ph-file-pdf"></i><div>Catalogue PDF<span>Bientôt disponible</span></div></a>
+        <a class="reveal" style="--i:4" href="plaquette-centr-supply-fr.pdf" download><i class="ph ph-file-pdf"></i><div>Plaquette et tarifs (PDF)<span>Version française</span></div></a>
+        <a class="reveal" style="--i:5" href="plaquette-centr-supply-en.pdf" download><i class="ph ph-file-pdf"></i><div>Brochure and pricing (PDF)<span>English version</span></div></a>
       </div>
     </div>
     <form id="quote" class="reveal" style="--i:2" novalidate>
