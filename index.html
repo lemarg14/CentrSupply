@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Centr Supply | Produits, sourcing et logistique à Caen</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Centr Supply équipe les commerces, prépare les commandes des e-commerçants et importe pour les revendeurs, depuis son entrepôt de Caen.">
+<meta name="description" content="Logistique e-commerce en Normandie : préparation à 0,79 € HT par commande, upsell inclus, sans frais fixes. Centr Supply stocke, prépare et expédie depuis la France.">
 <meta property="og:title" content="Centr Supply | Produits, sourcing et logistique à Caen">
 <meta property="og:description" content="Produits pour pros, logistique e-commerce et import depuis Caen. Petites quantités, réponse rapide sur WhatsApp.">
 <meta name="theme-color" content="#0c0d10">
@@ -233,6 +233,10 @@ section{position:relative;padding-block:110px}
 @media (max-width:900px){.logi{grid-template-columns:1fr}.logi-side{position:static}}
 @media (max-width:560px){.svc{grid-template-columns:auto minmax(0,1fr);padding:20px}.svc .price{grid-column:2;text-align:left;display:flex;gap:6px;align-items:baseline}.svc .price b{font-size:24px}}
 
+.lock{border:1px solid rgba(255,221,168,.35);border-radius:18px;padding:18px 20px;background:linear-gradient(160deg,rgba(255,221,168,.09),rgba(255,221,168,.02));display:grid;gap:6px}
+.lock .mono{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--halo)}
+.lock b{font-family:var(--f-display);font-size:21px;font-stretch:104%}
+.lock p{font-size:14.5px}
 /* Processus */
 .process-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;position:relative}
 .pstep{display:grid;gap:12px;align-content:start;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);position:relative}
@@ -408,9 +412,9 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
     <div class="vignette"></div>
 
     <div class="chapter on" data-ch="0">
-      <span class="eyebrow">Entrepôt · Caen, Calvados</span>
+      <span class="eyebrow">Entrepôt · Caen, Normandie</span>
       <h1>Stocker, expédier, importer. En <em>simple.</em></h1>
-      <p>Logistique, import et produits pour pros, depuis Caen. <strong>Un seul interlocuteur</strong>, des <strong>prix clairs</strong>, sans engagement.</p>
+      <p>Logistique, import et produits pour pros, depuis la Normandie. <strong>Un seul interlocuteur</strong>, des <strong>prix clairs</strong>, sans engagement.</p>
       <div class="ctas">
         <a href="#contact" class="btn btn-light">Demander un devis <svg class="ico"><use href="#i-arrow"/></svg></a>
         <a href="#douleurs" class="btn btn-glass">Voir les services</a>
@@ -419,20 +423,20 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
     </div>
     <div class="chapter" data-ch="1">
       <span class="eyebrow">01 · Stockage</span>
-      <h2>Votre stock à Caen. <em>On s'occupe du reste.</em></h2>
+      <h2>Votre stock en Normandie. <em>On s'occupe du reste.</em></h2>
       <p>Colis, cartons et palettes, rangés dans des bacs identifiés. Petits ou moyens volumes, sans engagement de durée. Vous payez ce que vous utilisez.</p>
     </div>
     <div class="chapter" data-ch="2">
       <span class="eyebrow">02 · Préparation</span>
       <h2>Préparé, emballé, <em>expédié.</em></h2>
       <p>On reçoit vos commandes, on prépare, on emballe avec soin et on expédie depuis la France. Coffrets et kits assemblés au rythme de vos ventes.</p>
-      <span class="price-tag">dès 1,50 € par commande</span>
+      <span class="price-tag">0,79 € HT par commande · upsell inclus</span>
     </div>
     <div class="chapter" data-ch="3">
       <span class="eyebrow">03 · Expédition</span>
       <h2>Ça part. <em>Ça revient aussi.</em></h2>
       <p>Expédition, suivi, et un point régulier sur votre stock. Vos clients renvoient en France : on contrôle et on remet en stock.</p>
-      <span class="price-tag">retours dès 2 €</span>
+      <span class="price-tag">retours 2 € · contrôle + remise en stock</span>
     </div>
 
     <nav class="rail" aria-label="Chapitres">
@@ -447,8 +451,8 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
 
     <!-- HUD final -->
     <div class="hud hud-chips">
-      <div class="glass hchip"><small>Entrepôt Caen</small><span class="live"><i></i>Démo en direct</span></div>
-      <div class="glass hchip"><small>Préparation</small><b>1,50 € <span>/ cde</span></b></div>
+      <div class="glass hchip"><small>Entrepôt Normandie</small><span class="live"><i></i>Démo en direct</span></div>
+      <div class="glass hchip"><small>Préparation</small><b>0,79 € <span>/ cde</span></b></div>
       <div class="glass hchip x"><small>Retours</small><b>2 € <span>/ retour</span></b></div>
       <div class="glass hchip x"><small>Engagement</small><b>Aucun</b></div>
     </div>
@@ -566,9 +570,10 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
 <section id="logistique">
   <div class="wrap logi">
     <div class="logi-side">
-      <span class="eyebrow reveal">Logistique e-commerce à Caen</span>
-      <h2 class="reveal" style="--i:1">Votre stock à Caen. On s'occupe du reste.</h2>
-      <p class="reveal" style="--i:2">Petits ou moyens volumes, sans engagement de durée. <strong>Vous payez ce que vous utilisez.</strong></p>
+      <span class="eyebrow reveal">Logistique e-commerce en Normandie</span>
+      <h2 class="reveal" style="--i:1">Votre logistique en France, au prix de la Chine.</h2>
+      <p class="reveal" style="--i:2">Préparation à <strong>0,79 € HT par commande</strong>, upsell inclus. Sans frais fixes, sans engagement. <strong>Vous payez ce qui part.</strong></p>
+      <div class="lock reveal" style="--i:2"><span class="mono">Tarif partenaire</span><b>Prix bloqué jusqu'au 31 mars 2027</b><p>Les marques qui nous rejoignent maintenant gardent ce tarif, quel que soit leur volume. Pas de hausse surprise, pas de frais cachés.</p></div>
       <a class="dl reveal" href="plaquette-centr-supply-fr.pdf" download><svg class="ico"><use href="#i-down"/></svg>Télécharger la plaquette et les tarifs</a>
       <div class="cond reveal" style="--i:3">
         <div><svg class="ico"><use href="#i-check"/></svg>Colis, cartons et palettes</div>
@@ -577,11 +582,25 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
       </div>
     </div>
     <div class="board reveal" style="--i:1">
-      <article class="svc"><div class="si"><svg class="ico"><use href="#i-cart"/></svg></div><div><h3>Préparation de commandes</h3><p>On reçoit vos commandes, on prépare, on emballe et on expédie depuis la France.</p></div><div class="price"><small>à partir de</small><b>1,50 €</b><small>par commande</small></div></article>
+      <article class="svc"><div class="si"><svg class="ico"><use href="#i-cart"/></svg></div><div><h3>Préparation de commandes</h3><p>Picking et emballage, quel que soit le nombre d'articles. <strong>Upsell inclus, sans supplément.</strong></p></div><div class="price"><small>HT</small><b>0,79 €</b><small>par commande</small></div></article>
+      <article class="svc"><div class="si"><svg class="ico"><use href="#i-box"/></svg></div><div><h3>Emballage</h3><p><strong>Gratuit si vous fournissez le vôtre.</strong> Sinon enveloppe ou carton refacturé selon le format.</p></div><div class="price"><small>HT</small><b>0,10–0,30 €</b><small>ou offert</small></div></article>
       <article class="svc"><div class="si"><svg class="ico"><use href="#i-gift"/></svg></div><div><h3>Kitting et conditionnement</h3><p>Coffrets, packs, lots, ré-étiquetage, mise sous sachet. <strong>Du temps gagné</strong> pour vous.</p></div><div class="price"><small>à partir de</small><b>0,50 €</b><small>par kit</small></div></article>
-      <article class="svc feature"><div class="si"><svg class="ico"><use href="#i-return"/></svg></div><div><h3>Retours e-commerce</h3><p>Vos clients renvoient en France, on contrôle et on remet en stock. <strong>Pratique si vous êtes basé hors d'Europe.</strong></p></div><div class="price"><small>à partir de</small><b>2 €</b><small>par retour</small></div></article>
+      <article class="svc feature"><div class="si"><svg class="ico"><use href="#i-return"/></svg></div><div><h3>Retours e-commerce</h3><p>Adresse de retour en France offerte. On contrôle l'état et on remet en stock. <strong>Pratique si vous êtes basé hors d'Europe.</strong></p></div><div class="price"><small>HT</small><b>2 €</b><small>par retour</small></div></article>
       <article class="svc"><div class="si"><svg class="ico"><use href="#i-tag"/></svg></div><div><h3>Réception pour revendeurs</h3><p><strong>Pas de local ?</strong> On reçoit vos lots, on trie, on étiquette et on expédie à chaque vente.</p></div><div class="price"><small>à partir de</small><b>0,30 €</b><small>par article</small></div></article>
+      <article class="svc"><div class="si"><svg class="ico"><use href="#i-archive"/></svg></div><div><h3>Stockage et transport</h3><p>Stockage offert tant que votre stock tourne, puis 2 €/bac/mois au-delà de 3 mois sans mouvement. <strong>Transport refacturé au centime, sans marge.</strong></p></div><div class="price"><small>stockage</small><b>Offert</b><small>si rotation</small></div></article>
       <article class="svc"><div class="si"><svg class="ico"><use href="#i-swap"/></svg></div><div><h3>Cross-docking</h3><p>Réception, regroupement et réexpédition rapide, sans stockage long.</p></div><div class="price"><small>à partir de</small><b>8 €</b><small>par palette</small></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI CE PRIX -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="reveal">Pourquoi ce prix&nbsp;?</h2><p class="reveal" style="--i:1">Pas de prix d'appel, pas de piège. Un modèle pensé autrement.</p></div>
+    <div class="pain-grid">
+      <article class="pain reveal"><span class="who">Le volume</span><p class="after"><strong>On vit des colis qui partent, pas de vos frais fixes.</strong> Pas d'abonnement, pas de frais d'entrée, pas de minimum. Plus vous vendez, mieux on se porte.</p></article>
+      <article class="pain reveal" style="--i:1"><span class="who">Les process</span><p class="after"><strong>Notre outil maison gère commandes, stock et retours.</strong> Préparation par vagues, étiquettes en lot, bacs scannés au QR code : chaque minute gagnée baisse votre prix.</p></article>
+      <article class="pain reveal" style="--i:2"><span class="who">La transparence</span><p class="after"><strong>Vous ne payez que ce qui sert.</strong> Transport au centime sans marge, stockage offert tant que ça tourne, emballage fourni par vous ou refacturé à petit prix.</p></article>
     </div>
   </div>
 </section>
@@ -721,10 +740,10 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
     <div class="foot">
       <div>
         <a href="#top" class="logo" style="margin-bottom:14px"><span class="logo-mark">C</span>Centr Supply</a>
-        <p style="max-width:38ch">Produits pour pros, sourcing et logistique e-commerce depuis notre entrepôt de Caen.</p>
+        <p style="max-width:38ch">Produits pour pros, sourcing et logistique e-commerce depuis notre entrepôt en Normandie.</p>
       </div>
       <div><h4>Services</h4><ul><li><a href="#logistique">Logistique</a></li><li><a href="#import">Sourcing et import</a></li><li><a href="#produits">Produits pros</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="#contact">Demander un devis</a></li><li>Entrepôt : Caen, Calvados</li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="#contact">Demander un devis</a></li><li>Entrepôt : Caen, Normandie</li></ul></div>
     </div>
     <div class="legal">
       <span>Centr Supply est une marque de la SAS ECOM CENTR, SIREN 990 905 879, RCS Paris.</span>
@@ -797,10 +816,10 @@ form.addEventListener('submit', function(e){
 
 /* ---------- Fiches HUD ---------- */
 var INFO = {
-  site:{ico:'warehouse',k:'Site · Caen (14)',t:'Entrepôt Centr Supply',pill:'Sans engagement',rows:[['Accepté','Colis, cartons, palettes'],['Palettes','Livraison avec hayon'],['Non accepté','Semi-remorque complet']],note:'Un entrepôt que vous pouvez venir voir. Cliquez sur les repères pour explorer chaque zone.'},
-  bacs:{ico:'archive',k:'Stockage',t:'Bacs identifiés',pill:'Vous payez à l\'usage',rows:[['Rangement','Par client, en bacs'],['Lots','Entiers ou fractionnés'],['Réception revendeurs','dès 0,30 € / article']],note:'Les voyants bleus montrent les bacs scannés.'},
-  prepa:{ico:'cart',k:'Préparation',t:'Poste de préparation',pill:'dès 1,50 € / commande',rows:[['Kitting','dès 0,50 € / kit'],['Emballage','Avec soin, à vos consignes'],['Départ','Depuis la France']],note:'Chaque commande est préparée et emballée à la main.'},
-  retours:{ico:'return',k:'Retours',t:'Zone retours',pill:'dès 2 € / retour',rows:[['Adresse','En France'],['Contrôle','Remise en stock'],['Idéal pour','Vendeurs hors Europe']],note:'Vos clients renvoient en France, pas à l\'autre bout du monde.'},
+  site:{ico:'warehouse',k:'Site · Caen, Normandie',t:'Entrepôt Centr Supply',pill:'Sans engagement',rows:[['Accepté','Colis, cartons, palettes'],['Palettes','Livraison avec hayon'],['Non accepté','Semi-remorque complet']],note:'Un entrepôt que vous pouvez venir voir. Cliquez sur les repères pour explorer chaque zone.'},
+  bacs:{ico:'archive',k:'Stockage',t:'Bacs identifiés',pill:'Vous payez à l\'usage',rows:[['Rangement','Par client, en bacs'],['Stockage','Offert si rotation'],['Réception revendeurs','dès 0,30 € / article']],note:'Les voyants bleus montrent les bacs scannés.'},
+  prepa:{ico:'cart',k:'Préparation',t:'Poste de préparation',pill:'0,79 € / commande, upsell inclus',rows:[['Upsell','Inclus'],['Emballage','Offert si fourni, sinon 0,10–0,30 €'],['Départ','Depuis la France']],note:'Chaque commande est préparée et emballée à la main.'},
+  retours:{ico:'return',k:'Retours',t:'Zone retours',pill:'2 € / retour',rows:[['Adresse','En France'],['Contrôle','Remise en stock'],['Idéal pour','Vendeurs hors Europe']],note:'Vos clients renvoient en France, pas à l\'autre bout du monde.'},
   reception:{ico:'swap',k:'Réception',t:'Réception & cross-docking',pill:'dès 8 € / palette',rows:[['Arrivages','Colis, cartons, palettes'],['Cross-docking','Regroupement, réexpédition'],['Import','Via nos transitaires']],note:'On contrôle à l\'arrivée et on range.'},
   van:{ico:'truck',k:'Expédition',t:'Collecte transporteur',pill:'Suivi transmis',rows:[['Départ','Caen'],['Suivi','Numéro de suivi'],['Stock','Point régulier']],note:'Les colis partent dès qu\'ils sont prêts.'},
   kit:{ico:'gift',k:'Kitting',t:'Kitting & conditionnement',pill:'dès 0,50 € / kit',rows:[['Assemblage','Coffrets, packs, lots'],['Étiquetage','Ré-étiquetage'],['Conditionnement','Mise sous sachet']],note:'Au rythme de vos ventes.'}
