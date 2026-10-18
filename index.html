@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Centr Supply | Produits, sourcing et logistique à Caen</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Logistique e-commerce en Normandie : préparation à 0,79 € HT par commande, upsell inclus, sans frais fixes. Centr Supply stocke, prépare et expédie depuis la France.">
+<meta name="description" content="Centr Supply équipe les commerces, prépare les commandes des e-commerçants et importe pour les revendeurs, depuis son entrepôt de Caen.">
 <meta property="og:title" content="Centr Supply | Produits, sourcing et logistique à Caen">
 <meta property="og:description" content="Produits pour pros, logistique e-commerce et import depuis Caen. Petites quantités, réponse rapide sur WhatsApp.">
 <meta name="theme-color" content="#0c0d10">
@@ -74,7 +74,7 @@ a{color:inherit;text-decoration:none}
 }
 
 /* ===== Scène épinglée ===== */
-.film{position:relative;height:560vh}
+.film{position:relative;height:900vh}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#07080b}
 .stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .stage.final canvas{cursor:grab}
@@ -106,6 +106,49 @@ a{color:inherit;text-decoration:none}
 .skip{position:absolute;right:max(20px, env(safe-area-inset-right, 0px));bottom:22px;font-size:13px;color:rgba(242,238,230,.6);border-bottom:1px solid rgba(242,238,230,.25)}
 .skip:hover{color:var(--text)}
 
+
+/* Visite guidée */
+.guide{position:absolute;z-index:4;left:max(20px, env(safe-area-inset-left, 0px));bottom:26px;width:min(470px, calc(100% - 40px));padding:18px 18px 14px;display:grid;gap:12px;opacity:0;transform:translateY(18px);transition:opacity .5s var(--ease),transform .6s var(--ease);pointer-events:none}
+@media (min-width:1280px){.guide{left:calc((100vw - 1240px)/2 + 20px)}}
+.guide.on{opacity:1;transform:none;pointer-events:auto}
+.guide-top{display:flex;align-items:center;gap:12px}
+.guide-avatar{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 50% 35%, #3a3326, #1a1a1d);border:1px solid rgba(255,221,168,.45);box-shadow:0 0 18px rgba(255,221,168,.3);display:grid;place-items:center;flex:none;position:relative}
+.guide-avatar svg{width:26px;height:26px;fill:none;stroke:var(--halo);stroke-width:2.2;stroke-linecap:round}
+.guide-avatar::after{content:"";position:absolute;right:-1px;bottom:1px;width:11px;height:11px;border-radius:50%;background:var(--ok);border:2px solid #16171b}
+.guide-who{display:grid;line-height:1.25;min-width:0}
+.guide-who b{font-size:14.5px}
+.guide-who span{font-family:var(--f-mono);font-size:11.5px;color:var(--halo);letter-spacing:.06em;text-transform:uppercase}
+.guide-play{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13px;font-weight:700;color:var(--text);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:7px 12px 7px 9px;cursor:pointer}
+.guide-play .ico{width:15px;height:15px;fill:currentColor;stroke:none}
+.guide-play.on{border-color:rgba(255,221,168,.5);color:var(--halo)}
+.guide-text{font-size:16.5px;line-height:1.55;color:#E7E3DA;min-height:5.2em}
+.guide-text::after{content:"";display:inline-block;width:2px;height:1em;background:var(--halo);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(2) infinite;opacity:0}
+.guide.typing .guide-text::after{opacity:1}
+@keyframes blink{50%{opacity:0}}
+.guide-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.guide-foot .price-tag{font-family:var(--f-mono);font-size:12.5px;color:var(--halo);border:1px solid rgba(255,221,168,.35);border-radius:99px;padding:6px 12px;background:rgba(255,221,168,.06)}
+.guide-btns{display:flex;gap:8px;margin-left:auto}
+.gbtn{font:inherit;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px;border-radius:99px;border:1px solid rgba(255,255,255,.16);background:transparent;color:var(--text);padding:9px 12px;cursor:pointer;transition:background .2s,box-shadow .3s}
+.gbtn .ico{width:16px;height:16px}
+#gPrev .ico{transform:rotate(180deg)}
+.gnext{background:var(--text);color:#111;border-color:var(--text);padding:9px 16px}
+.gnext:hover{box-shadow:0 0 26px rgba(255,221,168,.45)}
+.guide-dots{display:flex;gap:6px}
+.guide-dots i{height:3px;flex:1;border-radius:3px;background:rgba(255,255,255,.12);transition:background .3s}
+.guide-dots i.done{background:rgba(255,221,168,.45)}
+.guide-dots i.now{background:var(--halo);box-shadow:0 0 8px var(--halo)}
+.guide-tag{position:absolute;z-index:3;left:0;top:0;transform:translate(-50%,-100%);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#111;background:var(--halo);padding:5px 10px;border-radius:99px;white-space:nowrap;box-shadow:0 0 22px rgba(255,221,168,.55);opacity:0;transition:opacity .4s;pointer-events:none;display:flex;align-items:center;gap:6px}
+.guide-tag i{width:6px;height:6px;border-radius:50%;background:#111;animation:pulse 1.4s infinite}
+.guide-tag::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:10px;background:var(--halo);transform:translateX(-50%) rotate(45deg);z-index:-1}
+.guide-tag.on{opacity:1}
+.stage.final .guide{width:min(420px, calc(100% - 40px))}
+@media (max-width:900px){
+  .guide{left:10px;right:10px;width:auto;bottom:12px;padding:14px 14px 12px;gap:10px}
+  .guide-text{font-size:15px;min-height:6.2em}
+  .guide-play span{display:none}
+  .stage.final .hud-panel{display:none}
+}
+
 /* HUD final, façon tableau de bord */
 .hud{position:absolute;z-index:3;opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease),transform .6s var(--ease);pointer-events:none}
 .stage.final .hud{opacity:1;transform:none;pointer-events:auto}
@@ -130,7 +173,8 @@ a{color:inherit;text-decoration:none}
 .kv dd{margin:0;text-align:right;color:var(--text);font-weight:600}
 .hud-panel p{font-size:13.5px}
 .hint{font-family:var(--f-mono);font-size:11px;color:rgba(242,238,230,.45)}
-.hud-track{left:max(20px, env(safe-area-inset-left, 0px));bottom:22px;width:min(560px, calc(100% - 420px));padding:15px 18px}
+.hud-track{right:calc(max(20px, env(safe-area-inset-right, 0px)) + 140px);bottom:22px;width:min(460px, calc(100% - 640px));padding:15px 18px}
+@media (max-width:1180px){.hud-track{display:none}}
 .trk-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:14px;font-size:13px}
 .trk-head b{font-family:var(--f-display);font-size:15px}
 .trk-head span{font-family:var(--f-mono);font-size:11.5px}
@@ -233,10 +277,6 @@ section{position:relative;padding-block:110px}
 @media (max-width:900px){.logi{grid-template-columns:1fr}.logi-side{position:static}}
 @media (max-width:560px){.svc{grid-template-columns:auto minmax(0,1fr);padding:20px}.svc .price{grid-column:2;text-align:left;display:flex;gap:6px;align-items:baseline}.svc .price b{font-size:24px}}
 
-.lock{border:1px solid rgba(255,221,168,.35);border-radius:18px;padding:18px 20px;background:linear-gradient(160deg,rgba(255,221,168,.09),rgba(255,221,168,.02));display:grid;gap:6px}
-.lock .mono{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--halo)}
-.lock b{font-family:var(--f-display);font-size:21px;font-stretch:104%}
-.lock p{font-size:14.5px}
 /* Processus */
 .process-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;position:relative}
 .pstep{display:grid;gap:12px;align-content:start;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);position:relative}
@@ -387,6 +427,8 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
   <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
   <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5L8 5.5Z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></symbol>
 </svg>
 
@@ -412,47 +454,50 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
     <div class="vignette"></div>
 
     <div class="chapter on" data-ch="0">
-      <span class="eyebrow">Entrepôt · Caen, Normandie</span>
+      <span class="eyebrow">Entrepôt · Caen, Calvados</span>
       <h1>Stocker, expédier, importer. En <em>simple.</em></h1>
-      <p>Logistique, import et produits pour pros, depuis la Normandie. <strong>Un seul interlocuteur</strong>, des <strong>prix clairs</strong>, sans engagement.</p>
+      <p>Logistique, import et produits pour pros, depuis Caen. <strong>Un seul interlocuteur</strong>, des <strong>prix clairs</strong>, sans engagement.</p>
       <div class="ctas">
-        <a href="#contact" class="btn btn-light">Demander un devis <svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a href="#douleurs" class="btn btn-glass">Voir les services</a>
+        <button class="btn btn-light" id="startTour" type="button">Entrer et visiter <svg class="ico"><use href="#i-play"/></svg></button>
+        <a href="#contact" class="btn btn-glass">Demander un devis</a>
       </div>
       <span class="time-label" id="timeLabel">Caen</span>
     </div>
-    <div class="chapter" data-ch="1">
-      <span class="eyebrow">01 · Stockage</span>
-      <h2>Votre stock en Normandie. <em>On s'occupe du reste.</em></h2>
-      <p>Colis, cartons et palettes, rangés dans des bacs identifiés. Petits ou moyens volumes, sans engagement de durée. Vous payez ce que vous utilisez.</p>
-    </div>
-    <div class="chapter" data-ch="2">
-      <span class="eyebrow">02 · Préparation</span>
-      <h2>Préparé, emballé, <em>expédié.</em></h2>
-      <p>On reçoit vos commandes, on prépare, on emballe avec soin et on expédie depuis la France. Coffrets et kits assemblés au rythme de vos ventes.</p>
-      <span class="price-tag">0,79 € HT par commande · upsell inclus</span>
-    </div>
-    <div class="chapter" data-ch="3">
-      <span class="eyebrow">03 · Expédition</span>
-      <h2>Ça part. <em>Ça revient aussi.</em></h2>
-      <p>Expédition, suivi, et un point régulier sur votre stock. Vos clients renvoient en France : on contrôle et on remet en stock.</p>
-      <span class="price-tag">retours 2 € · contrôle + remise en stock</span>
-    </div>
+    <!-- Visite guidée -->
+    <div class="guide-tag" id="guideTag" aria-hidden="true"><i></i>Votre guide</div>
+    <section class="guide glass" id="guide" aria-live="polite" aria-label="Visite guidée">
+      <div class="guide-top">
+        <div class="guide-avatar" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="15" r="7"/><path d="M7 37c1.5-8 6.5-12 13-12s11.5 4 13 12"/></svg></div>
+        <div class="guide-who"><b>Votre guide · Centr Supply</b><span id="gStep">Accueil · 1/6</span></div>
+        <button class="guide-play" id="gPlay" aria-label="Lancer la visite automatique"><svg class="ico"><use href="#i-play"/></svg><span>Visite auto</span></button>
+      </div>
+      <p class="guide-text" id="gText"></p>
+      <div class="guide-foot">
+        <span class="price-tag" id="gTag"></span>
+        <div class="guide-btns">
+          <button class="gbtn" id="gPrev" aria-label="Étape précédente"><svg class="ico"><use href="#i-arrow"/></svg></button>
+          <button class="gbtn gnext" id="gNext">Suivant <svg class="ico"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+      <div class="guide-dots" id="gDots"></div>
+    </section>
 
-    <nav class="rail" aria-label="Chapitres">
-      <button data-go="0.02" class="on"><span>Accueil</span><i></i></button>
-      <button data-go="0.40"><span>Stockage</span><i></i></button>
-      <button data-go="0.61"><span>Préparation</span><i></i></button>
-      <button data-go="0.80"><span>Expédition</span><i></i></button>
+    <nav class="rail" aria-label="Étapes de la visite">
+      <button data-go="0.02" class="on"><span>Extérieur</span><i></i></button>
+      <button data-go="0.30"><span>Accueil</span><i></i></button>
+      <button data-go="0.43"><span>Stockage</span><i></i></button>
+      <button data-go="0.55"><span>Préparation</span><i></i></button>
+      <button data-go="0.655"><span>Retours</span><i></i></button>
+      <button data-go="0.76"><span>Expédition</span><i></i></button>
       <button data-go="1"><span>Explorer</span><i></i></button>
     </nav>
-    <div class="scroll-hint" aria-hidden="true">Faites défiler<i></i></div>
+    <div class="scroll-hint" aria-hidden="true">Faites défiler pour entrer<i></i></div>
     <a class="skip" href="#douleurs">Passer l'intro</a>
 
     <!-- HUD final -->
     <div class="hud hud-chips">
-      <div class="glass hchip"><small>Entrepôt Normandie</small><span class="live"><i></i>Démo en direct</span></div>
-      <div class="glass hchip"><small>Préparation</small><b>0,79 € <span>/ cde</span></b></div>
+      <div class="glass hchip"><small>Entrepôt Caen</small><span class="live"><i></i>Démo en direct</span></div>
+      <div class="glass hchip"><small>Préparation</small><b>1,50 € <span>/ cde</span></b></div>
       <div class="glass hchip x"><small>Retours</small><b>2 € <span>/ retour</span></b></div>
       <div class="glass hchip x"><small>Engagement</small><b>Aucun</b></div>
     </div>
@@ -570,10 +615,9 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
 <section id="logistique">
   <div class="wrap logi">
     <div class="logi-side">
-      <span class="eyebrow reveal">Logistique e-commerce en Normandie</span>
-      <h2 class="reveal" style="--i:1">Votre logistique en France, au prix de la Chine.</h2>
-      <p class="reveal" style="--i:2">Préparation à <strong>0,79 € HT par commande</strong>, upsell inclus. Sans frais fixes, sans engagement. <strong>Vous payez ce qui part.</strong></p>
-      <div class="lock reveal" style="--i:2"><span class="mono">Tarif partenaire</span><b>Prix bloqué jusqu'au 31 mars 2027</b><p>Les marques qui nous rejoignent maintenant gardent ce tarif, quel que soit leur volume. Pas de hausse surprise, pas de frais cachés.</p></div>
+      <span class="eyebrow reveal">Logistique e-commerce à Caen</span>
+      <h2 class="reveal" style="--i:1">Votre stock à Caen. On s'occupe du reste.</h2>
+      <p class="reveal" style="--i:2">Petits ou moyens volumes, sans engagement de durée. <strong>Vous payez ce que vous utilisez.</strong></p>
       <a class="dl reveal" href="plaquette-centr-supply-fr.pdf" download><svg class="ico"><use href="#i-down"/></svg>Télécharger la plaquette et les tarifs</a>
       <div class="cond reveal" style="--i:3">
         <div><svg class="ico"><use href="#i-check"/></svg>Colis, cartons et palettes</div>
@@ -582,25 +626,11 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
       </div>
     </div>
     <div class="board reveal" style="--i:1">
-      <article class="svc"><div class="si"><svg class="ico"><use href="#i-cart"/></svg></div><div><h3>Préparation de commandes</h3><p>Picking et emballage, quel que soit le nombre d'articles. <strong>Upsell inclus, sans supplément.</strong></p></div><div class="price"><small>HT</small><b>0,79 €</b><small>par commande</small></div></article>
-      <article class="svc"><div class="si"><svg class="ico"><use href="#i-box"/></svg></div><div><h3>Emballage</h3><p><strong>Gratuit si vous fournissez le vôtre.</strong> Sinon enveloppe ou carton refacturé selon le format.</p></div><div class="price"><small>HT</small><b>0,10–0,30 €</b><small>ou offert</small></div></article>
+      <article class="svc"><div class="si"><svg class="ico"><use href="#i-cart"/></svg></div><div><h3>Préparation de commandes</h3><p>On reçoit vos commandes, on prépare, on emballe et on expédie depuis la France.</p></div><div class="price"><small>à partir de</small><b>1,50 €</b><small>par commande</small></div></article>
       <article class="svc"><div class="si"><svg class="ico"><use href="#i-gift"/></svg></div><div><h3>Kitting et conditionnement</h3><p>Coffrets, packs, lots, ré-étiquetage, mise sous sachet. <strong>Du temps gagné</strong> pour vous.</p></div><div class="price"><small>à partir de</small><b>0,50 €</b><small>par kit</small></div></article>
-      <article class="svc feature"><div class="si"><svg class="ico"><use href="#i-return"/></svg></div><div><h3>Retours e-commerce</h3><p>Adresse de retour en France offerte. On contrôle l'état et on remet en stock. <strong>Pratique si vous êtes basé hors d'Europe.</strong></p></div><div class="price"><small>HT</small><b>2 €</b><small>par retour</small></div></article>
+      <article class="svc feature"><div class="si"><svg class="ico"><use href="#i-return"/></svg></div><div><h3>Retours e-commerce</h3><p>Vos clients renvoient en France, on contrôle et on remet en stock. <strong>Pratique si vous êtes basé hors d'Europe.</strong></p></div><div class="price"><small>à partir de</small><b>2 €</b><small>par retour</small></div></article>
       <article class="svc"><div class="si"><svg class="ico"><use href="#i-tag"/></svg></div><div><h3>Réception pour revendeurs</h3><p><strong>Pas de local ?</strong> On reçoit vos lots, on trie, on étiquette et on expédie à chaque vente.</p></div><div class="price"><small>à partir de</small><b>0,30 €</b><small>par article</small></div></article>
-      <article class="svc"><div class="si"><svg class="ico"><use href="#i-archive"/></svg></div><div><h3>Stockage et transport</h3><p>Stockage offert tant que votre stock tourne, puis 2 €/bac/mois au-delà de 3 mois sans mouvement. <strong>Transport refacturé au centime, sans marge.</strong></p></div><div class="price"><small>stockage</small><b>Offert</b><small>si rotation</small></div></article>
       <article class="svc"><div class="si"><svg class="ico"><use href="#i-swap"/></svg></div><div><h3>Cross-docking</h3><p>Réception, regroupement et réexpédition rapide, sans stockage long.</p></div><div class="price"><small>à partir de</small><b>8 €</b><small>par palette</small></div></article>
-    </div>
-  </div>
-</section>
-
-<!-- POURQUOI CE PRIX -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head"><h2 class="reveal">Pourquoi ce prix&nbsp;?</h2><p class="reveal" style="--i:1">Pas de prix d'appel, pas de piège. Un modèle pensé autrement.</p></div>
-    <div class="pain-grid">
-      <article class="pain reveal"><span class="who">Le volume</span><p class="after"><strong>On vit des colis qui partent, pas de vos frais fixes.</strong> Pas d'abonnement, pas de frais d'entrée, pas de minimum. Plus vous vendez, mieux on se porte.</p></article>
-      <article class="pain reveal" style="--i:1"><span class="who">Les process</span><p class="after"><strong>Notre outil maison gère commandes, stock et retours.</strong> Préparation par vagues, étiquettes en lot, bacs scannés au QR code : chaque minute gagnée baisse votre prix.</p></article>
-      <article class="pain reveal" style="--i:2"><span class="who">La transparence</span><p class="after"><strong>Vous ne payez que ce qui sert.</strong> Transport au centime sans marge, stockage offert tant que ça tourne, emballage fourni par vous ou refacturé à petit prix.</p></article>
     </div>
   </div>
 </section>
@@ -740,10 +770,10 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
     <div class="foot">
       <div>
         <a href="#top" class="logo" style="margin-bottom:14px"><span class="logo-mark">C</span>Centr Supply</a>
-        <p style="max-width:38ch">Produits pour pros, sourcing et logistique e-commerce depuis notre entrepôt en Normandie.</p>
+        <p style="max-width:38ch">Produits pour pros, sourcing et logistique e-commerce depuis notre entrepôt de Caen.</p>
       </div>
       <div><h4>Services</h4><ul><li><a href="#logistique">Logistique</a></li><li><a href="#import">Sourcing et import</a></li><li><a href="#produits">Produits pros</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="#contact">Demander un devis</a></li><li>Entrepôt : Caen, Normandie</li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="#contact">Demander un devis</a></li><li>Entrepôt : Caen, Calvados</li></ul></div>
     </div>
     <div class="legal">
       <span>Centr Supply est une marque de la SAS ECOM CENTR, SIREN 990 905 879, RCS Paris.</span>
@@ -816,10 +846,11 @@ form.addEventListener('submit', function(e){
 
 /* ---------- Fiches HUD ---------- */
 var INFO = {
-  site:{ico:'warehouse',k:'Site · Caen, Normandie',t:'Entrepôt Centr Supply',pill:'Sans engagement',rows:[['Accepté','Colis, cartons, palettes'],['Palettes','Livraison avec hayon'],['Non accepté','Semi-remorque complet']],note:'Un entrepôt que vous pouvez venir voir. Cliquez sur les repères pour explorer chaque zone.'},
-  bacs:{ico:'archive',k:'Stockage',t:'Bacs identifiés',pill:'Vous payez à l\'usage',rows:[['Rangement','Par client, en bacs'],['Stockage','Offert si rotation'],['Réception revendeurs','dès 0,30 € / article']],note:'Les voyants bleus montrent les bacs scannés.'},
-  prepa:{ico:'cart',k:'Préparation',t:'Poste de préparation',pill:'0,79 € / commande, upsell inclus',rows:[['Upsell','Inclus'],['Emballage','Offert si fourni, sinon 0,10–0,30 €'],['Départ','Depuis la France']],note:'Chaque commande est préparée et emballée à la main.'},
-  retours:{ico:'return',k:'Retours',t:'Zone retours',pill:'2 € / retour',rows:[['Adresse','En France'],['Contrôle','Remise en stock'],['Idéal pour','Vendeurs hors Europe']],note:'Vos clients renvoient en France, pas à l\'autre bout du monde.'},
+  accueil:{ico:'chat',k:'Accueil',t:'Accueil & devis',pill:'Réponse sur WhatsApp',rows:[['Interlocuteur','Un seul, du devis à l\'envoi'],['Visite','Entrepôt ouvert aux clients'],['Engagement','Aucun']],note:'On vous reçoit à Caen, ou on répond sur WhatsApp avec un devis clair.'},
+  site:{ico:'warehouse',k:'Site · Caen (14)',t:'Entrepôt Centr Supply',pill:'Sans engagement',rows:[['Accepté','Colis, cartons, palettes'],['Palettes','Livraison avec hayon'],['Non accepté','Semi-remorque complet']],note:'Un entrepôt que vous pouvez venir voir. Cliquez sur les repères pour explorer chaque zone.'},
+  bacs:{ico:'archive',k:'Stockage',t:'Bacs identifiés',pill:'Vous payez à l\'usage',rows:[['Rangement','Par client, en bacs'],['Lots','Entiers ou fractionnés'],['Réception revendeurs','dès 0,30 € / article']],note:'Les voyants bleus montrent les bacs scannés.'},
+  prepa:{ico:'cart',k:'Préparation',t:'Poste de préparation',pill:'dès 1,50 € / commande',rows:[['Kitting','dès 0,50 € / kit'],['Emballage','Avec soin, à vos consignes'],['Départ','Depuis la France']],note:'Chaque commande est préparée et emballée à la main.'},
+  retours:{ico:'return',k:'Retours',t:'Zone retours',pill:'dès 2 € / retour',rows:[['Adresse','En France'],['Contrôle','Remise en stock'],['Idéal pour','Vendeurs hors Europe']],note:'Vos clients renvoient en France, pas à l\'autre bout du monde.'},
   reception:{ico:'swap',k:'Réception',t:'Réception & cross-docking',pill:'dès 8 € / palette',rows:[['Arrivages','Colis, cartons, palettes'],['Cross-docking','Regroupement, réexpédition'],['Import','Via nos transitaires']],note:'On contrôle à l\'arrivée et on range.'},
   van:{ico:'truck',k:'Expédition',t:'Collecte transporteur',pill:'Suivi transmis',rows:[['Départ','Caen'],['Suivi','Numéro de suivi'],['Stock','Point régulier']],note:'Les colis partent dès qu\'ils sont prêts.'},
   kit:{ico:'gift',k:'Kitting',t:'Kitting & conditionnement',pill:'dès 0,50 € / kit',rows:[['Assemblage','Coffrets, packs, lots'],['Étiquetage','Ré-étiquetage'],['Conditionnement','Mise sous sachet']],note:'Au rythme de vos ventes.'}
@@ -853,13 +884,15 @@ function readScroll(){
   var r = film.getBoundingClientRect(), span = r.height - innerHeight;
   P = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
 }
-var CH = [[0, .14], [.33, .50], [.53, .69], [.72, .89]];
+var FIN = .94;
+var CH = [[0, .12]];
 function uiState(){
   var cur = -1;
-  CH.forEach(function(c, i){ var on = P >= c[0] && P < c[1]; chapters[i].classList.toggle('on', on); if(on) cur = i; });
-  var final = P > .9;
+  CH.forEach(function(c, i){ if(!chapters[i]) return; var on = P >= c[0] && P < c[1]; chapters[i].classList.toggle('on', on); if(on) cur = i; });
+  var final = P > FIN;
   stage.classList.toggle('final', final);
-  var railIdx = final ? 4 : P < .3 ? 0 : P < .52 ? 1 : P < .71 ? 2 : 3;
+  var railIdx = final ? 6 : P < .24 ? 0 : P < .37 ? 1 : P < .5 ? 2 : P < .61 ? 3 : P < .71 ? 4 : 5;
+  if(window.__guideUpdate) window.__guideUpdate();
   railBtns.forEach(function(b, i){ b.classList.toggle('on', i === railIdx); });
   hint.style.opacity = P < .04 ? 1 : 0;
 }
@@ -873,13 +906,16 @@ readScroll(); uiState();
 /* ---------- Scène 3D ---------- */
 if(!window.THREE) return;
 var mobile = innerWidth < 760;
+var LOW = mobile || matchMedia('(pointer: coarse)').matches || (navigator.hardwareConcurrency || 8) <= 4;
 var renderer;
-try { renderer = new THREE.WebGLRenderer({antialias:!mobile, powerPreference:'high-performance'}); } catch(e){ return; }
-renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 2));
-renderer.shadowMap.enabled = true;
+try { renderer = new THREE.WebGLRenderer({antialias:!LOW, powerPreference:'high-performance'}); } catch(e){ return; }
+var DPR_MAX = Math.min(window.devicePixelRatio || 1, LOW ? 1.25 : 2), dpr = DPR_MAX;
+renderer.setPixelRatio(dpr);
+renderer.shadowMap.enabled = !LOW;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 stage.prepend(renderer.domElement);
 
+function MAT(o){ if(LOW){ delete o.roughness; delete o.metalness; return new THREE.MeshLambertMaterial(o); } return new THREE.MeshStandardMaterial(o); }
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(36, 1, 0.1, 500);
 
@@ -911,7 +947,7 @@ var inLight1 = new THREE.PointLight(0xffd7a0, 1.15, 20, 2); inLight1.position.se
 var inLight2 = new THREE.PointLight(0xffd7a0, 1.0, 18, 2); inLight2.position.set(4.5, 5.6, 2.5); scene.add(inLight2);
 var doorSpot = new THREE.SpotLight(0xffd29a, 0, 30, 0.72, 0.65, 1.4);
 doorSpot.position.set(2.5, 5.2, 3.2); doorSpot.target.position.set(2.5, 0, 15); scene.add(doorSpot); scene.add(doorSpot.target);
-var hasRect = !!THREE.RectAreaLightUniformsLib;
+var hasRect = !LOW && !!THREE.RectAreaLightUniformsLib;
 if(hasRect){
   THREE.RectAreaLightUniformsLib.init();
   var signWash = new THREE.RectAreaLight(0xffdca6, 3.2, 11, 2.4);
@@ -921,7 +957,7 @@ if(hasRect){
 /* Matériaux & helpers */
 var mats = {};
 function std(color, o){ o = o || {}; var key = color + JSON.stringify(o); if(mats[key]) return mats[key];
-  var m = new THREE.MeshStandardMaterial({color:color, roughness:o.r != null ? o.r : .75, metalness:o.m || 0});
+  var m = MAT({color:color, roughness:o.r != null ? o.r : .75, metalness:o.m || 0});
   if(o.e){ m.emissive = new THREE.Color(o.e); m.emissiveIntensity = o.ei || 1; }
   return (mats[key] = m);
 }
@@ -940,7 +976,7 @@ var claddingBase = canvasTex(512, 512, function(g, w, h){
   for(var i = 0; i < 2600; i++){ g.fillStyle = 'rgba(0,0,0,' + rnd(0, .05) + ')'; g.fillRect(rnd(0, w), rnd(0, h), 2, 2); }
 });
 claddingBase.wrapS = claddingBase.wrapT = THREE.RepeatWrapping;
-function cladding(w, h){ var t = claddingBase.clone(); t.needsUpdate = true; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(w / 3.2, h / 3.2); return new THREE.MeshStandardMaterial({map:t, roughness:.55, metalness:.25, color:0xb8bcc4}); }
+function cladding(w, h){ var t = claddingBase.clone(); t.needsUpdate = true; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(w / 3.2, h / 3.2); return MAT({map:t, roughness:.55, metalness:.25, color:0xb8bcc4}); }
 var asphalt = canvasTex(256, 256, function(g, w, h){
   g.fillStyle = '#1d1e21'; g.fillRect(0, 0, w, h);
   for(var i = 0; i < 9000; i++){ var v = Math.floor(rnd(18, 62)); g.fillStyle = 'rgb(' + v + ',' + v + ',' + (v + 3) + ')'; g.fillRect(rnd(0, w), rnd(0, h), 1, 1); }
@@ -970,7 +1006,7 @@ var windowTex = canvasTex(256, 512, function(g, w, h){
 });
 
 /* Sol, route, cour */
-var ground = new THREE.Mesh(new THREE.PlaneGeometry(600, 600), new THREE.MeshStandardMaterial({map:asphalt, roughness:.92, color:0x8a8c92}));
+var ground = new THREE.Mesh(new THREE.PlaneGeometry(600, 600), MAT({map:asphalt, roughness:.92, color:0x8a8c92}));
 ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
 box(16, 0.04, 9, std(0x3a3b40, {r:.85}), 2.5, 0, 10.6);
 box(300, 0.03, 7, std(0x121316, {r:.6}), 0, 0.01, 21);
@@ -1000,14 +1036,14 @@ box(B.door.w + 0.64, 0.32, 0.42, dark, B.door.x, B.door.h, 6.05);
 box(18.4, 0.3, 0.5, dark, 0, B.h, 6.05); box(18.4, 0.3, 0.5, dark, 0, B.h, -6.05);
 box(0.5, 0.3, 12.4, dark, -9.05, B.h, 0); box(0.5, 0.3, 12.4, dark, 9.05, B.h, 0);
 // toit (s'efface à la fin pour la vue d'ensemble)
-var roofMat = new THREE.MeshStandardMaterial({color:0x2a2c31, roughness:.8, transparent:true, opacity:1});
+var roofMat = MAT({color:0x2a2c31, roughness:.8, transparent:true, opacity:1});
 var roof = box(17.7, 0.25, 11.7, roofMat, 0, B.h - 0.05, 0);
 var ceilGroup = new THREE.Group(); scene.add(ceilGroup);
 [[-4.5, -3], [-4.5, 2], [3, -3], [3, 2]].forEach(function(p){ box(4, 0.06, 0.22, glow(2.2, 1.95, 1.6), p[0], B.h - 0.18, p[1], ceilGroup, true); });
 // sol intérieur béton ciré
-var floor = new THREE.Mesh(new THREE.BoxGeometry(17.7, 0.12, 11.7), new THREE.MeshStandardMaterial({map:concrete, roughness:.3, metalness:.15, color:0xbfc0c4}));
+var floor = new THREE.Mesh(new THREE.BoxGeometry(17.7, 0.12, 11.7), MAT({map:concrete, roughness:.3, metalness:.15, color:0xbfc0c4}));
 floor.position.set(0, 0.06, 0); floor.receiveShadow = true; scene.add(floor);
-var tape = new THREE.Mesh(new THREE.PlaneGeometry(4.4, 0.24), new THREE.MeshStandardMaterial({map:hazard, roughness:.6}));
+var tape = new THREE.Mesh(new THREE.PlaneGeometry(4.4, 0.24), MAT({map:hazard, roughness:.6}));
 tape.rotation.x = -Math.PI / 2; tape.position.set(B.door.x, 0.13, 5.3); scene.add(tape);
 
 /* Enseigne rétroéclairée sur la façade */
@@ -1032,7 +1068,7 @@ var signMat = new THREE.MeshBasicMaterial({map:signCanvas(false), transparent:tr
 signMat.color.setRGB(1.25, 1.15, 1.0);
 var sign = new THREE.Mesh(new THREE.PlaneGeometry(signW, signH), signMat);
 sign.position.set(2.2, 5.65, 6.28); scene.add(sign);
-if(document.fonts && document.fonts.load){ document.fonts.load('800 100px Archivo').then(function(){ signMat.map = signCanvas(false); signMat.needsUpdate = true; signGlow.material.map = signCanvas(true); signGlow.material.needsUpdate = true; }).catch(function(){}); }
+if(document.fonts && document.fonts.load){ document.fonts.load('800 100px Archivo').then(function(){ signMat.map = signCanvas(false); signMat.needsUpdate = true; signGlow.material.map = signCanvas(true); signGlow.material.needsUpdate = true; if(window.__lobbySign) window.__lobbySign(); }).catch(function(){}); }
 
 /* Porte sectionnelle */
 var doorPanel = new THREE.Group(); doorPanel.position.set(B.door.x, B.door.h, 6.0); scene.add(doorPanel);
@@ -1067,12 +1103,12 @@ units.forEach(function(u){
 posts.userData.key = slabs.userData.key = bacs.userData.key = tags.userData.key = 'bacs';
 
 /* Cartons de réception et diable rouge (détails de la photo) */
-var reception = new THREE.Group(); reception.position.set(-4.7, 0.12, 0.95); scene.add(reception);
+var reception = new THREE.Group(); reception.position.set(6.4, 0.12, -1.9); reception.rotation.y = Math.PI / 2; scene.add(reception);
 var cartonTex = canvasTex(256, 256, function(g, w, h){
   g.fillStyle = '#efece6'; g.fillRect(0, 0, w, h); g.fillStyle = '#c63a2f'; g.fillRect(0, 34, w, 10);
   g.font = 'bold 54px Arial'; g.fillText('↑↑', 24, 128); g.fillRect(120, 100, 100, 14); g.fillRect(120, 130, 70, 10);
 });
-var cartonMat = new THREE.MeshStandardMaterial({map:cartonTex, roughness:.85});
+var cartonMat = MAT({map:cartonTex, roughness:.85});
 box(1.3, 0.12, 1.1, std(0x8a6a4b), 0, 0, 0, reception);
 for(var cy = 0; cy < 6; cy++) box(0.95, 0.38, 0.7, cartonMat, (cy % 2) * 0.04 - 0.02, 0.12 + cy * 0.38, 0, reception);
 box(0.9, 0.38, 0.7, cartonMat, 1.15, 0, 0.1, reception).rotation.y = 0.2;
@@ -1083,7 +1119,7 @@ box(0.5, 0.04, 0.05, truckRed, 0, 1.15, 0, dolly); box(0.5, 0.04, 0.32, truckRed
 reception.userData.key = 'reception';
 
 /* Zone retours */
-var retours = new THREE.Group(); retours.position.set(-6.2, 0.12, 3.6); scene.add(retours);
+var retours = new THREE.Group(); retours.position.set(-6.4, 0.12, 1.3); scene.add(retours);
 box(2.0, 0.06, 1.0, std(0x2b2c31, {r:.5}), 0, 0.85, 0, retours);
 [[-0.9, -.42], [0.9, -.42], [-0.9, .42], [0.9, .42]].forEach(function(p){ box(0.05, 0.85, 0.05, dark, p[0], 0, p[1], retours); });
 var kraft = std(0xc49a63, {r:.85});
@@ -1101,7 +1137,7 @@ box(0.42, 0.28, 0.36, std(0xdedcd6, {r:.5}), -1.0, 0.95, -0.2, prep);
 box(0.36, 0.02, 0.22, glow(1.6, 1.6, 1.6), -1.0, 1.235, -0.2, prep, true);
 box(0.04, 0.9, 0.04, dark, 1.2, 0.95, -0.4, prep); box(0.5, 0.04, 0.04, dark, 1.0, 1.85, -0.4, prep);
 var lampHead = box(0.3, 0.06, 0.18, glow(2.6, 2.2, 1.7), 0.78, 1.8, -0.4, prep, true);
-var prepLight = new THREE.PointLight(0xffd8a8, 0.9, 5, 2); prepLight.position.set(6.0, 1.9, 2.0); scene.add(prepLight);
+if(!LOW){ var prepLight = new THREE.PointLight(0xffd8a8, 0.9, 5, 2); prepLight.position.set(6.0, 1.9, 2.0); scene.add(prepLight); }
 function parcel(sz){
   var g = new THREE.Group();
   var m = new THREE.Mesh(new THREE.BoxGeometry(sz, sz * .66, sz * .8), kraft); m.position.y = sz * .33; m.castShadow = true; m.receiveShadow = true; g.add(m);
@@ -1113,6 +1149,87 @@ var tableParcels = [];
 for(var i = 0; i < 4; i++){ var tp = parcel(0.46); tp.position.set(-0.4 + i * 0.42, 0.92, 0.18 - (i % 2) * 0.32); prep.add(tp); tableParcels.push(tp); }
 prep.userData.key = 'prepa';
 
+
+/* Accueil (comme la photo : mur béton, logo rétroéclairé, comptoir en pierre sombre) */
+var lobby = new THREE.Group(); scene.add(lobby);
+var concreteWall = canvasTex(256, 256, function(g, w, h){
+  g.fillStyle = '#6d6e72'; g.fillRect(0, 0, w, h);
+  for(var i = 0; i < 6000; i++){ var v = Math.floor(rnd(80, 130)); g.fillStyle = 'rgba(' + v + ',' + v + ',' + (v + 2) + ',.35)'; g.fillRect(rnd(0, w), rnd(0, h), 2, 2); }
+});
+var wallP = box(0.24, 3.6, 3.9, MAT({map:concreteWall, roughness:.9, color:0xb4b5b9}), -4.6, 0.12, 4.0, lobby);
+var lsGlow = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 0.9), new THREE.MeshBasicMaterial({map:signCanvas(true), transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, opacity:.75}));
+lsGlow.rotation.y = Math.PI / 2; lsGlow.position.set(-4.46, 2.55, 4.0); lobby.add(lsGlow);
+var lsMat = new THREE.MeshBasicMaterial({map:signCanvas(false), transparent:true}); lsMat.color.setRGB(.13, .13, .14);
+var lsSign = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 3.2 * 360 / 2048), lsMat); lsSign.rotation.y = Math.PI / 2; lsSign.position.set(-4.44, 2.55, 4.0); lobby.add(lsSign);
+var wash = new THREE.PointLight(0xffd9a6, LOW ? .9 : .7, 4.5, 2); wash.position.set(-4.0, 2.6, 4.0); lobby.add(wash);
+var stone = MAT({color:0x1d1e21, roughness:.35, metalness:.2});
+box(0.8, 1.02, 2.8, stone, -2.8, 0.12, 3.9, lobby);
+box(0.95, 0.06, 2.95, MAT({color:0x2a2b2f, roughness:.25, metalness:.3}), -2.85, 1.14, 3.9, lobby);
+box(0.04, 0.04, 2.7, glow(2.4, 2.0, 1.55), -2.38, 0.16, 3.9, lobby, true);
+var mon = box(0.05, 0.36, 0.55, std(0x111215, {r:.3}), -3.05, 1.2, 4.5, lobby); mon.rotation.y = .25;
+var scr = new THREE.Mesh(new THREE.PlaneGeometry(.5, .3), glow(.35, .5, .9)); scr.rotation.y = -Math.PI / 2 + .25; scr.position.set(-3.08, 1.38, 4.5); lobby.add(scr);
+var rug = box(3.4, 0.01, 3.0, std(0x24252a, {r:1}), -0.6, 0.12, 3.9, lobby, true);
+var pot = new THREE.Mesh(new THREE.CylinderGeometry(.22, .17, .5, 16), std(0x1a1b1e, {r:.5})); pot.position.set(-2.7, 0.37, 1.9); pot.castShadow = true; lobby.add(pot);
+for(var lf = 0; lf < 9; lf++){ var leaf = new THREE.Mesh(new THREE.SphereGeometry(.16, 8, 6), std(0x2f5a3c, {r:.8})); var la = lf / 9 * Math.PI * 2; leaf.position.set(-2.7 + Math.cos(la) * .2, 0.85 + (lf % 3) * .18, 1.9 + Math.sin(la) * .2); leaf.scale.set(.7, 1.6, .4); leaf.rotation.set(rnd(-.4, .4), la, rnd(-.5, .5)); lobby.add(leaf); }
+lobby.traverse(function(c){ if(c.isMesh) c.userData.parentKey = 'accueil'; });
+window.__lobbySign = function(){ lsMat.map = signCanvas(false); lsMat.needsUpdate = true; lsGlow.material.map = signCanvas(true); lsGlow.material.needsUpdate = true; };
+if(document.fonts && document.fonts.status === 'loaded') window.__lobbySign();
+
+var hostess = makePerson({skin:0xd8a27a, top:0x25262b, pants:0x1a1b20, shoe:0x121214, hair:0x1d140e, long:true, key:'accueil'});
+var hsM = std(0x111214, {r:.4});
+var band = new THREE.Mesh(new THREE.TorusGeometry(.118, .008, 6, 20, Math.PI), hsM); band.position.set(0, .2, -.005); hostess.head.add(band);
+var boom = new THREE.Mesh(new THREE.CylinderGeometry(.005, .005, .13, 6), hsM); boom.position.set(-.085, .15, .06); boom.rotation.x = Math.PI / 2.4; hostess.head.add(boom);
+var badge = new THREE.Mesh(new THREE.BoxGeometry(.06, .085, .006), glow(1.4, 1.25, 1.0)); badge.position.set(-.08, .42, .13); hostess.torso.add(badge);
+hostess.g.position.set(-3.55, 0.12, 3.9); hostess.g.rotation.y = Math.PI / 2;
+var HOLDS = [
+  {p0:0,    p1:.335, pos:[-3.55, 3.9]},
+  {p0:.40,  p1:.465, pos:[0.2, -2.7],  point:[-2.2, -5.2]},
+  {p0:.52,  p1:.585, pos:[4.2, -0.4],  point:[6.4, 2.6]},
+  {p0:.63,  p1:.685, pos:[-5.8, -0.5], point:[-6.4, 1.3]},
+  {p0:.73,  p1:1.01, pos:[0.6, 4.6],   point:[2.8, 11]}
+];
+var TRANS = [
+  makePath([[-3.55, 3.9], [-3.6, 2.15], [-1.2, 0.4], [0.2, -2.7]]),
+  makePath([[0.2, -2.7], [2.4, -1.6], [4.2, -0.4]]),
+  makePath([[4.2, -0.4], [0.6, 0.4], [-3.2, -0.2], [-5.8, -0.5]]),
+  makePath([[-5.8, -0.5], [-1.6, 1.6], [0.2, 3.2], [0.6, 4.6]])
+];
+var hState = {phase:0, last:new THREE.Vector3(-3.55, 0, 3.9), face:Math.PI / 2};
+var talking = false;
+function hostessAt(p, dt){
+  var x, z, hold = null, i;
+  for(i = 0; i < HOLDS.length; i++){
+    var H = HOLDS[i];
+    if(p >= H.p0 && p <= H.p1){ hold = H; x = H.pos[0]; z = H.pos[1]; break; }
+    if(i < HOLDS.length - 1 && p > H.p1 && p < HOLDS[i + 1].p0){ var q = samplePath(TRANS[i], ease((p - H.p1) / (HOLDS[i + 1].p0 - H.p1))); x = q.x; z = q.z; break; }
+  }
+  if(x === undefined){ hold = HOLDS[HOLDS.length - 1]; x = hold.pos[0]; z = hold.pos[1]; }
+  var g = hostess.g, dx = x - hState.last.x, dz = z - hState.last.z, dist = Math.hypot(dx, dz);
+  g.position.set(x, 0.12, z); hState.last.set(x, 0, z);
+  var faceT;
+  if(dist > 0.004){ faceT = Math.atan2(dx, dz); hState.phase += dist * 6.5; walk(hostess, hState.phase, .45); }
+  else {
+    faceT = Math.atan2(camera.position.x - x, camera.position.z - z);
+    still(hostess, T);
+    var pointing = hold && hold.point && ((p - hold.p0) / Math.max(.001, Math.min(.06, hold.p1 - hold.p0)) < 1 || talking);
+    var zoneA = hold && hold.point ? Math.atan2(hold.point[0] - x, hold.point[1] - z) : faceT;
+    var d = ((zoneA - faceT + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
+    var A = d > 0 ? hostess.armR : hostess.armL, Bm = d > 0 ? hostess.armL : hostess.armR;
+    var Ae = d > 0 ? hostess.elbowR : hostess.elbowL, Be = d > 0 ? hostess.elbowL : hostess.elbowR;
+    if(pointing && hold.point){
+      A.rotation.x += (-.55 - A.rotation.x) * .15; A.rotation.z += ((d > 0 ? 1.05 : -1.05) - A.rotation.z) * .15; Ae.rotation.x += (-.12 - Ae.rotation.x) * .15;
+      Bm.rotation.x += (-.35 - Bm.rotation.x) * .15; Bm.rotation.z += ((d > 0 ? -.06 : .06) - Bm.rotation.z) * .15; Be.rotation.x += (-1.1 - Be.rotation.x) * .15;
+      faceT += d * .35;
+    } else {
+      [hostess.armL, hostess.armR].forEach(function(a, k){ a.rotation.x += (-.3 - a.rotation.x) * .12; a.rotation.z += ((k ? -.06 : .06) - a.rotation.z) * .12; });
+      hostess.elbowL.rotation.x += (-1.15 - hostess.elbowL.rotation.x) * .12; hostess.elbowR.rotation.x += (-1.15 - hostess.elbowR.rotation.x) * .12;
+    }
+    hostess.head.rotation.x = talking ? Math.sin(T * 7) * .04 + .02 : Math.sin(T * .9) * .03;
+    hostess.head.rotation.y = pointing && hold && hold.point ? -d * .25 : 0;
+  }
+  hState.face = angLerp(hState.face, faceT, Math.min(1, dt * 6)); g.rotation.y = hState.face;
+}
+
 /* Chariot de kitting qui circule */
 var cart = new THREE.Group(); scene.add(cart);
 box(1.0, 0.05, 0.6, std(0x26282d, {r:.4, m:.4}), 0, 0.2, 0, cart);
@@ -1123,52 +1240,103 @@ var cartPar = parcel(0.42); cartPar.position.set(0.1, 0.56, 0); cart.add(cartPar
 cart.userData.key = 'kit';
 
 /* L'équipe : des humains, pas que des machines */
+var SEG = LOW ? 8 : 16;
 function makePerson(o){
   var g = new THREE.Group();
-  var skin = std(o.skin, {r:.7}), top = std(o.top, {r:.85}), pants = std(o.pants || 0x1b1e26, {r:.85}), shoe = std(0x0d0e11, {r:.55}), hairM = std(o.hair || 0x15110e, {r:.9});
-  function limb(r1, r2, len, mat){ var pv = new THREE.Group(); var m = new THREE.Mesh(new THREE.CylinderGeometry(r1, r2, len, 10), mat); m.position.y = -len / 2; m.castShadow = true; pv.add(m); return pv; }
-  var hips = new THREE.Group(); hips.position.y = .92; g.add(hips);
-  var legL = limb(.088, .068, .86, pants), legR = limb(.088, .068, .86, pants);
-  legL.position.x = -.1; legR.position.x = .1; hips.add(legL); hips.add(legR);
-  [legL, legR].forEach(function(l){ var sh = new THREE.Mesh(new THREE.BoxGeometry(.12, .08, .24), shoe); sh.position.set(0, -.88, .05); sh.castShadow = true; l.add(sh); });
-  var torso = new THREE.Group(); hips.add(torso);
-  var body = new THREE.Mesh(new THREE.CylinderGeometry(.205, .17, .64, 14), top); body.position.y = .32; body.scale.z = .68; body.castShadow = true; torso.add(body);
-  var sh2 = new THREE.Mesh(new THREE.SphereGeometry(.205, 14, 10), top); sh2.position.y = .62; sh2.scale.set(1, .42, .68); torso.add(sh2);
-  if(o.vest){
-    var v = new THREE.Mesh(new THREE.CylinderGeometry(.215, .182, .5, 14), std(o.vest, {r:.7})); v.position.y = .36; v.scale.z = .72; torso.add(v);
-    [.22, .44].forEach(function(y){ var st = new THREE.Mesh(new THREE.CylinderGeometry(.218, .2, .035, 14), glow(1.5, 1.5, 1.45)); st.position.y = y; st.scale.z = .73; torso.add(st); });
-  } else {
-    var logo = new THREE.Mesh(new THREE.BoxGeometry(.07, .055, .01), glow(1.25, 1.1, .9)); logo.position.set(.08, .47, .14); torso.add(logo);
+  var skin = std(o.skin, {r:.62, e:o.skin, ei:.16}), top = std(o.top, {r:.9}), pants = std(o.pants || 0x1c1f27, {r:.92}), shoe = std(o.shoe || 0x0f1013, {r:.5}), hairM = std(o.hair || 0x15110e, {r:.85}), sole = std(0xd9d6cf, {r:.6});
+  var sleeveM = o.short ? skin : top;
+  function mesh(geo, mat, parent, x, y, z){ var m = new THREE.Mesh(geo, mat); m.position.set(x || 0, y || 0, z || 0); m.castShadow = true; parent.add(m); return m; }
+  function seg(r1, r2, len, mat, parent){ var pv = new THREE.Group(); parent.add(pv); mesh(new THREE.CylinderGeometry(r1, r2, len, SEG), mat, pv, 0, -len / 2, 0); return pv; }
+  function lathe(pts, mat, parent, sz){ var m = mesh(new THREE.LatheGeometry(pts.map(function(q){ return new THREE.Vector2(q[0], q[1]); }), SEG + 4), mat, parent); m.scale.z = sz || 1; return m; }
+  var hips = new THREE.Group(); hips.position.y = .93; g.add(hips);
+  // bassin et jambes (cuisse, genou, tibia, chaussure)
+  lathe([[0, -.13], [.1, -.12], [.155, -.07], [.165, 0], [.155, .05], [0, .06]], pants, hips, .72);
+  function leg(x){
+    var thigh = seg(.088, .066, .45, pants, hips); thigh.position.set(x, -.04, 0);
+    var knee = new THREE.Group(); knee.position.y = -.45; thigh.add(knee);
+    mesh(new THREE.SphereGeometry(.066, SEG, 8), pants, knee);
+    var shin = seg(.064, .046, .42, pants, knee);
+    var foot = new THREE.Group(); foot.position.y = -.42; shin.add(foot);
+    mesh(new THREE.BoxGeometry(.105, .07, .2), shoe, foot, 0, -.035, .04);
+    var toe = mesh(new THREE.SphereGeometry(.055, SEG, 6, 0, Math.PI * 2, 0, Math.PI / 2), shoe, foot, 0, -.07, .13); toe.scale.set(.95, .7, 1);
+    mesh(new THREE.BoxGeometry(.11, .02, .27), sole, foot, 0, -.075, .065);
+    return {hip:thigh, knee:knee};
   }
-  var head = new THREE.Group(); head.position.y = .7; torso.add(head);
-  var neck = new THREE.Mesh(new THREE.CylinderGeometry(.05, .055, .09, 8), skin); neck.position.y = .03; head.add(neck);
-  var hd = new THREE.Mesh(new THREE.SphereGeometry(.118, 16, 12), skin); hd.position.y = .17; hd.scale.set(.92, 1.05, .98); hd.castShadow = true; head.add(hd);
-  var hair = new THREE.Mesh(new THREE.SphereGeometry(.125, 16, 10, 0, Math.PI * 2, 0, Math.PI * (o.long ? .62 : .5)), hairM); hair.position.y = .185; hair.rotation.x = -.25; head.add(hair);
-  if(o.cap){ var cap = new THREE.Mesh(new THREE.CylinderGeometry(.13, .13, .07, 14), std(o.cap, {r:.8})); cap.position.y = .27; head.add(cap); var brim = new THREE.Mesh(new THREE.BoxGeometry(.2, .015, .12), std(o.cap, {r:.8})); brim.position.set(0, .245, .13); head.add(brim); }
-  var armL = limb(.062, .05, .6, top), armR = limb(.062, .05, .6, top);
-  armL.position.set(-.255, .58, 0); armR.position.set(.255, .58, 0); torso.add(armL); torso.add(armR);
-  [armL, armR].forEach(function(a){ var h = new THREE.Mesh(new THREE.SphereGeometry(.052, 10, 8), skin); h.position.y = -.63; a.add(h); a.rotation.z = a === armL ? .06 : -.06; });
+  var lL = leg(-.095), lR = leg(.095);
+  // buste galbé (taille, poitrine, épaules)
+  var torso = new THREE.Group(); hips.add(torso);
+  var chest = lathe([[.15, 0], [.158, .1], [.163, .22], [.18, .34], [.195, .44], [.19, .52], [.15, .58], [.075, .615], [0, .62]], top, torso, .66);
+  if(o.vest){
+    lathe([[.158, .1], [.166, .2], [.184, .34], [.2, .44], [.192, .52], [.16, .56]], std(o.vest, {r:.7}), torso, .7);
+    [.24, .42].forEach(function(y){ var st = mesh(new THREE.CylinderGeometry(.188 + y * .03, .186 + y * .03, .03, SEG + 4, 1, true), glow(1.55, 1.55, 1.5), torso, 0, y, 0); st.scale.z = .71; });
+  } else if(o.logo !== false){
+    mesh(new THREE.BoxGeometry(.065, .05, .006), glow(1.25, 1.1, .9), torso, .075, .44, .128);
+  }
+  if(o.apron){ var ap = mesh(new THREE.BoxGeometry(.3, .5, .01), std(o.apron, {r:.85}), torso, 0, .2, .118); ap.rotation.x = -.06; }
+  // cou, tête, visage
+  var head = new THREE.Group(); head.position.y = .575; torso.add(head);
+  mesh(new THREE.CylinderGeometry(.045, .05, .1, SEG), skin, head, 0, .04, 0);
+  var skull = mesh(new THREE.SphereGeometry(.108, SEG + 4, SEG), skin, head, 0, .2, 0); skull.scale.set(.86, 1.02, .96);
+  var jaw = mesh(new THREE.SphereGeometry(.074, SEG, 10), skin, head, 0, .155, .022); jaw.scale.set(.86, .72, .9);
+  var nose = mesh(new THREE.ConeGeometry(.016, .045, 6), skin, head, 0, .19, .1); nose.rotation.x = Math.PI / 2 + .3;
+  [-1, 1].forEach(function(sd){
+    var ear = mesh(new THREE.SphereGeometry(.022, 8, 6), skin, head, sd * .093, .19, -.005); ear.scale.set(.5, 1, .8);
+    mesh(new THREE.SphereGeometry(.011, 8, 6), std(0x15110f, {r:.3}), head, sd * .036, .215, .092);
+    var brow = mesh(new THREE.BoxGeometry(.032, .007, .01), hairM, head, sd * .036, .238, .096); brow.rotation.z = -sd * .1;
+  });
+  var hair = mesh(new THREE.SphereGeometry(.114, SEG + 4, 10, 0, Math.PI * 2, 0, Math.PI * .52), hairM, head, 0, .205, -.008); hair.scale.set(.9, 1, 1); hair.rotation.x = -.32;
+  if(o.long){ var lh = mesh(new THREE.CylinderGeometry(.1, .112, .24, SEG, 1, true, Math.PI * .62, Math.PI * .76), hairM, head, 0, .1, -.01); lh.material = hairM; lh.scale.z = .9; }
+  if(o.bun){ mesh(new THREE.SphereGeometry(.045, 10, 8), hairM, head, 0, .27, -.08); }
+  if(o.beard){ var bd = mesh(new THREE.SphereGeometry(.078, SEG, 8, 0, Math.PI * 2, Math.PI * .45, Math.PI * .55), hairM, head, 0, .145, .022); bd.scale.set(.92, .85, .95); }
+  if(o.cap){
+    var capM = std(o.cap, {r:.8});
+    var cp = mesh(new THREE.SphereGeometry(.118, SEG + 4, 8, 0, Math.PI * 2, 0, Math.PI * .5), capM, head, 0, .225, -.005); cp.scale.set(.92, .82, 1);
+    var brim = mesh(new THREE.CylinderGeometry(.075, .075, .012, SEG, 1, false, -Math.PI / 2, Math.PI), capM, head, 0, .232, .085); brim.scale.set(1.1, 1, 1);
+  }
+  // bras : épaule, coude, main
+  function arm(sd){
+    var sh = new THREE.Group(); sh.position.set(sd * .185, .525, 0); torso.add(sh);
+    var cap0 = mesh(new THREE.SphereGeometry(.06, SEG, 8), top, sh); cap0.scale.set(.95, .85, .9);
+    if(o.short){ var slv = mesh(new THREE.CylinderGeometry(.064, .06, .13, SEG), top, sh, 0, -.05, 0); slv.rotation.z = sd * .07; }
+    var upper = seg(.058, .047, .29, sleeveM, sh); upper.rotation.z = sd * .07;
+    var elbow = new THREE.Group(); elbow.position.y = -.29; upper.add(elbow);
+    mesh(new THREE.SphereGeometry(.046, SEG, 6), sleeveM, elbow);
+    var fore = seg(.045, .036, .26, o.rolled ? skin : sleeveM, elbow);
+    var hand = mesh(new THREE.SphereGeometry(.05, SEG, 8), skin, fore, 0, -.3, .005); hand.scale.set(.62, 1, .9);
+    var thumb = mesh(new THREE.CylinderGeometry(.013, .011, .05, 6), skin, fore, sd * -.025, -.285, .025); thumb.rotation.x = -.6;
+    sh.rotation.z = sd * -.04;
+    return {sh:sh, elbow:elbow, fore:fore};
+  }
+  var aL = arm(-1), aR = arm(1);
   g.traverse(function(c){ if(c.isMesh) c.userData.parentKey = o.key; });
   scene.add(g);
-  return {g:g, hips:hips, legL:legL, legR:legR, armL:armL, armR:armR, torso:torso, head:head};
+  return {g:g, hips:hips, legL:lL.hip, legR:lR.hip, kneeL:lL.knee, kneeR:lR.knee, armL:aL.sh, armR:aR.sh, elbowL:aL.elbow, elbowR:aR.elbow, foreR:aR.fore, torso:torso, head:head, chest:chest};
 }
 function walk(pp, ph, amp){
-  pp.legL.rotation.x = Math.sin(ph) * amp; pp.legR.rotation.x = -Math.sin(ph) * amp;
-  pp.armL.rotation.x = -Math.sin(ph) * amp * .8; pp.armR.rotation.x = Math.sin(ph) * amp * .8;
-  pp.hips.position.y = .92 + Math.abs(Math.cos(ph)) * .025;
+  var sL = Math.sin(ph), sR = Math.sin(ph + Math.PI);
+  pp.legL.rotation.x = -sL * amp; pp.legR.rotation.x = -sR * amp;
+  pp.kneeL.rotation.x = Math.max(0, Math.sin(ph - .9)) * amp * 1.5; pp.kneeR.rotation.x = Math.max(0, Math.sin(ph + Math.PI - .9)) * amp * 1.5;
+  pp.armL.rotation.x = sL * amp * .7; pp.armR.rotation.x = sR * amp * .7;
+  pp.elbowL.rotation.x = -.25 - Math.max(0, sL) * .3; pp.elbowR.rotation.x = -.25 - Math.max(0, sR) * .3;
+  pp.hips.position.y = .93 - Math.abs(Math.sin(ph)) * .025;
+  pp.hips.rotation.y = sL * .06; pp.torso.rotation.y = -sL * .1;
+  pp.armL.rotation.z = .04; pp.armR.rotation.z = -.04;
 }
-function still(pp){ pp.legL.rotation.x = pp.legR.rotation.x = 0; pp.hips.position.y = .92; }
-var packer = makePerson({skin:0x8d5a3b, top:0x2a2c32, hair:0x120e0b, key:'prepa'});
+function still(pp, t){
+  pp.legL.rotation.x = pp.legR.rotation.x = 0; pp.kneeL.rotation.x = pp.kneeR.rotation.x = 0;
+  pp.hips.position.y = .93; pp.hips.rotation.y = 0;
+  pp.chest.scale.x = 1 + Math.sin(t * 1.8) * .012;
+}
+var packer = makePerson({skin:0x8d5a3b, top:0x2a2c32, hair:0x120e0b, key:'prepa', short:true, apron:0x5b4632, beard:true});
 packer.g.position.set(5.42, 0.12, 2.6); packer.g.rotation.y = Math.PI / 2;
-var scannerP = makePerson({skin:0xe8b996, top:0x33363d, hair:0x5a3a22, long:true, key:'bacs'});
-var laser = new THREE.Mesh(new THREE.CylinderGeometry(.006, .006, 1.1, 6), glow(3, .25, .2)); laser.position.y = -1.18; scannerP.armR.add(laser);
-var scanGun = new THREE.Mesh(new THREE.BoxGeometry(.06, .16, .1), std(0x1d1f24, {r:.4})); scanGun.position.set(0, -.66, .03); scannerP.armR.add(scanGun);
-var pusher = makePerson({skin:0xc68b59, top:0x2a2c32, cap:0x1d1f26, key:'kit'});
-cart.add(pusher.g); pusher.g.position.set(-1.05, -0.12, 0); pusher.g.rotation.y = Math.PI / 2;
-pusher.armL.rotation.x = pusher.armR.rotation.x = -1.15;
-var returner = makePerson({skin:0xf1c9a5, top:0x2f3238, hair:0x2a1c12, key:'retours'});
-returner.g.position.set(-6.2, 0.12, 2.75);
-var driver = makePerson({skin:0x6b4128, top:0x23262c, vest:0xd9c43a, cap:0x23262c, key:'van'});
+var scannerP = makePerson({skin:0xe8b996, top:0x33363d, hair:0x5a3a22, long:true, bun:true, key:'bacs', rolled:true});
+var laser = new THREE.Mesh(new THREE.CylinderGeometry(.005, .005, 1.0, 6), glow(3, .25, .2)); laser.position.set(0, -.86, .02); scannerP.foreR.add(laser);
+var scanGun = new THREE.Mesh(new THREE.BoxGeometry(.05, .14, .09), std(0x1d1f24, {r:.4})); scanGun.position.set(0, -.33, .04); scannerP.foreR.add(scanGun);
+var pusher = makePerson({skin:0xc68b59, top:0x2a2c32, cap:0x1d1f26, hair:0x1a120c, key:'kit'});
+cart.add(pusher.g); pusher.g.position.set(-1.0, -0.12, 0); pusher.g.rotation.y = Math.PI / 2;
+var returner = makePerson({skin:0xf1c9a5, top:0x2f3238, hair:0x2a1c12, key:'retours', short:true});
+returner.g.position.set(-6.4, 0.12, 2.15); returner.g.rotation.y = Math.PI;
+var driver = makePerson({skin:0x6b4128, top:0x23262c, vest:0xd9c43a, cap:0x23262c, key:'van', beard:true});
 driver.g.visible = false;
 
 
@@ -1192,8 +1360,8 @@ function tree(x, z, s){
 [[-14, -8, 1.2], [-16, 9, 1], [15, -9, 1.3], [17, 6, 1], [-11, 12, .9], [21, 12, 1.1], [-20, -2, 1.2], [13, 11.5, .8]].forEach(function(t){ tree(t[0], t[1], t[2]); });
 
 /* Ville au loin */
-var skyN = mobile ? 50 : 90;
-var skyMat = new THREE.MeshStandardMaterial({color:0x0e1015, roughness:.9, emissive:new THREE.Color(1, .92, .8), emissiveMap:windowTex, emissiveIntensity:.85});
+var skyN = LOW ? 36 : 90;
+var skyMat = MAT({color:0x0e1015, roughness:.9, emissive:new THREE.Color(1, .92, .8), emissiveMap:windowTex, emissiveIntensity:.85});
 var sky = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), skyMat, skyN);
 for(i = 0; i < skyN; i++){
   var bw = rnd(5, 13), bh = rnd(8, i % 7 === 0 ? 46 : 26), bd = rnd(5, 12);
@@ -1207,7 +1375,7 @@ var starMat = new THREE.PointsMaterial({color:0xcfd8ff, size:1.3, sizeAttenuatio
 scene.add(new THREE.Points(starG, starMat));
 
 /* Poussière dans le faisceau de la porte */
-var dustN = mobile ? 160 : 320, dustG = new THREE.BufferGeometry(), dustP = new Float32Array(dustN * 3);
+var dustN = LOW ? 110 : 320, dustG = new THREE.BufferGeometry(), dustP = new Float32Array(dustN * 3);
 for(i = 0; i < dustN; i++){ dustP[i * 3] = rnd(0, 5); dustP[i * 3 + 1] = rnd(0.2, 4.4); dustP[i * 3 + 2] = rnd(4.5, 12); }
 dustG.setAttribute('position', new THREE.BufferAttribute(dustP, 3));
 var dotTex = canvasTex(64, 64, function(g, w, h){ var gr = g.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(.4, 'rgba(255,255,255,.35)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, w, h); });
@@ -1227,7 +1395,7 @@ function makeVan(){
   [[-1.1, .76], [1.2, .76], [-1.1, -.76], [1.2, -.76]].forEach(function(p){ var w = new THREE.Mesh(new THREE.CylinderGeometry(.32, .32, .24, 18), std(0x101114, {r:.8})); w.rotation.x = Math.PI / 2; w.position.set(p[0], .32, p[1]); w.castShadow = true; g.add(w); });
   var beamMat = new THREE.MeshBasicMaterial({color:0xfff0d6, transparent:true, opacity:.07, blending:THREE.AdditiveBlending, depthWrite:false, side:THREE.DoubleSide});
   var beam = new THREE.Mesh(new THREE.ConeGeometry(1.6, 7, 24, 1, true), beamMat); beam.rotation.z = Math.PI / 2; beam.position.set(5.5, 0.6, 0); g.add(beam);
-  var head = new THREE.SpotLight(0xfff1dc, 2.2, 22, 0.5, 0.6, 1.3); head.position.set(2, 0.8, 0); var tg = new THREE.Object3D(); tg.position.set(10, 0, 0); g.add(tg); head.target = tg; g.add(head);
+  var head = new THREE.SpotLight(0xfff1dc, 2.2, 22, 0.5, 0.6, 1.3); head.position.set(2, 0.8, 0); var tg = new THREE.Object3D(); tg.position.set(10, 0, 0); g.add(tg); head.target = tg; if(!LOW) g.add(head);
   scene.add(g); return g;
 }
 var van = makeVan(); van.userData.key = 'van';
@@ -1246,7 +1414,7 @@ function makeCar(dir, lane, speed, off){
 makeCar(1, 19.4, 13, 0); makeCar(-1, 22.6, 11, 40); makeCar(-1, 22.6, 15, 120); makeCar(1, 19.4, 10, 90);
 
 /* Repères cliquables */
-var pins = [], clickables = [posts, slabs, bacs, tags, reception, retours, prep, cart, van, packer.g, scannerP.g, returner.g, driver.g];
+var pins = [], clickables = [posts, slabs, bacs, tags, reception, retours, prep, cart, van, packer.g, scannerP.g, returner.g, driver.g, lobby, hostess.g];
 var pinMat = glow(1.05, .82, .52), pinWhite = glow(2, 2, 2);
 function pin(key, x, y, z, follow){
   var g = new THREE.Group();
@@ -1258,7 +1426,7 @@ function pin(key, x, y, z, follow){
   g.position.set(x, y, z); g.userData = {key:key, baseY:y, follow:follow, phase:Math.random() * 6, ring:ring};
   g.visible = false; scene.add(g); pins.push(g); clickables.push(g); return g;
 }
-pin('bacs', -2.85, 2.7, -5.4); pin('prepa', 6.4, 2.6, 2.6); pin('reception', -4.7, 3.3, 0.95); pin('retours', -6.2, 2.0, 3.6); pin('kit', 0, 1.9, 0, cart); pin('van', 0, 3.0, 0, van); pin('site', 2.2, 7.6, 6.3);
+pin('bacs', -2.85, 2.7, -5.4); pin('prepa', 6.4, 2.6, 2.6); pin('reception', 6.4, 3.3, -1.9); pin('retours', -6.4, 2.0, 1.3); pin('accueil', -2.8, 2.4, 3.9); pin('kit', 0, 1.9, 0, cart); pin('van', 0, 3.0, 0, van); pin('site', 2.2, 7.6, 6.3);
 [reception, retours, prep, cart, van].forEach(function(o){ o.traverse(function(c){ if(c.isMesh && !c.userData.key) c.userData.parentKey = o.userData.key; }); });
 
 /* Colis en vol */
@@ -1284,10 +1452,10 @@ function samplePath(path, u){
 }
 var PATH_IN = makePath([[-42, 19.4], [-3, 19.4], [4.2, 16.2], [2.5, 10.4, 1]]);
 var PATH_OUT = makePath([[2.5, 10.4], [3.2, 14.6], [8, 19.0], [14, 19.4], [42, 19.4]]);
-var CART = makePath([[-6.2, -3.35], [3.4, -3.35], [3.4, -0.9], [-6.2, -0.9], [-6.2, -3.35]]);
+var CART = makePath([[-4.6, -3.35], [3.4, -3.35], [3.4, -0.9], [-4.6, -0.9], [-4.6, -3.35]]);
 function angLerp(a, b, t){ var d = ((b - a + Math.PI * 3) % (Math.PI * 2)) - Math.PI; return a + d * t; }
 var vanH = 0, cartH = 0;
-var DOOR_MID = new THREE.Vector3(2.5, 1.7, 6.6), V3a = new THREE.Vector3(), V3b = new THREE.Vector3(), V3c = new THREE.Vector3();
+var DOOR_MID = new THREE.Vector3(2.5, 1.7, 6.6), V3a = new THREE.Vector3(), V3b = new THREE.Vector3(), V3c = new THREE.Vector3(), V3d = new THREE.Vector3(), YAXIS = new THREE.Vector3(0, 1, 0);
 var tagCol = new THREE.Color();
 
 function vanAt(c, dt, snap){
@@ -1318,27 +1486,35 @@ function parcelsAt(c){
       tableParcels[k].getWorldPosition(V3a); V3a.y += 0.1;
       V3c.set(van.position.x - fwdX * 2.6, 1.25, van.position.z - fwdZ * 2.6); if(f > .55) reach = 1;
       var e = ease(f);
-      V3b.copy(V3a).lerp(DOOR_MID, e); var q = DOOR_MID.clone().lerp(V3c, e); V3b.lerp(q, e);
+      V3b.copy(V3a).lerp(DOOR_MID, e); var q = V3d.copy(DOOR_MID).lerp(V3c, e); V3b.lerp(q, e);
       V3b.y += Math.sin(f * Math.PI) * 1.2;
       fp.position.copy(V3b); fp.rotation.y = f * Math.PI * 1.5;
     } else fp.visible = false;
   }
   var target = reach ? -1.35 : -.25;
   driver.armL.rotation.x += (target - driver.armL.rotation.x) * .2; driver.armR.rotation.x += (target - driver.armR.rotation.x) * .2;
+  var et = reach ? -.55 : -.15; driver.elbowL.rotation.x += (et - driver.elbowL.rotation.x) * .2; driver.elbowR.rotation.x += (et - driver.elbowR.rotation.x) * .2; still(driver, T);
   driver.head.rotation.y = Math.sin(T * .7) * .3;
 }
 
 /* Caméra : images clés pilotées par le scroll */
 var K = [
   [0.00, [17, 3.0, 33],    [1.5, 4.8, 5]],
-  [0.13, [9.5, 2.3, 22],   [2.4, 3.8, 5]],
-  [0.25, [3.2, 2.0, 11.6], [2.5, 2.3, 0]],
-  [0.35, [1.6, 2.3, 4.0],  [-3.5, 1.5, -4.5]],
-  [0.47, [-0.6, 2.6, 2.9], [-4.6, 1.1, -5.4]],
-  [0.57, [-3.6, 3.4, -2.6],[2.6, 1.2, 6.2]],
-  [0.67, [-1.4, 2.9, 0.4], [4.6, 1.4, 8.2]],
-  [0.76, [13, 3.2, 21],    [3.5, 2.4, 9]],
-  [0.85, [15, 5.5, 27],    [5, 1.6, 12]],
+  [0.10, [9.5, 2.3, 22],   [2.4, 3.6, 5]],
+  [0.18, [3.0, 1.75, 11.5],[2.5, 1.7, 0]],
+  [0.235,[2.4, 1.66, 6.6], [0.2, 1.5, 3.6]],
+  [0.275,[0.5, 1.65, 4.4], [-2.8, 1.45, 3.9]],
+  [0.335,[0.5, 1.65, 4.4], [-2.8, 1.45, 3.9]],
+  [0.37, [1.2, 1.68, 1.8], [-1.5, 1.3, -4.4]],
+  [0.40, [0.9, 1.65, 0.6], [-2.0, 1.15, -5.0]],
+  [0.465,[0.9, 1.65, 0.6], [-2.0, 1.15, -5.0]],
+  [0.52, [1.6, 1.7, -0.6], [6.2, 1.0, 2.6]],
+  [0.585,[1.6, 1.7, -0.6], [6.2, 1.0, 2.6]],
+  [0.63, [-2.6, 1.7, -1.0],[-6.4, 0.9, 1.7]],
+  [0.685,[-2.6, 1.7, -1.0],[-6.4, 0.9, 1.7]],
+  [0.73, [1.6, 1.72, 1.6], [3.0, 1.3, 10.5]],
+  [0.79, [1.6, 1.72, 1.6], [3.0, 1.3, 10.5]],
+  [0.86, [13, 4.0, 21],    [3.5, 2.0, 9]],
   [0.93, [19, 22, 30],     [2, 0.5, 4.5]],
   [1.00, [20, 31, 29],     [1.2, 0, 2]]
 ];
@@ -1362,7 +1538,7 @@ camKeys(P); camera.position.copy(camPosT); camTgt.copy(camTgtT);
 
 /* Post-traitement (bloom) */
 var composer = null, bloom = null;
-if(THREE.EffectComposer && THREE.UnrealBloomPass){
+if(!LOW && THREE.EffectComposer && THREE.UnrealBloomPass){
   try {
     composer = new THREE.EffectComposer(renderer);
     composer.addPass(new THREE.RenderPass(scene, camera));
@@ -1371,10 +1547,11 @@ if(THREE.EffectComposer && THREE.UnrealBloomPass){
   } catch(e){ composer = null; }
 }
 
+var baseFov = 36;
 function resize(){
   var w = stage.clientWidth, h = stage.clientHeight; if(!w || !h) return;
   renderer.setSize(w, h, false);
-  camera.aspect = w / h; camera.fov = w / h < 0.8 ? 54 : w / h < 1.2 ? 44 : 36; camera.updateProjectionMatrix();
+  camera.aspect = w / h; baseFov = w / h < 0.8 ? 54 : w / h < 1.2 ? 44 : 36; camera.fov = baseFov; camera.updateProjectionMatrix();
   if(composer){ composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(w, h); }
 }
 resize();
@@ -1391,19 +1568,107 @@ function pick(e){
   for(var k = 0; k < hits.length; k++){ if(!hits[k].object.visible) continue; var key = keyOf(hits[k].object); if(key) return key; }
   return null;
 }
-renderer.domElement.addEventListener('pointerdown', function(e){ if(P < .9) return; drag = {x:e.clientX, az:orbit.azT, moved:false}; });
+renderer.domElement.addEventListener('pointerdown', function(e){ if(P < FIN) return; drag = {x:e.clientX, az:orbit.azT, moved:false}; });
 addEventListener('pointermove', function(e){
   if(drag){ var d = e.clientX - drag.x; if(Math.abs(d) > 5){ drag.moved = true; stage.classList.add('dragging'); } if(drag.moved) orbit.azT = Math.max(-1.1, Math.min(1.1, drag.az - d * 0.005)); return; }
-  if(P > .9 && fine && e.target === renderer.domElement) renderer.domElement.style.cursor = pick(e) ? 'pointer' : '';
+  if(P > FIN && fine && e.target === renderer.domElement) renderer.domElement.style.cursor = pick(e) ? 'pointer' : '';
 });
 addEventListener('pointerup', function(e){
   if(!drag) return; var moved = drag.moved; drag = null; stage.classList.remove('dragging');
   if(moved || e.target !== renderer.domElement) return;
-  showInfo(pick(e) || 'site');
+  var kk = pick(e) || 'site'; showInfo(kk);
+  var dI = INFO[kk]; if(dI && kk !== 'site') say(dI.t + ' : ' + dI.note, dI.k, dI.pill, null);
 });
 document.getElementById('zin').onclick = function(){ orbit.zoomT = Math.max(.55, orbit.zoomT - .15); };
 document.getElementById('zout').onclick = function(){ orbit.zoomT = Math.min(1.35, orbit.zoomT + .15); };
 document.getElementById('rot').onclick = function(){ orbit.azT = orbit.azT > .5 ? -.8 : orbit.azT + .55; };
+
+
+/* ---------- Visite guidée ---------- */
+var STOPS = [
+  {p:.30,  step:'Accueil', text:"Bonjour et bienvenue chez Centr Supply ! Je vais vous faire visiter l'entrepôt. Ici, à Caen, on stocke, on prépare et on expédie pour des boutiques en ligne, des revendeurs et des commerces.", tag:'Sans engagement'},
+  {p:.43,  step:'Stockage', text:"Votre stock est rangé ici, dans des bacs à votre nom. Chaque bac est scanné à chaque mouvement, vous savez toujours ce qu'il vous reste. Colis, cartons ou palettes : vous payez ce que vous utilisez.", tag:'Réception revendeurs dès 0,30 € / article'},
+  {p:.55,  step:'Préparation', text:"Dès qu'une commande tombe, on la prépare et on l'emballe à la main, selon vos consignes : carte de remerciement, papier de soie, coffrets et kits.", tag:'Dès 1,50 € / commande · kits dès 0,50 €'},
+  {p:.655, step:'Retours', text:"Vos clients renvoient leurs colis ici, en France. On contrôle chaque produit et on le remet en stock s'il est en bon état. Pratique si vous êtes basé hors d'Europe.", tag:'Dès 2 € / retour'},
+  {p:.76,  step:'Expédition', text:"Et ça part ! Le transporteur récupère les colis devant la porte, et le numéro de suivi est transmis. On réceptionne aussi vos palettes pour du cross-docking.", tag:'Cross-docking dès 8 € / palette'},
+  {p:.97,  step:'À vous', text:"Voilà pour la visite ! Cliquez sur une zone pour la revoir, ou écrivez-nous sur WhatsApp : on vous répond avec un devis clair.", tag:'Réponse rapide sur WhatsApp'}
+];
+var guide = document.getElementById('guide'), gText = document.getElementById('gText'), gStep = document.getElementById('gStep'), gTag = document.getElementById('gTag');
+var gDots = document.getElementById('gDots'), gPlay = document.getElementById('gPlay'), gNext = document.getElementById('gNext'), gPrev = document.getElementById('gPrev');
+var guideTagEl = document.getElementById('guideTag');
+STOPS.forEach(function(){ gDots.appendChild(document.createElement('i')); });
+var gIdx = -1, typer = null, typedAt = 0, playing = false, playTimer = null, scrollAnim = null;
+function say(text, step, tag, idx){
+  clearInterval(typer); gStep.textContent = step; gTag.textContent = tag; gTag.hidden = !tag;
+  [].forEach.call(gDots.children, function(d, k){ d.className = idx == null ? '' : k < idx ? 'done' : k === idx ? 'now' : ''; });
+  if(reduce){ gText.textContent = text; talking = false; typedAt = performance.now(); return; }
+  var n = 0; gText.textContent = ''; guide.classList.add('typing'); talking = true;
+  typer = setInterval(function(){
+    n += 2; gText.textContent = text.slice(0, n);
+    if(n >= text.length){ clearInterval(typer); guide.classList.remove('typing'); talking = false; typedAt = performance.now(); }
+  }, 26);
+}
+function currentIdx(p){ var k = -1; for(var i = 0; i < STOPS.length; i++) if(p >= STOPS[i].p - .075) k = i; return k; }
+window.__guideUpdate = function(){
+  var on = P > .235;
+  guide.classList.toggle('on', on);
+  if(!on){ if(gIdx !== -1){ gIdx = -1; } return; }
+  var k = Math.max(0, currentIdx(P));
+  if(k !== gIdx){ gIdx = k; var S = STOPS[k]; say(S.text, S.step + ' · ' + (k + 1) + '/' + STOPS.length, S.tag, k); }
+  gPrev.disabled = k <= 0;
+  gNext.innerHTML = k >= STOPS.length - 1 ? 'Demander un devis <svg class="ico"><use href="#i-arrow"/></svg>' : 'Suivant <svg class="ico"><use href="#i-arrow"/></svg>';
+};
+function filmTop(p){ var r = film.getBoundingClientRect(), span = r.height - innerHeight; return scrollY + r.top + span * p; }
+function goTo(p, done){
+  cancelAnimationFrame(scrollAnim);
+  var from = scrollY, to = filmTop(p), t0 = performance.now(), dur = reduce ? 0 : Math.min(3200, 900 + Math.abs(to - from) * .35);
+  (function step(now){
+    var u = dur ? Math.min(1, (now - t0) / dur) : 1, e = u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+    window.scrollTo({top:from + (to - from) * e, behavior:'instant'});
+    if(u < 1) scrollAnim = requestAnimationFrame(step); else { scrollAnim = null; if(done) done(); }
+  })(performance.now());
+}
+function setPlaying(v){
+  playing = v; clearTimeout(playTimer); gPlay.classList.toggle('on', v);
+  gPlay.innerHTML = '<svg class="ico"><use href="#i-' + (v ? 'pause' : 'play') + '"/></svg><span>' + (v ? 'Pause' : 'Visite auto') + '</span>';
+  gPlay.setAttribute('aria-label', v ? 'Mettre la visite en pause' : 'Lancer la visite automatique');
+  if(v) nextAuto();
+}
+function nextAuto(){
+  if(!playing) return;
+  var k = P < .235 ? -1 : currentIdx(P);
+  if(k >= STOPS.length - 1){ setPlaying(false); return; }
+  goTo(STOPS[k + 1].p, function(){
+    (function wait(){
+      if(!playing) return;
+      if(talking){ playTimer = setTimeout(wait, 200); return; }
+      var read = Math.max(2600, STOPS[Math.max(0, currentIdx(P))].text.length * 32);
+      playTimer = setTimeout(nextAuto, Math.max(400, read - (performance.now() - typedAt)));
+    })();
+  });
+}
+['wheel', 'touchstart'].forEach(function(ev){ addEventListener(ev, function(){ if(playing){ setPlaying(false); cancelAnimationFrame(scrollAnim); } }, {passive:true}); });
+addEventListener('keydown', function(e){ if(playing && /Arrow|Page|Space|Home|End/.test(e.code)){ setPlaying(false); cancelAnimationFrame(scrollAnim); } });
+gPlay.addEventListener('click', function(){ setPlaying(!playing); });
+document.getElementById('startTour').addEventListener('click', function(){ setPlaying(true); });
+gNext.addEventListener('click', function(){
+  setPlaying(false); var k = currentIdx(P);
+  if(k >= STOPS.length - 1){ document.getElementById('contact').scrollIntoView({behavior:reduce ? 'auto' : 'smooth'}); return; }
+  goTo(STOPS[k + 1].p);
+});
+gPrev.addEventListener('click', function(){ setPlaying(false); var k = currentIdx(P); if(k > 0) goTo(STOPS[k - 1].p); });
+var tagV = new THREE.Vector3();
+function updateGuideTag(p){
+  var show = p > .25 && p < FIN && hostess.g.visible;
+  if(show){
+    tagV.set(hostess.g.position.x, 2.05, hostess.g.position.z).project(camera);
+    var w = stage.clientWidth, h = stage.clientHeight, x = (tagV.x + 1) / 2 * w, y = (1 - tagV.y) / 2 * h;
+    show = tagV.z < 1 && x > 40 && x < w - 40 && y > 70 && y < h - 40;
+    if(show) guideTagEl.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) translate(-50%,-100%)';
+  }
+  guideTagEl.classList.toggle('on', show);
+}
+__guideUpdate();
 
 /* Boucle */
 
@@ -1465,7 +1730,7 @@ function applyTime(){
   ground.material.color.setHex(0x8a8c92).lerp(C3(0xc9cbd1), D);
   lampHeads.forEach(function(m){ m.color.setRGB(.5 + 2.1 * env.lamp, .5 + 1.7 * env.lamp, .5 + 1.2 * env.lamp); });
   lampPools.forEach(function(m){ m.opacity = .55 * env.lamp; });
-  signGlow.material.opacity = .32 * env.sign; if(hasRect) signWash.intensity = 3.2 * env.sign;
+  signGlow.material.opacity = (LOW ? .6 : .32) * env.sign; if(hasRect) signWash.intensity = 3.2 * env.sign;
   signMat.color.setRGB(.9 + .35 * env.sign, .86 + .29 * env.sign, .8 + .2 * env.sign);
   starMat.opacity = env.stars;
   if(bloom){ bloom.strength = env.bloom; bloom.threshold = env.thr; }
@@ -1479,37 +1744,45 @@ var baseHemi = .55;
 applyTime(); setInterval(applyTime, 60000);
 addEventListener('hashchange', function(){ forced = (location.hash || '').replace('#', ''); applyTime(); });
 
-var visible = true, last = performance.now(), T = 0, finalStart = null;
+var visible = true, last = performance.now(), T = 0, finalStart = null, perf = {acc:0, n:0};
 new IntersectionObserver(function(es){ visible = es[0].isIntersecting; }).observe(stage);
 var tmp = new THREE.Vector3();
 function frame(now){
   requestAnimationFrame(frame);
-  var dt = Math.min(.05, (now - last) / 1000); last = now;
+  var rawDt = (now - last) / 1000, dt = Math.min(.05, rawDt); last = now;
   if(!visible) return;
+  perf.acc += rawDt; perf.n++;
+  if(perf.acc > 1.5){
+    var avg = perf.acc / perf.n; perf.acc = 0; perf.n = 0;
+    if(avg > 1 / 42 && dpr > .75){ dpr = Math.max(.75, dpr - .15); renderer.setPixelRatio(dpr); resize(); }
+    else if(avg < 1 / 57 && dpr < DPR_MAX){ dpr = Math.min(DPR_MAX, dpr + .1); renderer.setPixelRatio(dpr); resize(); }
+  }
   if(!reduce) T += dt;
-  var p = P, fin = p > .9;
+  var p = P, fin = p > FIN;
+  var inside = smooth(.2, .27, p) * (1 - smooth(.8, .85, p));
+  var fovT = baseFov + (baseFov < 40 ? 16 : 10) * inside; if(Math.abs(camera.fov - fovT) > .05){ camera.fov = fovT; camera.updateProjectionMatrix(); }
 
   // Caméra
   camKeys(p);
   var k = 1 - Math.exp(-dt * 5);
   if(fin){
-    var w = smooth(.9, 1, p);
+    var w = smooth(FIN, 1, p);
     tmp.copy(camPosT).sub(camTgtT);
-    tmp.applyAxisAngle(new THREE.Vector3(0, 1, 0), orbit.az * w).multiplyScalar(1 + (orbit.zoom - 1) * w);
+    tmp.applyAxisAngle(YAXIS, orbit.az * w).multiplyScalar(1 + (orbit.zoom - 1) * w);
     camPosT.copy(camTgtT).add(tmp);
   }
   orbit.az += (orbit.azT - orbit.az) * Math.min(1, dt * 5);
   orbit.zoom += (orbit.zoomT - orbit.zoom) * Math.min(1, dt * 6);
   camera.position.lerp(camPosT, k); camTgt.lerp(camTgtT, k); camera.lookAt(camTgt);
-  var vw = stage.clientWidth, vh = stage.clientHeight, fw = smooth(.86, .96, p);
+  var vw = stage.clientWidth, vh = stage.clientHeight, fw = smooth(.9, .98, p);
   if(vw < 760) camera.setViewOffset(vw, vh, 0, vh * (.2 - .08 * fw), vw, vh); else camera.setViewOffset(vw, vh, -vw * .13 * (1 - fw), 0, vw, vh);
 
   // Chronologie : pilotée par le scroll, puis en boucle dans la vue finale
   var c, doorO, cycle = 0;
   if(!fin){
     finalStart = null;
-    c = p < .22 ? 0 : p < .46 ? 5 * (p - .22) / .24 : p < .52 ? 5 + (p - .46) / .06 * 0.6 : p < .68 ? 5.6 + 5.6 * (p - .52) / .16 : p < .75 ? 11.2 + (p - .68) / .07 * .4 : p < .89 ? 11.6 + 4.9 * (p - .75) / .14 : 16.5;
-    doorO = smooth(.15, .29, p) * (1 - smooth(.69, .74, p));
+    c = p < .30 ? 0 : p < .52 ? 5 * (p - .30) / .22 : p < .70 ? 5 + .6 * (p - .52) / .18 : p < .80 ? 5.6 + 5.6 * (p - .70) / .10 : p < .82 ? 11.2 + .4 * (p - .80) / .02 : p < .92 ? 11.6 + 4.9 * (p - .82) / .10 : 16.5;
+    doorO = smooth(.13, .22, p) * (1 - smooth(.80, .84, p));
     vanAt(c, dt, false);
   } else {
     if(finalStart === null) finalStart = T - 16.6;
@@ -1526,12 +1799,12 @@ function frame(now){
   van.children.forEach(function(ch){ if(ch.isSpotLight) ch.intensity = van.visible ? 2.2 : 0; });
 
   // Toit qui s'efface
-  var ro = 1 - smooth(.88, .96, p);
+  var ro = 1 - smooth(.9, .97, p);
   hemi.intensity = baseHemi + .45 * smooth(.88, 1, p) * (1 - clamp01(baseHemi - .55));
   roofMat.opacity = ro; roof.visible = ro > .02; roof.castShadow = ro > .5; ceilGroup.visible = ro > .3;
 
   // Voyants des bacs : balayage
-  var scanBoost = smooth(.3, .4, p) * (1 - smooth(.55, .62, p));
+  var scanBoost = smooth(.38, .42, p) * (1 - smooth(.47, .5, p));
   for(var ti = 0; ti < nBac; ti++){
     var wave = Math.max(0, Math.sin(T * 1.6 - ti * .22)); wave = Math.pow(wave, 8);
     var lvl = .25 + wave * (.9 + scanBoost * 2.2) + scanBoost * .35;
@@ -1543,11 +1816,19 @@ function frame(now){
   var cp = samplePath(CART, (T % 16) / 16);
   cart.position.set(cp.x, 0.12, cp.z); cartH = angLerp(cartH, cp.h, Math.min(1, dt * 8)); cart.rotation.y = cartH;
 
+  // Hôtesse
+  hostessAt(p, dt);
+  updateGuideTag(p);
   // Équipe
-  packer.armL.rotation.x = -.95 + Math.sin(T * 3.2) * .38; packer.armR.rotation.x = -.95 + Math.sin(T * 3.2 + Math.PI) * .38;
-  packer.torso.rotation.x = .16 + Math.sin(T * 1.6) * .05; packer.torso.rotation.y = Math.sin(T * .45) * .28; packer.head.rotation.x = .38;
-  returner.armL.rotation.x = -.8 + Math.sin(T * 1.7) * .25; returner.armR.rotation.x = -.6 + Math.sin(T * 1.1 + 1) * .3; returner.torso.rotation.x = .2; returner.head.rotation.x = .45 + Math.sin(T * .8) * .08;
-  walk(pusher, T * 6.2, .5); pusher.armL.rotation.x = pusher.armR.rotation.x = -1.15;
+  still(packer, T); still(returner, T);
+  var pk = T * 3.2;
+  packer.armL.rotation.x = -.75 + Math.sin(pk) * .28; packer.armR.rotation.x = -.75 + Math.sin(pk + Math.PI) * .28;
+  packer.elbowL.rotation.x = -.95 + Math.sin(pk + .6) * .3; packer.elbowR.rotation.x = -.95 + Math.sin(pk + Math.PI + .6) * .3;
+  packer.torso.rotation.x = .14 + Math.sin(T * 1.6) * .04; packer.torso.rotation.y = Math.sin(T * .45) * .25; packer.head.rotation.x = .32; packer.head.rotation.y = Math.sin(T * .45) * .15;
+  returner.armL.rotation.x = -.55 + Math.sin(T * 1.7) * .18; returner.armR.rotation.x = -.5 + Math.sin(T * 1.1 + 1) * .25;
+  returner.elbowL.rotation.x = -1.0 + Math.sin(T * 1.7 + .5) * .2; returner.elbowR.rotation.x = -1.1 + Math.sin(T * 1.1) * .25;
+  returner.torso.rotation.x = .18; returner.head.rotation.x = .42 + Math.sin(T * .8) * .08; returner.head.rotation.y = Math.sin(T * .5) * .2;
+  walk(pusher, T * 6.2, .48); pusher.armL.rotation.x = pusher.armR.rotation.x = -1.05; pusher.elbowL.rotation.x = pusher.elbowR.rotation.x = -.45; pusher.torso.rotation.x = .12;
   var sc = T % 15, sx, sFace, scanning = false;
   if(sc < 4){ sx = -6 + 3.4 * ease(sc / 4); sFace = Math.PI / 2; }
   else if(sc < 6.2){ sx = -2.6; scanning = true; }
@@ -1556,13 +1837,13 @@ function frame(now){
   else { sx = .9 - 6.9 * ease((sc - 11.2) / 3.8); sFace = -Math.PI / 2; }
   scannerP.g.position.set(sx, 0.12, -4.45);
   var sTarget = scanning ? Math.PI : sFace; scannerP.g.rotation.y = angLerp(scannerP.g.rotation.y, sTarget, Math.min(1, dt * 6));
-  if(scanning){ still(scannerP); scannerP.armL.rotation.x = -.2; scannerP.armR.rotation.x = -1.35 + Math.sin(T * 2) * .12; laser.visible = Math.sin(T * 9) > -.2; scannerP.head.rotation.x = .1; }
-  else { walk(scannerP, T * 6, .45); laser.visible = false; scannerP.head.rotation.x = 0; }
+  if(scanning){ still(scannerP, T); scannerP.torso.rotation.y = 0; scannerP.armL.rotation.x = -.15; scannerP.elbowL.rotation.x = -.3; scannerP.armR.rotation.x = -1.25 + Math.sin(T * 2) * .1; scannerP.elbowR.rotation.x = -.2; laser.visible = Math.sin(T * 9) > -.2; scannerP.head.rotation.x = -.05; }
+  else { walk(scannerP, T * 6, .42); laser.visible = false; scannerP.head.rotation.x = 0; }
   // Voitures
   cars.forEach(function(o){ var x = ((T * o.speed + o.off) % 260) - 130; o.g.position.set(o.dir * x, 0, o.lane); });
 
   // Repères
-  var pinOn = smooth(.9, .97, p);
+  var pinOn = smooth(FIN, 1, p);
   pins.forEach(function(pn){
     var u = pn.userData;
     pn.visible = pinOn > .01 && (!u.follow || u.follow.visible !== false);
