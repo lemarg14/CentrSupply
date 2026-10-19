@@ -464,11 +464,11 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
       <span class="time-label" id="timeLabel">Caen</span>
     </div>
     <!-- Visite guidée -->
-    <div class="guide-tag" id="guideTag" aria-hidden="true"><i></i>Votre guide</div>
+    <div class="guide-tag" id="guideTag" aria-hidden="true"><i></i>Sarah</div>
     <section class="guide glass" id="guide" aria-live="polite" aria-label="Visite guidée">
       <div class="guide-top">
         <div class="guide-avatar" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="15" r="7"/><path d="M7 37c1.5-8 6.5-12 13-12s11.5 4 13 12"/></svg></div>
-        <div class="guide-who"><b>Votre guide · Centr Supply</b><span id="gStep">Accueil · 1/6</span></div>
+        <div class="guide-who"><b>Sarah · Centr Supply</b><span id="gStep">Accueil · 1/6</span></div>
         <button class="guide-play" id="gPlay" aria-label="Lancer la visite automatique"><svg class="ico"><use href="#i-play"/></svg><span>Visite auto</span></button>
       </div>
       <p class="guide-text" id="gText"></p>
@@ -497,9 +497,9 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
     <!-- HUD final -->
     <div class="hud hud-chips">
       <div class="glass hchip"><small>Entrepôt Caen</small><span class="live"><i></i>Démo en direct</span></div>
-      <div class="glass hchip"><small>Préparation</small><b>1,50 € <span>/ cde</span></b></div>
+      <div class="glass hchip"><small>Préparation</small><b>0,79 € <span>/ cde</span></b></div>
       <div class="glass hchip x"><small>Retours</small><b>2 € <span>/ retour</span></b></div>
-      <div class="glass hchip x"><small>Engagement</small><b>Aucun</b></div>
+      <div class="glass hchip x"><small>Stockage</small><b>Offert</b></div>
     </div>
     <aside class="hud hud-panel glass" id="panel" aria-live="polite"></aside>
     <div class="hud hud-track glass">
@@ -626,9 +626,10 @@ footer{border-top:1px solid var(--line);padding-block:56px 40px;font-size:15px}
       </div>
     </div>
     <div class="board reveal" style="--i:1">
-      <article class="svc"><div class="si"><svg class="ico"><use href="#i-cart"/></svg></div><div><h3>Préparation de commandes</h3><p>On reçoit vos commandes, on prépare, on emballe et on expédie depuis la France.</p></div><div class="price"><small>à partir de</small><b>1,50 €</b><small>par commande</small></div></article>
+      <article class="svc feature"><div class="si"><svg class="ico"><use href="#i-cart"/></svg></div><div><h3>Préparation de commandes</h3><p>On reçoit vos commandes, on prépare et on expédie depuis la France. <strong>Articles en plus offerts.</strong> Emballage fourni de 0,10 à 0,30 €, ou offert si vous fournissez le vôtre.</p></div><div class="price"><small>à partir de</small><b>0,79 €</b><small>par commande</small></div></article>
+      <article class="svc"><div class="si"><svg class="ico"><use href="#i-archive"/></svg></div><div><h3>Stockage</h3><p>Offert. Au-delà de 3 mois sans mouvement : 2 € par bac de 26 L et par mois. <strong>Aucun frais fixe</strong>, transport refacturé au prix coûtant.</p></div><div class="price"><small>stockage</small><b>Offert</b><small>3 mois glissants</small></div></article>
       <article class="svc"><div class="si"><svg class="ico"><use href="#i-gift"/></svg></div><div><h3>Kitting et conditionnement</h3><p>Coffrets, packs, lots, ré-étiquetage, mise sous sachet. <strong>Du temps gagné</strong> pour vous.</p></div><div class="price"><small>à partir de</small><b>0,50 €</b><small>par kit</small></div></article>
-      <article class="svc feature"><div class="si"><svg class="ico"><use href="#i-return"/></svg></div><div><h3>Retours e-commerce</h3><p>Vos clients renvoient en France, on contrôle et on remet en stock. <strong>Pratique si vous êtes basé hors d'Europe.</strong></p></div><div class="price"><small>à partir de</small><b>2 €</b><small>par retour</small></div></article>
+      <article class="svc"><div class="si"><svg class="ico"><use href="#i-return"/></svg></div><div><h3>Retours e-commerce</h3><p>Vos clients renvoient en France, on contrôle et on remet en stock. <strong>Pratique si vous êtes basé hors d'Europe.</strong></p></div><div class="price"><small>à partir de</small><b>2 €</b><small>par retour</small></div></article>
       <article class="svc"><div class="si"><svg class="ico"><use href="#i-tag"/></svg></div><div><h3>Réception pour revendeurs</h3><p><strong>Pas de local ?</strong> On reçoit vos lots, on trie, on étiquette et on expédie à chaque vente.</p></div><div class="price"><small>à partir de</small><b>0,30 €</b><small>par article</small></div></article>
       <article class="svc"><div class="si"><svg class="ico"><use href="#i-swap"/></svg></div><div><h3>Cross-docking</h3><p>Réception, regroupement et réexpédition rapide, sans stockage long.</p></div><div class="price"><small>à partir de</small><b>8 €</b><small>par palette</small></div></article>
     </div>
@@ -848,8 +849,8 @@ form.addEventListener('submit', function(e){
 var INFO = {
   accueil:{ico:'chat',k:'Accueil',t:'Accueil & devis',pill:'Réponse sur WhatsApp',rows:[['Interlocuteur','Un seul, du devis à l\'envoi'],['Visite','Entrepôt ouvert aux clients'],['Engagement','Aucun']],note:'On vous reçoit à Caen, ou on répond sur WhatsApp avec un devis clair.'},
   site:{ico:'warehouse',k:'Site · Caen (14)',t:'Entrepôt Centr Supply',pill:'Sans engagement',rows:[['Accepté','Colis, cartons, palettes'],['Palettes','Livraison avec hayon'],['Non accepté','Semi-remorque complet']],note:'Un entrepôt que vous pouvez venir voir. Cliquez sur les repères pour explorer chaque zone.'},
-  bacs:{ico:'archive',k:'Stockage',t:'Bacs identifiés',pill:'Vous payez à l\'usage',rows:[['Rangement','Par client, en bacs'],['Lots','Entiers ou fractionnés'],['Réception revendeurs','dès 0,30 € / article']],note:'Les voyants bleus montrent les bacs scannés.'},
-  prepa:{ico:'cart',k:'Préparation',t:'Poste de préparation',pill:'dès 1,50 € / commande',rows:[['Kitting','dès 0,50 € / kit'],['Emballage','Avec soin, à vos consignes'],['Départ','Depuis la France']],note:'Chaque commande est préparée et emballée à la main.'},
+  bacs:{ico:'archive',k:'Stockage',t:'Bacs identifiés',pill:'Stockage offert',rows:[['Rangement','Par client, en bacs'],['Après 3 mois sans mouvement','2 € / bac / mois'],['Réception revendeurs','dès 0,30 € / article']],note:'Les voyants bleus montrent les bacs scannés.'},
+  prepa:{ico:'cart',k:'Préparation',t:'Poste de préparation',pill:'dès 0,79 € / commande',rows:[['Articles en plus','Offerts'],['Emballage','0,10 à 0,30 € ou offert si fourni'],['Départ','Depuis la France']],note:'Chaque commande est préparée et emballée à la main.'},
   retours:{ico:'return',k:'Retours',t:'Zone retours',pill:'dès 2 € / retour',rows:[['Adresse','En France'],['Contrôle','Remise en stock'],['Idéal pour','Vendeurs hors Europe']],note:'Vos clients renvoient en France, pas à l\'autre bout du monde.'},
   reception:{ico:'swap',k:'Réception',t:'Réception & cross-docking',pill:'dès 8 € / palette',rows:[['Arrivages','Colis, cartons, palettes'],['Cross-docking','Regroupement, réexpédition'],['Import','Via nos transitaires']],note:'On contrôle à l\'arrivée et on range.'},
   van:{ico:'truck',k:'Expédition',t:'Collecte transporteur',pill:'Suivi transmis',rows:[['Départ','Caen'],['Suivi','Numéro de suivi'],['Stock','Point régulier']],note:'Les colis partent dès qu\'ils sont prêts.'},
@@ -1175,12 +1176,13 @@ lobby.traverse(function(c){ if(c.isMesh) c.userData.parentKey = 'accueil'; });
 window.__lobbySign = function(){ lsMat.map = signCanvas(false); lsMat.needsUpdate = true; lsGlow.material.map = signCanvas(true); lsGlow.material.needsUpdate = true; };
 if(document.fonts && document.fonts.status === 'loaded') window.__lobbySign();
 
-var hostess = makePerson({skin:0xd8a27a, top:0x25262b, pants:0x1a1b20, shoe:0x121214, hair:0x1d140e, long:true, key:'accueil'});
+var hostess = makePerson({skin:0xd8a27a, top:0x25262b, pants:0x3a2e2a, skirt:0x1b1c21, shoe:0x121214, hair:0x1d140e, long:true, bun:true, key:'accueil'});
 var hsM = std(0x111214, {r:.4});
 var band = new THREE.Mesh(new THREE.TorusGeometry(.118, .008, 6, 20, Math.PI), hsM); band.position.set(0, .2, -.005); hostess.head.add(band);
 var boom = new THREE.Mesh(new THREE.CylinderGeometry(.005, .005, .13, 6), hsM); boom.position.set(-.085, .15, .06); boom.rotation.x = Math.PI / 2.4; hostess.head.add(boom);
 var badge = new THREE.Mesh(new THREE.BoxGeometry(.06, .085, .006), glow(1.4, 1.25, 1.0)); badge.position.set(-.08, .42, .13); hostess.torso.add(badge);
 hostess.g.position.set(-3.55, 0.12, 3.9); hostess.g.rotation.y = Math.PI / 2;
+
 var HOLDS = [
   {p0:0,    p1:.335, pos:[-3.55, 3.9]},
   {p0:.40,  p1:.465, pos:[0.2, -2.7],  point:[-2.2, -5.2]},
@@ -1194,7 +1196,7 @@ var TRANS = [
   makePath([[4.2, -0.4], [0.6, 0.4], [-3.2, -0.2], [-5.8, -0.5]]),
   makePath([[-5.8, -0.5], [-1.6, 1.6], [0.2, 3.2], [0.6, 4.6]])
 ];
-var hState = {phase:0, last:new THREE.Vector3(-3.55, 0, 3.9), face:Math.PI / 2};
+var hState = {speed:0, phase:0, last:new THREE.Vector3(-3.55, 0, 3.9), face:Math.PI / 2};
 var talking = false;
 function hostessAt(p, dt){
   var x, z, hold = null, i;
@@ -1206,6 +1208,7 @@ function hostessAt(p, dt){
   if(x === undefined){ hold = HOLDS[HOLDS.length - 1]; x = hold.pos[0]; z = hold.pos[1]; }
   var g = hostess.g, dx = x - hState.last.x, dz = z - hState.last.z, dist = Math.hypot(dx, dz);
   g.position.set(x, 0.12, z); hState.last.set(x, 0, z);
+  hState.speed += ((dist / Math.max(dt, .001)) - hState.speed) * Math.min(1, dt * 8);
   var faceT;
   if(dist > 0.004){ faceT = Math.atan2(dx, dz); hState.phase += dist * 6.5; walk(hostess, hState.phase, .45); }
   else {
@@ -1251,6 +1254,7 @@ function makePerson(o){
   var hips = new THREE.Group(); hips.position.y = .93; g.add(hips);
   // bassin et jambes (cuisse, genou, tibia, chaussure)
   lathe([[0, -.13], [.1, -.12], [.155, -.07], [.165, 0], [.155, .05], [0, .06]], pants, hips, .72);
+  if(o.skirt){ lathe([[.16, .04], [.172, -.06], [.176, -.2], [.168, -.36], [.15, -.44], [0, -.44]], std(o.skirt, {r:.85}), hips, .78); }
   function leg(x){
     var thigh = seg(.088, .066, .45, pants, hips); thigh.position.set(x, -.04, 0);
     var knee = new THREE.Group(); knee.position.y = -.45; thigh.add(knee);
@@ -1586,12 +1590,12 @@ document.getElementById('rot').onclick = function(){ orbit.azT = orbit.azT > .5 
 
 /* ---------- Visite guidée ---------- */
 var STOPS = [
-  {p:.30,  step:'Accueil', text:"Bonjour et bienvenue chez Centr Supply ! Je vais vous faire visiter l'entrepôt. Ici, à Caen, on stocke, on prépare et on expédie pour des boutiques en ligne, des revendeurs et des commerces.", tag:'Sans engagement'},
-  {p:.43,  step:'Stockage', text:"Votre stock est rangé ici, dans des bacs à votre nom. Chaque bac est scanné à chaque mouvement, vous savez toujours ce qu'il vous reste. Colis, cartons ou palettes : vous payez ce que vous utilisez.", tag:'Réception revendeurs dès 0,30 € / article'},
-  {p:.55,  step:'Préparation', text:"Dès qu'une commande tombe, on la prépare et on l'emballe à la main, selon vos consignes : carte de remerciement, papier de soie, coffrets et kits.", tag:'Dès 1,50 € / commande · kits dès 0,50 €'},
+  {p:.30,  step:'Accueil', text:"Bonjour et bienvenue chez Centr Supply ! Je suis Sarah, je vais vous faire visiter l'entrepôt. Ici, à Caen, on stocke, on prépare et on expédie pour des boutiques en ligne, des revendeurs et des commerces.", tag:'Sans engagement'},
+  {p:.43,  step:'Stockage', text:"Votre stock est rangé ici, dans des bacs à votre nom, scannés à chaque mouvement. Le stockage est offert : 2 € par bac et par mois seulement si un bac ne bouge pas pendant 3 mois. Et aucun frais fixe.", tag:'Stockage offert'},
+  {p:.55,  step:'Préparation', text:"Dès qu'une commande tombe, on la prépare et on l'emballe à la main, selon vos consignes : carte de remerciement, papier de soie, coffrets. Les articles en plus sont offerts, et l'emballage aussi si vous fournissez le vôtre.", tag:'Dès 0,79 € / commande'},
   {p:.655, step:'Retours', text:"Vos clients renvoient leurs colis ici, en France. On contrôle chaque produit et on le remet en stock s'il est en bon état. Pratique si vous êtes basé hors d'Europe.", tag:'Dès 2 € / retour'},
-  {p:.76,  step:'Expédition', text:"Et ça part ! Le transporteur récupère les colis devant la porte, et le numéro de suivi est transmis. On réceptionne aussi vos palettes pour du cross-docking.", tag:'Cross-docking dès 8 € / palette'},
-  {p:.97,  step:'À vous', text:"Voilà pour la visite ! Cliquez sur une zone pour la revoir, ou écrivez-nous sur WhatsApp : on vous répond avec un devis clair.", tag:'Réponse rapide sur WhatsApp'}
+  {p:.76,  step:'Expédition', text:"Et ça part ! Le transporteur récupère les colis devant la porte et le suivi est transmis. Le transport est refacturé au prix coûtant, sans marge. On réceptionne aussi vos palettes pour du cross-docking.", tag:'Transport au prix coûtant'},
+  {p:.97,  step:'À vous', text:"Voilà pour la visite, merci d'être passé ! Cliquez sur une zone pour la revoir, ou écrivez-nous sur WhatsApp : on vous répond avec un devis clair.", tag:'Réponse rapide sur WhatsApp'}
 ];
 var guide = document.getElementById('guide'), gText = document.getElementById('gText'), gStep = document.getElementById('gStep'), gTag = document.getElementById('gTag');
 var gDots = document.getElementById('gDots'), gPlay = document.getElementById('gPlay'), gNext = document.getElementById('gNext'), gPrev = document.getElementById('gPrev');
