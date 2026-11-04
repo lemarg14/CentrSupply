@@ -1,11 +1,12 @@
 <title>CENTR Group</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="CENTR Group — Global Commerce Infrastructure. Sourcing, import-export, logistique, distribution et technologie pour les entreprises qui achètent et vendent des marchandises.">
+<meta name="theme-color" content="#0A1730">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: institutional infrastructure group — deep navy bands (hero, group, closing) alternate with cool white working sections; International Orange marks only the flow of goods and the actions */
+/* Layout: institutional infrastructure group — navy bands alternate with cool white working sections; International Orange marks only the flow of goods and actions. Phone: app-like — swipe rails, accordions, fixed action bar */
 :root{
   --bg:#F4F6F9; --surface:#FFFFFF; --ink:#0A1730; --muted:#55627A; --line:#D5DBE5;
   --navy:#0A1730; --navy-2:#11234A; --navy-fg:#EEF2F8; --navy-muted:#9AA8C2; --navy-line:#22365E;
@@ -15,6 +16,7 @@
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
   --wrap:1200px;
+  --gl:max(20px,env(safe-area-inset-left,0px)); --gr:max(20px,env(safe-area-inset-right,0px));
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#070F1F; --surface:#0D1A33; --ink:#EEF2F8; --muted:#97A5BE; --line:#1E2F52;
@@ -28,11 +30,11 @@
   --ok:#3CC891; --warn:#F2B04A; --risk:#FF7A66; color-scheme:dark}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
 a{color:inherit}
-.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
 h1,h2,h3{font-family:var(--display);font-stretch:112%;line-height:1.04;letter-spacing:-.02em;margin:0;text-wrap:balance}
 h2{font-size:clamp(1.9rem,4.4vw,3.3rem);font-weight:750}
 h3{font-size:1.22rem;font-weight:700;font-stretch:105%;letter-spacing:-.01em}
@@ -41,11 +43,12 @@ p{margin:0}
 .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);display:flex;gap:.6rem;align-items:center}
 .eyebrow::before{content:"";width:18px;height:2px;background:currentColor;flex:none}
 .lede{color:var(--muted);font-size:1.1rem;max-width:58ch}
-section{padding-block:clamp(64px,9vw,120px)}
+section{padding-block:clamp(64px,9vw,120px);scroll-margin-top:64px}
 .sec-head{display:grid;gap:16px;margin-bottom:clamp(32px,5vw,48px);max-width:780px}
 :focus-visible{outline:2px solid var(--orange);outline-offset:3px}
 .dark{background:var(--navy);color:var(--navy-fg)}
 .dark .lede{color:var(--navy-muted)}
+.only-m{display:none!important}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font:600 .95rem/1 var(--body);padding:15px 22px;border-radius:2px;text-decoration:none;border:1.5px solid currentColor;cursor:pointer;transition:transform .2s,background .2s,color .2s}
@@ -70,23 +73,25 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .nav-links a:hover{color:var(--navy-fg)}
 .nav-right{display:flex;align-items:center;gap:10px}
 .nav .btn{padding:11px 16px;font-size:.86rem}
-.menu-btn{all:unset;cursor:pointer;display:none;width:42px;height:42px;place-items:center;border:1px solid var(--navy-line);border-radius:2px}
-.menu-btn span{display:block;width:18px;height:2px;background:var(--navy-fg);box-shadow:0 6px 0 var(--navy-fg),0 -6px 0 var(--navy-fg)}
+.menu-btn{all:unset;cursor:pointer;display:none;width:44px;height:44px;place-items:center;border-radius:12px;background:var(--navy-2)}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--navy-fg);box-shadow:0 6px 0 var(--navy-fg),0 -6px 0 var(--navy-fg);transition:.2s}
+.menu-btn[aria-expanded="true"] span{box-shadow:none;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::after{content:"";display:block;width:18px;height:2px;background:var(--navy-fg);transform:rotate(-90deg)}
 .menu-btn:focus-visible{outline:2px solid var(--orange)}
 .mobile-menu{background:var(--navy);border-bottom:1px solid var(--navy-line)}
-.mobile-menu ul{list-style:none;margin:0;padding:8px 0 20px;display:grid}
-.mobile-menu a{display:block;padding:14px 0;text-decoration:none;font-family:var(--display);font-stretch:115%;font-weight:700;font-size:1.3rem;color:var(--navy-fg);border-bottom:1px solid var(--navy-line)}
+.mobile-menu ul{list-style:none;margin:0;padding:6px 0 18px;display:grid}
+.mobile-menu a{display:flex;justify-content:space-between;align-items:center;padding:15px 0;text-decoration:none;font-family:var(--display);font-stretch:115%;font-weight:700;font-size:1.25rem;color:var(--navy-fg);border-bottom:1px solid var(--navy-line)}
+.mobile-menu a::after{content:"→";font-family:var(--mono);font-size:.9rem;color:var(--navy-muted)}
 @media (max-width:960px){.nav-links{display:none}.menu-btn{display:grid}}
-@media (max-width:560px){.nav .btn-primary{display:none}.logo small{display:none}}
 
 /* hero */
 .hero{padding-block:clamp(40px,7vw,96px) clamp(48px,8vw,104px)}
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,5vw,64px);align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
 .hero-copy{display:grid;gap:24px;min-width:0}
 .hero h1{font-size:clamp(2.35rem,6.4vw,5.3rem);font-weight:800;font-stretch:118%}
 .hero h1 em{font-style:normal;color:var(--orange)}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
-.hero-ctas .btn-ghost{color:var(--navy-fg)}
+.hero-ctas .btn-ghost,.closing .btn-ghost{color:var(--navy-fg)}
 .hero-meta{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:8px 32px;border-top:1px solid var(--navy-line);padding-top:20px}
 .hero-meta div{display:grid;gap:2px}
 .hero-meta b{font-family:var(--display);font-stretch:118%;font-weight:750;font-size:1.6rem;line-height:1}
@@ -114,20 +119,13 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .t-sea{color:var(--steel)}.t-qc{color:var(--orange)}.t-wh{color:#5FD3A8}
 .map-note{margin-top:10px;font-family:var(--mono);font-size:.62rem;color:var(--navy-muted)}
 @media (max-width:960px){.hero .wrap{grid-template-columns:1fr}}
-@media (max-width:560px){
-  .hero-ctas .btn{width:100%}
-  .hero-meta{grid-template-columns:repeat(3,1fr);gap:8px 14px}
-  .hero-meta b{font-size:1.35rem}
-  .hero-meta span{font-size:.6rem}
-  .map{padding:14px;margin-inline:-4px}
-}
 
 /* fragmentation */
 .frag{background:var(--surface);border-bottom:1px solid var(--line)}
 .frag-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
 .frag-grid>*{min-width:0}
 .chain{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
-.chain span{font-family:var(--mono);font-size:.74rem;padding:7px 10px;border:1px dashed var(--line);border-radius:2px;color:var(--muted);background:var(--bg)}
+.chain span{font-family:var(--mono);font-size:.74rem;padding:7px 10px;border:1px dashed var(--line);border-radius:2px;color:var(--muted);background:var(--bg);white-space:nowrap}
 .one{border:1.5px solid var(--ink);padding:clamp(20px,3vw,28px);display:grid;gap:18px;background:var(--bg)}
 .one-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
 .one-bar div{background:var(--navy);color:var(--navy-fg);font:600 .78rem/1.2 var(--body);padding:13px 6px;text-align:center}
@@ -138,9 +136,8 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .big{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(3.2rem,8vw,6rem);line-height:.9;letter-spacing:-.03em}
 .big small{display:block;font-family:var(--body);font-stretch:100%;font-weight:500;font-size:1rem;letter-spacing:0;color:var(--muted);margin-top:10px}
 @media (max-width:860px){.frag-grid{grid-template-columns:1fr}}
-@media (max-width:420px){.one-bar{grid-template-columns:1fr 1fr}}
 
-/* divisions */
+/* divisions (desktop tabs) */
 .div-shell{display:grid;grid-template-columns:320px 1fr;border:1px solid var(--line);background:var(--surface)}
 .div-tabs{display:flex;flex-direction:column;border-right:1px solid var(--line)}
 .div-tab{all:unset;cursor:pointer;display:grid;grid-template-columns:52px 1fr;gap:4px;align-items:baseline;padding:20px 22px;border-bottom:1px solid var(--line);transition:background .2s}
@@ -161,23 +158,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .svc span{font-size:.88rem;color:var(--muted)}
 .div-foot{display:flex;flex-wrap:wrap;gap:12px 28px;padding-top:18px;border-top:1px solid var(--line);font-size:.9rem}
 .div-foot .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
-@media (max-width:900px){
-  .div-shell{grid-template-columns:1fr}
-  .div-tabs{display:grid;grid-template-columns:repeat(3,1fr);border-right:0;border-bottom:1px solid var(--line)}
-  .div-tab{grid-template-columns:1fr;gap:2px;padding:14px 12px;border-bottom:0;border-right:1px solid var(--line);border-top:1px solid var(--line)}
-  .div-tab:nth-child(-n+3){border-top:0}
-  .div-tab:nth-child(3n){border-right:0}
-  .div-tab .ds{display:none}
-  .div-tab .nm{font-size:.9rem}
-  .div-tab[aria-selected="true"]{box-shadow:inset 0 -3px 0 var(--orange)}
-}
-@media (max-width:480px){
-  .div-tabs{grid-template-columns:1fr 1fr}
-  .div-tab{border-top:1px solid var(--line)!important;border-right:1px solid var(--line)!important}
-  .div-tab:nth-child(-n+2){border-top:0!important}
-  .div-tab:nth-child(2n){border-right:0!important}
-  .svc{grid-template-columns:1fr}
-}
+@media (max-width:960px){.div-shell{grid-template-columns:260px 1fr}}
 
 /* process */
 .steps{display:grid;grid-template-columns:repeat(6,1fr);border-top:2px solid var(--ink)}
@@ -186,13 +167,8 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .step:last-child::before{background:var(--orange);border-color:var(--orange)}
 .step .mono{color:var(--orange)}
 .step p{font-size:.9rem;color:var(--muted)}
+.step .n{display:none}
 @media (max-width:980px){.steps{grid-template-columns:repeat(3,1fr);row-gap:36px}}
-@media (max-width:620px){
-  .steps{grid-template-columns:1fr;border-top:0;border-left:2px solid var(--ink);row-gap:0;margin-left:6px}
-  .step{padding:0 0 26px 24px}
-  .step::before{top:2px;left:-7px}
-  .step:last-child{padding-bottom:0}
-}
 
 /* clients */
 .cl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--navy-line);border:1px solid var(--navy-line)}
@@ -201,8 +177,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .cl p{color:var(--navy-muted);font-size:.93rem}
 .needs{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .needs span{font-family:var(--mono);font-size:.66rem;padding:4px 8px;border:1px solid var(--navy-line);border-radius:2px;color:var(--navy-fg)}
-@media (max-width:900px){.cl-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:600px){.cl-grid{grid-template-columns:1fr}}
+@media (max-width:960px){.cl-grid{grid-template-columns:1fr 1fr}}
 
 /* markets */
 .mk-wrap{border:1px solid var(--line);background:var(--surface)}
@@ -213,23 +188,21 @@ table.mk{width:100%;border-collapse:collapse;font-size:.94rem}
 .mk .cc{font-family:var(--mono);font-weight:500;color:var(--orange);white-space:nowrap}
 .mk .country{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:1.05rem}
 .mk td.what{color:var(--muted)}
-.ph{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.68rem;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.ph{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.66rem;padding:4px 9px;border-radius:20px;white-space:nowrap}
 .ph::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
 .ph-1{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
 .ph-2{color:var(--link);background:color-mix(in srgb,var(--orange) 12%,transparent)}
 .ph-3{color:var(--muted);background:color-mix(in srgb,var(--muted) 14%,transparent)}
-@media (max-width:760px){
-  .mk thead{display:none}
-  .mk,.mk tbody,.mk tr,.mk td{display:block;width:100%}
-  .mk tr{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:18px;border-bottom:1px solid var(--line)}
-  .mk tr:last-child{border-bottom:0}
-  .mk td{padding:0;border:0}
-  .mk td.cc{grid-row:1;grid-column:1;padding-top:3px}
-  .mk td.country{grid-row:1;grid-column:2}
-  .mk td.role,.mk td.status,.mk td.what{grid-column:1/-1}
-  .mk td.role{font-weight:500;margin-top:4px}
-  .mk td.status{margin:4px 0}
-}
+.mk-list{display:grid;gap:8px}
+.mk-item{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.mk-item summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:10px;padding:14px 16px}
+.mk-item summary::-webkit-details-marker{display:none}
+.mk-item summary:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+.mk-item .cc{font-family:var(--mono);font-weight:500;font-size:.8rem;color:var(--orange);background:color-mix(in srgb,var(--orange) 10%,transparent);border-radius:8px;text-align:center;padding:8px 4px}
+.mk-item .nm{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:1.02rem;line-height:1.2;display:grid}
+.mk-item .nm small{font-family:var(--body);font-stretch:100%;font-weight:400;font-size:.8rem;color:var(--muted)}
+.mk-item .body{padding:0 16px 16px 78px;color:var(--muted);font-size:.92rem;display:grid;gap:10px}
+.mk-item[open]{border-color:var(--ink)}
 
 /* platform */
 .plat{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,64px);align-items:center}
@@ -257,18 +230,6 @@ table.mk{width:100%;border-collapse:collapse;font-size:.94rem}
 .st-risk{color:var(--risk);background:color-mix(in srgb,var(--risk) 12%,transparent)}
 .app-note{padding:10px 16px;font-family:var(--mono);font-size:.62rem;color:var(--muted)}
 @media (max-width:960px){.plat{grid-template-columns:1fr}}
-@media (max-width:600px){
-  .mods{grid-template-columns:1fr}
-  .kpis .v{font-size:1.15rem}
-  .kpis div{padding:12px}
-  .row.head{display:none}
-  .row{grid-template-columns:1fr auto;gap:2px 10px}
-  .row .po{grid-column:1;color:var(--muted)}
-  .row .eta{grid-column:2;grid-row:1;text-align:right}
-  .row .prod{grid-column:1/-1;font-weight:500;font-size:.88rem}
-  .row .lane-c{grid-column:1}
-  .row .stc{grid-column:2;grid-row:3;justify-self:end}
-}
 
 /* group */
 .group-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(36px,6vw,80px);align-items:start}
@@ -283,6 +244,7 @@ table.mk{width:100%;border-collapse:collapse;font-size:.94rem}
 .org-divs span{font-family:var(--mono);font-size:.62rem;color:var(--navy-muted);letter-spacing:.06em}
 .org-roles{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .org-roles span{font-family:var(--mono);font-size:.64rem;color:var(--navy-muted);padding:4px 8px;border:1px dashed var(--navy-line)}
+.tl-label{font-family:var(--mono);font-size:.72rem;color:var(--navy-muted);letter-spacing:.12em}
 .timeline{display:grid;margin-top:8px}
 .tl{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--navy-line)}
 .tl:last-child{border-bottom:1px solid var(--navy-line)}
@@ -292,11 +254,10 @@ table.mk{width:100%;border-collapse:collapse;font-size:.94rem}
 .tl.now .yr::after{content:" ●";animation:blink 1.6s infinite}
 @keyframes blink{50%{opacity:.2}}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--navy-line);border:1px solid var(--navy-line);margin-top:clamp(40px,6vw,64px)}
-.pillars div{background:var(--navy);padding:24px;display:grid;gap:8px}
+.pillars div{background:var(--navy);padding:24px;display:grid;gap:8px;align-content:start}
 .pillars .mono{color:var(--orange)}
 .pillars p{color:var(--navy-muted);font-size:.92rem}
-@media (max-width:900px){.group-grid{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}}
-@media (max-width:480px){.org-divs{grid-template-columns:1fr 1fr}.tl{grid-template-columns:1fr;gap:4px}}
+@media (max-width:960px){.group-grid{grid-template-columns:1fr}}
 
 /* engagement */
 .eng{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -306,7 +267,6 @@ table.mk{width:100%;border-collapse:collapse;font-size:.94rem}
 .eng>div.key .mono{color:var(--orange)}
 .eng p{color:var(--muted);font-size:.94rem}
 .eng .mono{color:var(--muted)}
-@media (max-width:860px){.eng{grid-template-columns:1fr}}
 
 /* comparison */
 table.cmp{width:100%;border-collapse:collapse}
@@ -316,16 +276,7 @@ table.cmp{width:100%;border-collapse:collapse}
 .cmp td.c{background:color-mix(in srgb,var(--orange) 8%,transparent);font-weight:600;color:var(--ink)}
 .cmp tbody th{font-weight:600}
 .cmp td{color:var(--muted)}
-@media (max-width:700px){
-  .cmp thead{display:none}
-  .cmp,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block;width:100%}
-  .cmp tr{border:1px solid var(--line);background:var(--surface);margin-bottom:10px}
-  .cmp tbody th{padding:12px 14px;border-bottom:1px solid var(--line);font-family:var(--display);font-stretch:112%}
-  .cmp td{display:grid;grid-template-columns:120px 1fr;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}
-  .cmp td:last-child{border-bottom:0}
-  .cmp td::before{content:attr(data-l);font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:400;padding-top:2px}
-  .cmp td.c::before{color:var(--orange)}
-}
+.seg{display:none}
 
 /* hub + contact */
 .hub{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,64px)}
@@ -333,6 +284,7 @@ table.cmp{width:100%;border-collapse:collapse}
 .facts{display:grid;margin-top:26px;border-top:1px solid var(--line)}
 .facts div{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem}
 .facts .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.quick{display:none}
 form.brief{border:1.5px solid var(--ink);padding:clamp(20px,3vw,34px);display:grid;gap:16px;background:var(--surface)}
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .f{display:grid;gap:6px;min-width:0}
@@ -348,19 +300,16 @@ form.brief{border:1.5px solid var(--ink);padding:clamp(20px,3vw,34px);display:gr
 .chips input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
 .form-out{font-size:.88rem;color:var(--muted)}
 .form-out a{color:var(--link);font-weight:600}
-.contact-line{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-family:var(--mono);font-size:.84rem;min-width:0;word-break:break-all}
-.copy{all:unset;cursor:pointer;font-family:var(--mono);font-size:.68rem;padding:4px 8px;border:1px solid var(--line);border-radius:2px;color:var(--muted);word-break:normal}
+.contact-line{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-family:var(--mono);font-size:.84rem;min-width:0}
+.copy{all:unset;cursor:pointer;font-family:var(--mono);font-size:.68rem;padding:4px 8px;border:1px solid var(--line);border-radius:2px;color:var(--muted)}
 .copy:hover{color:var(--ink);border-color:var(--ink)}
 .copy:focus-visible{outline:2px solid var(--orange)}
-@media (max-width:900px){.hub{grid-template-columns:1fr}}
-@media (max-width:540px){.f-row{grid-template-columns:1fr}.facts div{grid-template-columns:1fr;gap:2px}form.brief .btn{width:100%}}
+@media (max-width:960px){.hub{grid-template-columns:1fr}}
 
 /* closing + footer */
 .closing .wrap{display:grid;gap:26px;justify-items:start}
 .closing h2{font-size:clamp(2.1rem,6vw,4.6rem);font-stretch:122%;max-width:17ch}
 .closing h2 em{font-style:normal;color:var(--orange)}
-.closing .btn-ghost{color:var(--navy-fg)}
-@media (max-width:560px){.closing .btn{width:100%}}
 footer{padding-block:48px calc(32px + env(safe-area-inset-bottom,0px));font-size:.86rem;color:var(--navy-muted);border-top:1px solid var(--navy-line)}
 footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
 footer h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--navy-fg);margin:0 0 10px}
@@ -368,8 +317,189 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 footer a{text-decoration:none}
 footer a:hover{color:var(--navy-fg)}
 .legal{grid-column:1/-1;border-top:1px solid var(--navy-line);padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:.66rem}
-@media (max-width:760px){footer .wrap{grid-template-columns:1fr 1fr}footer .wrap>div:first-child{grid-column:1/-1}}
 
+/* fixed action bar (phone) */
+.mbar{display:none}
+.dots{display:none}
+
+/* =========================================================
+   PHONE — app format
+   ========================================================= */
+@media (max-width:720px){
+  .only-d{display:none!important}
+  .only-m{display:block!important}
+  .mk-list.only-m{display:grid!important}
+  body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  section{padding-block:44px;scroll-margin-top:60px}
+  .nav .wrap{height:58px}
+  .nav .btn-primary{display:none}
+  .logo{font-size:1.15rem}
+  .logo small{display:none}
+  h2{font-size:1.7rem;line-height:1.08}
+  h3{font-size:1.1rem}
+  .sec-head{gap:10px;margin-bottom:20px}
+  .lede{font-size:.98rem;line-height:1.55}
+  .eyebrow{font-size:.66rem}
+  .sec-head .eyebrow{justify-content:space-between}
+  .sec-head .eyebrow::after{content:attr(data-hint);font-size:.62rem;letter-spacing:.06em;color:var(--muted);text-transform:none}
+  .dark .sec-head .eyebrow::after{color:var(--navy-muted)}
+
+  /* action bar */
+  .mbar{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px var(--gr) calc(10px + env(safe-area-inset-bottom,0px)) var(--gl);background:color-mix(in srgb,var(--navy) 94%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--navy-line)}
+  .mbar .btn{border-radius:14px;padding:15px 12px;font-size:.95rem}
+  .mbar .btn-ghost{color:var(--navy-fg);border-color:var(--navy-line);background:var(--navy-2)}
+  .mbar .wa::before{content:"";width:8px;height:8px;border-radius:50%;background:#3CC891}
+
+  /* rails = swipe carousels */
+  .rail{display:flex!important;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;gap:10px;margin-left:calc(-1 * var(--gl));margin-right:calc(-1 * var(--gr));padding:2px var(--gr) 4px var(--gl);scroll-padding-left:var(--gl);scrollbar-width:none;background:none!important;border:0!important;-webkit-overflow-scrolling:touch}
+  .rail::-webkit-scrollbar{display:none}
+  .rail>*{flex:0 0 84%;scroll-snap-align:start;border-radius:16px!important}
+  .dots{display:flex;justify-content:center;gap:6px;margin-top:14px}
+  .dots i{width:6px;height:6px;border-radius:6px;background:var(--line);transition:width .25s,background .25s}
+  .dots i.on{width:20px;background:var(--orange)}
+  .dark .dots i{background:var(--navy-line)}
+  .dark .dots i.on{background:var(--orange)}
+
+  /* hero */
+  .hero{padding-block:28px 36px}
+  .hero .wrap{gap:24px}
+  .hero-copy{gap:16px}
+  .hero h1{font-size:2.15rem;line-height:1.02}
+  .hero .lede{font-size:1rem}
+  .hero-ctas{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hero-ctas .btn{border-radius:14px;padding:14px 10px;font-size:.9rem}
+  .hero-meta{grid-template-columns:repeat(3,1fr);gap:8px;border:0;padding:0}
+  .hero-meta div{background:var(--navy-2);border:1px solid var(--navy-line);border-radius:14px;padding:12px;gap:4px}
+  .hero-meta b{font-size:1.5rem}
+  .hero-meta span{font-size:.58rem}
+  .map{border-radius:18px;padding:14px}
+  .map-top{font-size:.62rem}
+  .ticker .tick:nth-child(3){display:none}
+  .map-note{display:none}
+
+  /* fragmentation */
+  .frag{padding-block:36px}
+  .frag-grid{gap:18px}
+  .frag .lede{display:none}
+  .chain{flex-wrap:nowrap;overflow-x:auto;margin:16px calc(-1 * var(--gr)) 0 calc(-1 * var(--gl));padding:0 var(--gr) 2px var(--gl);scrollbar-width:none}
+  .chain::-webkit-scrollbar{display:none}
+  .chain span{border-radius:20px;padding:7px 12px}
+  .one{border-radius:18px;padding:20px;gap:14px;border-width:1px}
+  .big{font-size:3.4rem}
+  .one-bar{border-radius:10px;overflow:hidden}
+  .one-bar div{font-size:.7rem;padding:11px 2px}
+  .one li{font-size:.92rem}
+
+  /* divisions cards */
+  .dv{background:var(--surface);border:1px solid var(--line);padding:20px;display:grid;gap:14px;align-content:start}
+  .dv-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .dv-code{font-family:var(--mono);font-size:.68rem;color:var(--orange)}
+  .dv-name{font-family:var(--display);font-stretch:122%;font-weight:800;font-size:.8rem;letter-spacing:.1em;color:var(--muted)}
+  .dv h3{font-size:1.45rem;font-stretch:115%}
+  .dv p{font-size:.92rem;color:var(--muted);line-height:1.5}
+  .dv ul{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+  .dv li{display:grid;grid-template-columns:18px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.9rem;font-weight:500}
+  .dv li::before{content:"✓";color:var(--orange);font-weight:700}
+  .dv .who{font-size:.82rem;color:var(--muted)}
+  .dv .who b{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;font-weight:500;text-transform:uppercase;margin-bottom:2px}
+
+  /* steps */
+  .steps{border:0}
+  .step{background:var(--surface);border:1px solid var(--line);padding:20px;gap:10px;min-height:190px}
+  .step::before{display:none}
+  .step .n{display:flex;justify-content:space-between;align-items:center}
+  .step .n b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:2.2rem;line-height:1;color:var(--line)}
+  .step:last-child{background:var(--navy);color:var(--navy-fg);border-color:var(--navy)}
+  .step:last-child p{color:var(--navy-muted)}
+  .step:last-child .n b{color:var(--orange)}
+  .steps>*{flex-basis:70%!important}
+
+  /* clients */
+  .cl{border:1px solid var(--navy-line);background:var(--navy-2);padding:20px;min-height:220px}
+
+  /* markets */
+  .mk-wrap{display:none}
+
+  /* platform */
+  .plat{gap:22px}
+  .mods{display:flex;overflow-x:auto;gap:8px;margin:18px calc(-1 * var(--gr)) 0 calc(-1 * var(--gl));padding:0 var(--gr) 2px var(--gl);scrollbar-width:none}
+  .mods::-webkit-scrollbar{display:none}
+  .mods div{flex:0 0 auto;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:var(--surface)}
+  .mods span{display:none}
+  .app{border-radius:18px}
+  .kpis .v{font-size:1.15rem}
+  .kpis div{padding:12px}
+  .row.head{display:none}
+  .row{grid-template-columns:1fr auto;gap:3px 10px;padding:12px 14px}
+  .row .po{grid-column:1;color:var(--muted)}
+  .row .eta{grid-column:2;grid-row:1;text-align:right;color:var(--muted)}
+  .row .prod{grid-column:1/-1;font-weight:600;font-size:.9rem}
+  .row .lane-c{grid-column:1}
+  .row .stc{grid-column:2;grid-row:3;justify-self:end}
+
+  /* engagement */
+  .eng>div{min-height:200px;padding:22px}
+
+  /* comparison */
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:14px}
+  .seg button{all:unset;cursor:pointer;text-align:center;padding:11px 8px;border-radius:10px;font-size:.88rem;font-weight:600;color:var(--muted)}
+  .seg button[aria-pressed="true"]{background:var(--navy);color:var(--navy-fg)}
+  .seg button:focus-visible{outline:2px solid var(--orange)}
+  .cmp thead{display:none}
+  .cmp,.cmp tbody{display:grid;gap:8px}
+  .cmp tr{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .cmp tbody th{grid-column:1/-1;padding:12px 14px 6px;border:0;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+  .cmp td{display:none;padding:8px 14px 14px;border:0;font-size:.92rem}
+  .cmp td::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px;opacity:.75}
+  .cmp td.c{display:block;background:color-mix(in srgb,var(--orange) 9%,transparent);border-left:1px solid var(--line)}
+  .cmp td.c::before{color:var(--orange);opacity:1}
+  .cmp.vs-a td.a,.cmp.vs-o td.o{display:block}
+
+  /* group */
+  .group-grid{gap:28px}
+  .org-top{border-radius:14px;padding:14px 16px}
+  .org-top b{font-size:1.1rem}
+  .org-divs{gap:6px}
+  .org-divs div{border-radius:10px;padding:10px 8px}
+  .org-divs b{font-size:.74rem}
+  .org-divs span{display:none}
+  .org-roles{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .org-roles span{flex:none;border-radius:20px}
+  .timeline{margin-top:12px}
+  .tl{display:grid;grid-template-columns:1fr;gap:8px;background:var(--navy-2);border:1px solid var(--navy-line)!important;padding:18px;min-height:150px;align-content:start}
+  .tl>*{min-width:0}
+  .timeline>*{flex-basis:66%!important}
+  .pillars{margin-top:28px}
+  .pillars div{background:var(--navy-2);border:1px solid var(--navy-line);min-height:150px}
+
+  /* contact */
+  .hub{gap:22px}
+  .facts{display:none}
+  .quick{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+  .qa{display:grid;gap:4px;padding:14px;border-radius:16px;border:1px solid var(--line);background:var(--surface);text-decoration:none;min-width:0}
+  .qa b{font-size:.95rem}
+  .qa span{font-family:var(--mono);font-size:.68rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .qa.wa{background:var(--navy);color:var(--navy-fg);border-color:var(--navy)}
+  .qa.wa span{color:var(--navy-muted)}
+  .qa.full{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center}
+  form.brief{border-radius:20px;border-width:1px;padding:20px;gap:14px}
+  .f-row{grid-template-columns:1fr}
+  .f input,.f select,.f textarea{border-radius:12px;padding:14px}
+  .chips span{border-radius:20px}
+  form.brief .btn{border-radius:14px;width:100%}
+
+  /* closing + footer */
+  .closing h2{font-size:2rem}
+  .closing .hero-ctas{width:100%}
+  footer{padding-block:32px 20px}
+  footer .wrap{grid-template-columns:1fr;gap:18px}
+  footer .fcol{display:none}
+  .legal{flex-direction:column}
+}
+@media (max-width:360px){
+  .hero h1{font-size:1.9rem}
+  .hero-ctas{grid-template-columns:1fr}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 
@@ -395,8 +525,9 @@ footer a:hover{color:var(--navy-fg)}
         <li><a href="#methode">Méthode</a></li>
         <li><a href="#clients">Clients</a></li>
         <li><a href="#marches">Marchés</a></li>
+        <li><a href="#plateforme">Plateforme</a></li>
         <li><a href="#groupe">Le groupe</a></li>
-        <li><a href="#contact" style="color:var(--orange)">Soumettre un brief →</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -409,7 +540,7 @@ footer a:hover{color:var(--navy-fg)}
     <div class="hero-copy">
       <div class="eyebrow">Global Commerce Infrastructure</div>
       <h1>L'infrastructure qui relie la production mondiale <em>aux marchés.</em></h1>
-      <p class="lede">CENTR organise l'approvisionnement, l'import, le stockage et la distribution des marchandises de ses clients. Un interlocuteur, un contrat, une visibilité complète sur toute la chaîne.</p>
+      <p class="lede">CENTR organise l'approvisionnement, l'import, le stockage et la distribution de vos marchandises. Un interlocuteur, un contrat, toute la chaîne.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#contact">Parler à un opérateur <span class="arr">→</span></a>
         <a class="btn btn-ghost" href="#divisions">Nos divisions</a>
@@ -472,19 +603,19 @@ footer a:hover{color:var(--navy-fg)}
   <div class="wrap frag-grid">
     <div>
       <div class="eyebrow">Le problème</div>
-      <h2 style="margin-top:16px">Importer, c'est gérer dix prestataires qui ne se parlent pas.</h2>
+      <h2 style="margin-top:14px">Importer, c'est gérer dix prestataires qui ne se parlent pas.</h2>
       <p class="lede" style="margin-top:18px">Chacun a ses tarifs, ses délais, ses outils et ses contraintes. Le coût caché, c'est votre temps, vos erreurs de coordination et vos marges qui s'érodent.</p>
       <div class="chain" aria-label="Acteurs d'une chaîne d'import classique">
-        <span>Agent de sourcing</span><span>Fabricant</span><span>Contrôle qualité</span><span>Transitaire</span><span>Commissionnaire en douane</span><span>Transporteur</span><span>Entrepôt</span><span>Préparateur de commandes</span><span>Distributeur</span><span>3 logiciels + Excel + WhatsApp</span>
+        <span>Agent de sourcing</span><span>Fabricant</span><span>Contrôle qualité</span><span>Transitaire</span><span>Commissionnaire en douane</span><span>Transporteur</span><span>Entrepôt</span><span>Préparateur</span><span>Distributeur</span><span>3 logiciels + Excel</span>
       </div>
     </div>
     <div class="one">
       <div class="big">10 → 1<small>interlocuteur pour faire circuler vos marchandises</small></div>
       <div class="one-bar" aria-hidden="true"><div>Sourcing</div><div>Import</div><div>Stock</div><div>Distribution</div></div>
       <ul>
-        <li>CENTR pilote la relation client, les flux, les données et le réseau de partenaires.</li>
+        <li>CENTR pilote les flux, les données et le réseau de partenaires.</li>
         <li>Les opérations réglementées sont réalisées par des professionnels habilités, coordonnés par nos équipes.</li>
-        <li>Vous suivez tout depuis un seul tableau de bord, du bon de commande à la livraison.</li>
+        <li>Vous suivez tout depuis un seul tableau de bord.</li>
       </ul>
     </div>
   </div>
@@ -494,13 +625,17 @@ footer a:hover{color:var(--navy-fg)}
 <section id="divisions">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Six divisions, une chaîne</div>
+      <div class="eyebrow" data-hint="Glissez →">Six divisions</div>
       <h2>Chaque maillon du commerce international, sous une même marque.</h2>
       <p class="lede">Commencez par un besoin précis. Ajoutez les autres divisions quand vos volumes le justifient.</p>
     </div>
-    <div class="div-shell">
+    <div class="div-shell only-d">
       <div class="div-tabs" role="tablist" aria-label="Divisions CENTR" id="tabs"></div>
       <div class="div-panel" role="tabpanel" id="panel" tabindex="0"></div>
+    </div>
+    <div class="only-m">
+      <div class="rail" id="r-div" aria-label="Divisions CENTR"></div>
+      <div class="dots" data-for="r-div"></div>
     </div>
   </div>
 </section>
@@ -509,17 +644,18 @@ footer a:hover{color:var(--navy-fg)}
 <section id="methode" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Méthode</div>
+      <div class="eyebrow" data-hint="6 étapes →">Méthode</div>
       <h2>Un flux complet, de votre brief à votre client final.</h2>
     </div>
-    <div class="steps">
-      <div class="step"><span class="mono">BRIEF</span><h3>Cadrage</h3><p>Produit, volumes, prix cible, marché, contraintes réglementaires.</p></div>
-      <div class="step"><span class="mono">SOURCING</span><h3>Fournisseurs</h3><p>Présélection, vérification, négociation : prix, MOQ, délais, paiement.</p></div>
-      <div class="step"><span class="mono">QC</span><h3>Contrôle qualité</h3><p>Échantillons, inspections en production et avant expédition.</p></div>
-      <div class="step"><span class="mono">TRADE</span><h3>Transport & douane</h3><p>Mer, air, rail, route. Documents et formalités coordonnés avec des représentants habilités.</p></div>
-      <div class="step"><span class="mono">LOGISTICS</span><h3>Stock & préparation</h3><p>Réception, stockage, picking, kitting, expéditions B2C et B2B, retours.</p></div>
-      <div class="step"><span class="mono">DISTRIBUTION</span><h3>Mise en marché</h3><p>Livraison à vos clients, revendeurs ou magasins, en France et en Europe.</p></div>
+    <div class="steps rail" id="r-steps">
+      <div class="step"><div class="n"><span class="mono">BRIEF</span><b>1</b></div><span class="mono only-d">BRIEF</span><h3>Cadrage</h3><p>Produit, volumes, prix cible, marché, contraintes réglementaires.</p></div>
+      <div class="step"><div class="n"><span class="mono">SOURCING</span><b>2</b></div><span class="mono only-d">SOURCING</span><h3>Fournisseurs</h3><p>Présélection, vérification, négociation : prix, MOQ, délais, paiement.</p></div>
+      <div class="step"><div class="n"><span class="mono">QC</span><b>3</b></div><span class="mono only-d">QC</span><h3>Contrôle qualité</h3><p>Échantillons, inspections en production et avant expédition.</p></div>
+      <div class="step"><div class="n"><span class="mono">TRADE</span><b>4</b></div><span class="mono only-d">TRADE</span><h3>Transport & douane</h3><p>Mer, air, rail, route. Formalités coordonnées avec des représentants habilités.</p></div>
+      <div class="step"><div class="n"><span class="mono">LOGISTICS</span><b>5</b></div><span class="mono only-d">LOGISTICS</span><h3>Stock & préparation</h3><p>Réception, stockage, picking, kitting, expéditions B2C et B2B, retours.</p></div>
+      <div class="step"><div class="n"><span class="mono">DISTRIBUTION</span><b>6</b></div><span class="mono only-d">DISTRIBUTION</span><h3>Mise en marché</h3><p>Livraison à vos clients, revendeurs ou magasins, en France et en Europe.</p></div>
     </div>
+    <div class="dots" data-for="r-steps"></div>
   </div>
 </section>
 
@@ -527,18 +663,19 @@ footer a:hover{color:var(--navy-fg)}
 <section class="dark" id="clients">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Pour qui</div>
+      <div class="eyebrow" data-hint="Glissez →">Pour qui</div>
       <h2>Toute entreprise qui achète et vend des marchandises.</h2>
-      <p class="lede">Tous secteurs, toutes catégories de produits. Nous privilégions les relations récurrentes aux missions ponctuelles.</p>
+      <p class="lede">Tous secteurs, toutes catégories de produits. Nous privilégions les relations récurrentes.</p>
     </div>
-    <div class="cl-grid">
-      <div class="cl"><span class="mono">CLIENT · 01</span><h3>Marques e-commerce</h3><p>Des marques qui ont déjà de la traction et veulent sécuriser leur chaîne d'approvisionnement.</p><div class="needs"><span>Sourcing</span><span>Import</span><span>Fulfillment</span><span>Retours</span></div></div>
-      <div class="cl"><span class="mono">CLIENT · 02</span><h3>Grossistes & distributeurs</h3><p>Ils achètent en volume et réassortissent régulièrement. Nous structurons leurs achats et leur logistique B2B.</p><div class="needs"><span>Négociation</span><span>QC</span><span>Palettes</span><span>Distribution B2B</span></div></div>
+    <div class="cl-grid rail" id="r-cl">
+      <div class="cl"><span class="mono">CLIENT · 01</span><h3>Marques e-commerce</h3><p>Des marques qui ont de la traction et veulent sécuriser leur chaîne d'approvisionnement.</p><div class="needs"><span>Sourcing</span><span>Import</span><span>Fulfillment</span><span>Retours</span></div></div>
+      <div class="cl"><span class="mono">CLIENT · 02</span><h3>Grossistes & distributeurs</h3><p>Ils achètent en volume et réassortissent souvent. Nous structurons leurs achats et leur logistique B2B.</p><div class="needs"><span>Négociation</span><span>QC</span><span>Palettes</span><span>B2B</span></div></div>
       <div class="cl"><span class="mono">CLIENT · 03</span><h3>Fabricants</h3><p>Asiatiques, turcs ou européens qui veulent accéder au marché européen sans monter leur propre réseau.</p><div class="needs"><span>Représentation</span><span>Stock UE</span><span>Prospection</span></div></div>
       <div class="cl"><span class="mono">CLIENT · 04</span><h3>Chaînes de magasins</h3><p>Un fournisseur centralisé, un stock national et le réapprovisionnement de chaque point de vente.</p><div class="needs"><span>Achats</span><span>Réassort</span><span>Visibilité stock</span></div></div>
       <div class="cl"><span class="mono">CLIENT · 05</span><h3>Importateurs</h3><p>Ils savent importer. Ils veulent de meilleurs prix, plus de fournisseurs et moins d'opérationnel.</p><div class="needs"><span>Diversification</span><span>Délais</span><span>Externalisation</span></div></div>
-      <div class="cl"><span class="mono">CLIENT · 06</span><h3>PME industrielles</h3><p>D'excellents produits, peu de ressources pour exporter. Nous devenons leur bras commercial et logistique.</p><div class="needs"><span>Export</span><span>Distributeurs</span><span>Flux internationaux</span></div></div>
+      <div class="cl"><span class="mono">CLIENT · 06</span><h3>PME industrielles</h3><p>D'excellents produits, peu de ressources pour exporter. Nous devenons leur bras commercial et logistique.</p><div class="needs"><span>Export</span><span>Distributeurs</span><span>Flux</span></div></div>
     </div>
+    <div class="dots" data-for="r-cl"></div>
   </div>
 </section>
 
@@ -546,24 +683,17 @@ footer a:hover{color:var(--navy-fg)}
 <section id="marches">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Corridors</div>
+      <div class="eyebrow" data-hint="Touchez un pays">Corridors</div>
       <h2>Un réseau d'abord, des implantations ensuite.</h2>
-      <p class="lede">Nous intervenons dans un pays par nos partenaires, puis nous nous y implantons quand les volumes le justifient.</p>
+      <p class="lede">Nous intervenons par nos partenaires, puis nous nous implantons quand les volumes le justifient.</p>
     </div>
     <div class="mk-wrap">
       <table class="mk">
         <thead><tr><th>Code</th><th>Marché</th><th>Rôle dans le réseau</th><th>Statut</th><th>Ce que nous y faisons</th></tr></thead>
-        <tbody>
-          <tr><td class="cc">FR</td><td class="country">France</td><td class="role">Marché socle</td><td class="status"><span class="ph ph-1">Opérationnel</span></td><td class="what">Hub de Caen, sourcing, fulfillment, distribution B2B.</td></tr>
-          <tr><td class="cc">BE · LU</td><td class="country">Belgique & Luxembourg</td><td class="role">Extension naturelle</td><td class="status"><span class="ph ph-1">Opérationnel</span></td><td class="what">Expédition transfrontalière, distribution, retours.</td></tr>
-          <tr><td class="cc">CN</td><td class="country">Chine</td><td class="role">Réseau d'approvisionnement</td><td class="status"><span class="ph ph-1">Partenaires actifs</span></td><td class="what">Fabricants, agents, contrôle qualité, transitaires.</td></tr>
-          <tr><td class="cc">TR</td><td class="country">Turquie</td><td class="role">Alternative d'approvisionnement</td><td class="status"><span class="ph ph-2">En développement</span></td><td class="what">Textile, maison, accessoires, emballages.</td></tr>
-          <tr><td class="cc">DE</td><td class="country">Allemagne</td><td class="role">Marché industriel et commercial</td><td class="status"><span class="ph ph-2">En développement</span></td><td class="what">Distributeurs, importateurs, grossistes spécialisés.</td></tr>
-          <tr><td class="cc">AE</td><td class="country">Émirats arabes unis</td><td class="role">Hub Europe · Moyen-Orient · Afrique · Asie</td><td class="status"><span class="ph ph-3">Horizon</span></td><td class="what">Import-export, réexportation, distributeurs régionaux.</td></tr>
-          <tr><td class="cc">MA</td><td class="country">Maroc</td><td class="role">Porte d'entrée vers l'Afrique</td><td class="status"><span class="ph ph-3">Horizon</span></td><td class="what">Réseau de distributeurs et partenaires d'importation.</td></tr>
-        </tbody>
+        <tbody id="mk-body"></tbody>
       </table>
     </div>
+    <div class="mk-list only-m" id="mk-list"></div>
   </div>
 </section>
 
@@ -572,8 +702,8 @@ footer a:hover{color:var(--navy-fg)}
   <div class="wrap plat">
     <div>
       <div class="eyebrow">Centr Technology</div>
-      <h2 style="margin-top:16px">Le système nerveux de vos opérations.</h2>
-      <p class="lede" style="margin-top:18px">Fournisseurs, achats, stocks, commandes et transports dans un seul espace. Nos équipes l'utilisent chaque jour. Nos clients y suivent leurs flux.</p>
+      <h2 style="margin-top:14px">Le système nerveux de vos opérations.</h2>
+      <p class="lede" style="margin-top:16px">Fournisseurs, achats, stocks, commandes et transports dans un seul espace. Nos équipes l'utilisent chaque jour. Nos clients y suivent leurs flux.</p>
       <div class="mods">
         <div><b>SUPPLIERS</b><span>Fiches, tarifs négociés, évaluations</span></div>
         <div><b>PROCUREMENT</b><span>Devis, bons de commande, validations</span></div>
@@ -606,14 +736,15 @@ footer a:hover{color:var(--navy-fg)}
 <section style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Modèles d'engagement</div>
+      <div class="eyebrow" data-hint="Glissez →">Engagement</div>
       <h2>Commencez par une mission. Restez pour une chaîne complète.</h2>
     </div>
-    <div class="eng">
+    <div class="eng rail" id="r-eng">
       <div><span class="mono">MISSION</span><h3>Ponctuelle</h3><p>Une recherche de fournisseur, une inspection, une importation. Périmètre et prix définis à l'avance.</p></div>
       <div><span class="mono">RÉCURRENT</span><h3>Mensuel</h3><p>Vos achats ou votre logistique confiés chaque mois. Réception, stockage, préparation et transport facturés clairement.</p></div>
       <div class="key"><span class="mono">COMPTE STRATÉGIQUE</span><h3>Annuel ou pluriannuel</h3><p>Une partie importante de votre chaîne d'approvisionnement et de distribution, pilotée par une équipe dédiée.</p></div>
     </div>
+    <div class="dots" data-for="r-eng"></div>
   </div>
 </section>
 
@@ -624,14 +755,18 @@ footer a:hover{color:var(--navy-fg)}
       <div class="eyebrow">Positionnement</div>
       <h2>La couverture d'un grand opérateur, la réactivité d'un partenaire.</h2>
     </div>
-    <table class="cmp">
+    <div class="seg" role="group" aria-label="Comparer CENTR avec">
+      <button type="button" data-vs="a" aria-pressed="true">vs Agent indépendant</button>
+      <button type="button" data-vs="o" aria-pressed="false">vs Grand opérateur</button>
+    </div>
+    <table class="cmp vs-a" id="cmp">
       <thead><tr><th></th><th>Agent indépendant</th><th>Grand opérateur</th><th class="c">CENTR</th></tr></thead>
       <tbody>
-        <tr><th>Périmètre</th><td data-l="Agent">Sourcing seul</td><td data-l="Grand opérateur">Transport et entrepôt</td><td class="c" data-l="CENTR">Du sourcing à la distribution</td></tr>
-        <tr><th>Accessible aux PME</th><td data-l="Agent">Oui</td><td data-l="Grand opérateur">Rarement</td><td class="c" data-l="CENTR">Oui, dès les premiers volumes</td></tr>
-        <tr><th>Process et traçabilité</th><td data-l="Agent">Variables</td><td data-l="Grand opérateur">Élevés</td><td class="c" data-l="CENTR">Standardisés, suivis sur plateforme</td></tr>
-        <tr><th>Interlocuteur</th><td data-l="Agent">Une personne</td><td data-l="Grand opérateur">Des services</td><td class="c" data-l="CENTR">Un opérateur dédié</td></tr>
-        <tr><th>Flexibilité</th><td data-l="Agent">Forte</td><td data-l="Grand opérateur">Faible</td><td class="c" data-l="CENTR">Petites et grandes quantités</td></tr>
+        <tr><th>Périmètre</th><td class="a" data-l="Agent">Sourcing seul</td><td class="o" data-l="Grand opérateur">Transport et entrepôt</td><td class="c" data-l="CENTR">Du sourcing à la distribution</td></tr>
+        <tr><th>Accessible aux PME</th><td class="a" data-l="Agent">Oui</td><td class="o" data-l="Grand opérateur">Rarement</td><td class="c" data-l="CENTR">Oui, dès les premiers volumes</td></tr>
+        <tr><th>Process et traçabilité</th><td class="a" data-l="Agent">Variables</td><td class="o" data-l="Grand opérateur">Élevés</td><td class="c" data-l="CENTR">Standardisés, suivis sur plateforme</td></tr>
+        <tr><th>Interlocuteur</th><td class="a" data-l="Agent">Une personne</td><td class="o" data-l="Grand opérateur">Des services</td><td class="c" data-l="CENTR">Un opérateur dédié</td></tr>
+        <tr><th>Flexibilité</th><td class="a" data-l="Agent">Forte</td><td class="o" data-l="Grand opérateur">Faible</td><td class="c" data-l="CENTR">Petites et grandes quantités</td></tr>
       </tbody>
     </table>
   </div>
@@ -643,7 +778,7 @@ footer a:hover{color:var(--navy-fg)}
     <div class="sec-head">
       <div class="eyebrow">Le groupe</div>
       <h2>Nous construisons l'un des grands opérateurs mondiaux du commerce B2B.</h2>
-      <p class="lede">Un groupe qui possède et coordonne des actifs commerciaux, logistiques et technologiques sur plusieurs continents. Chaque étape est construite sur des opérations rentables.</p>
+      <p class="lede">Un groupe qui possède et coordonne des actifs commerciaux, logistiques et technologiques sur plusieurs continents. Chaque étape repose sur des opérations rentables.</p>
     </div>
     <div class="group-grid">
       <div class="org" aria-label="Architecture du groupe">
@@ -654,14 +789,14 @@ footer a:hover{color:var(--navy-fg)}
           <div><b>SOURCING</b><span>Approvisionnement</span></div>
           <div><b>TRADE</b><span>Import-export</span></div>
           <div><b>LOGISTICS</b><span>Entrepôts</span></div>
-          <div><b>DISTRIBUTION</b><span>Commerce de gros</span></div>
-          <div><b>TECHNOLOGY</b><span>Logiciels</span></div>
+          <div><b>DISTRIB.</b><span>Commerce de gros</span></div>
+          <div><b>TECH</b><span>Logiciels</span></div>
           <div><b>NETWORK</b><span>Partenaires</span></div>
         </div>
       </div>
       <div>
-        <div class="mono" style="color:var(--navy-muted);letter-spacing:.12em">FEUILLE DE ROUTE</div>
-        <div class="timeline">
+        <div class="tl-label">FEUILLE DE ROUTE</div>
+        <div class="timeline rail" id="r-tl">
           <div class="tl now"><span class="yr">2026–2027</span><div><b>Sourcing & logistique</b><p>Premiers comptes récurrents, hub de Caen, rentabilité.</p></div></div>
           <div class="tl"><span class="yr">2027–2028</span><div><b>Trade & distribution</b><p>Développement commercial européen, accords de distribution.</p></div></div>
           <div class="tl"><span class="yr">2028–2030</span><div><b>Technologie</b><p>Plateforme propriétaire ouverte aux clients.</p></div></div>
@@ -669,13 +804,15 @@ footer a:hover{color:var(--navy-fg)}
           <div class="tl"><span class="yr">2033–2036</span><div><b>Acquisitions</b><p>Intégration de sociétés logistiques, de distribution et de technologie.</p></div></div>
           <div class="tl"><span class="yr">2036–2045</span><div><b>Groupe mondial</b><p>Réseau commercial et logistique sur plusieurs continents.</p></div></div>
         </div>
+        <div class="dots" data-for="r-tl"></div>
       </div>
     </div>
-    <div class="pillars">
+    <div class="pillars rail" id="r-pil">
       <div><span class="mono">ACTIF · 01</span><h3>Le réseau</h3><p>Fournisseurs et partenaires vérifiés dans chaque corridor.</p></div>
       <div><span class="mono">ACTIF · 02</span><h3>La plateforme</h3><p>Utilisée par nos équipes et nos clients, enrichie par chaque flux.</p></div>
       <div><span class="mono">ACTIF · 03</span><h3>Les clients</h3><p>Un portefeuille professionnel qui génère des volumes réguliers.</p></div>
     </div>
+    <div class="dots" data-for="r-pil"></div>
   </div>
 </section>
 
@@ -684,18 +821,23 @@ footer a:hover{color:var(--navy-fg)}
   <div class="wrap hub">
     <div>
       <div class="eyebrow">Hub opérationnel</div>
-      <h2 style="margin-top:16px">Basés en Normandie. Connectés au monde.</h2>
-      <p class="lede" style="margin-top:18px">Notre entrepôt de Caen reçoit, stocke et expédie vers la France, la Belgique, le Luxembourg et la Suisse, à proximité des ports du Havre et de Caen-Ouistreham.</p>
+      <h2 style="margin-top:14px">Basés en Normandie. Connectés au monde.</h2>
+      <p class="lede" style="margin-top:16px">Notre entrepôt de Caen reçoit, stocke et expédie vers la France, la Belgique, le Luxembourg et la Suisse, près des ports du Havre et de Caen-Ouistreham.</p>
       <div class="facts">
         <div><span class="k">Hub</span><span>Caen, Calvados (14)</span></div>
         <div><span class="k">Ports proches</span><span>Le Havre (FRLEH) · Caen-Ouistreham (FROUI)</span></div>
         <div><span class="k">WhatsApp</span><span class="contact-line"><span>+33 7 75 75 81 21</span><button class="copy" type="button" data-copy="+33775758121">Copier</button></span></div>
         <div><span class="k">E-mail</span><span class="contact-line"><span>contact@centrsupply.com</span><button class="copy" type="button" data-copy="contact@centrsupply.com">Copier</button></span></div>
       </div>
+      <div class="quick">
+        <a class="qa wa" href="https://wa.me/33775758121" target="_blank" rel="noopener"><b>WhatsApp</b><span>+33 7 75 75 81 21</span></a>
+        <div class="qa"><b>Hub</b><span>Caen · Normandie</span></div>
+        <div class="qa full"><span style="font-size:.8rem;color:var(--ink)">contact@centrsupply.com</span><button class="copy" type="button" data-copy="contact@centrsupply.com">Copier</button></div>
+      </div>
     </div>
 
     <form class="brief" id="brief" novalidate>
-      <h3 style="font-size:1.45rem;font-stretch:115%">Soumettre un brief</h3>
+      <h3 style="font-size:1.4rem;font-stretch:115%">Soumettre un brief</h3>
       <div class="f">
         <span class="lbl">Besoin</span>
         <div class="chips">
@@ -707,7 +849,7 @@ footer a:hover{color:var(--navy-fg)}
         </div>
       </div>
       <div class="f-row">
-        <div class="f"><label for="f-name">Nom & société</label><input id="f-name" required placeholder="Marie Dupont · Maison D."></div>
+        <div class="f"><label for="f-name">Nom & société</label><input id="f-name" required placeholder="Marie Dupont · Maison D." autocomplete="organization"></div>
         <div class="f"><label for="f-type">Vous êtes</label>
           <select id="f-type"><option>Marque e-commerce</option><option>Grossiste / distributeur</option><option>Fabricant</option><option>Chaîne de magasins</option><option>Importateur</option><option>PME industrielle</option><option>Autre</option></select></div>
       </div>
@@ -730,7 +872,7 @@ footer a:hover{color:var(--navy-fg)}
     <h2>L'infrastructure du commerce mondial <em>se construit maintenant.</em></h2>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#contact">Démarrer avec CENTR <span class="arr">→</span></a>
-      <a class="btn btn-ghost" href="#groupe">Découvrir le groupe</a>
+      <a class="btn btn-ghost" href="#groupe">Le groupe</a>
     </div>
   </div>
 </section>
@@ -742,42 +884,59 @@ footer a:hover{color:var(--navy-fg)}
       <a class="logo" href="#top"><span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i></span>CENTR<small>GROUP</small></a>
       <p style="margin-top:12px;max-width:34ch">Approvisionnement, import, stockage, distribution et technologie pour les entreprises qui achètent et vendent des marchandises.</p>
     </div>
-    <div><h4>Divisions</h4><ul><li><a href="#divisions">Sourcing</a></li><li><a href="#divisions">Trade</a></li><li><a href="#divisions">Logistics</a></li><li><a href="#divisions">Distribution</a></li><li><a href="#divisions">Technology</a></li><li><a href="#divisions">Network</a></li></ul></div>
-    <div><h4>Groupe</h4><ul><li><a href="#methode">Méthode</a></li><li><a href="#clients">Clients</a></li><li><a href="#marches">Marchés</a></li><li><a href="#groupe">Vision</a></li></ul></div>
-    <div><h4>Contact</h4><ul><li>contact@centrsupply.com</li><li>+33 7 75 75 81 21</li><li>Caen, Normandie</li></ul></div>
+    <div class="fcol"><h4>Divisions</h4><ul><li><a href="#divisions">Sourcing</a></li><li><a href="#divisions">Trade</a></li><li><a href="#divisions">Logistics</a></li><li><a href="#divisions">Distribution</a></li><li><a href="#divisions">Technology</a></li><li><a href="#divisions">Network</a></li></ul></div>
+    <div class="fcol"><h4>Groupe</h4><ul><li><a href="#methode">Méthode</a></li><li><a href="#clients">Clients</a></li><li><a href="#marches">Marchés</a></li><li><a href="#groupe">Vision</a></li></ul></div>
+    <div class="fcol"><h4>Contact</h4><ul><li>contact@centrsupply.com</li><li>+33 7 75 75 81 21</li><li>Caen, Normandie</li></ul></div>
     <div class="legal"><span>© 2026 CENTR Group · Centr Supply, marque de SAS ECOM CENTR · RCS Paris 990 905 879</span><span>Mentions légales · Confidentialité</span></div>
   </div>
 </footer>
 
+<!-- fixed phone action bar -->
+<nav class="mbar" aria-label="Actions rapides">
+  <a class="btn btn-ghost wa" href="https://wa.me/33775758121" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-primary" href="#contact">Soumettre un brief</a>
+</nav>
+
 <script>
 const DIVS=[
  {code:"CS-01",name:"SOURCING",short:"Approvisionnement international",
-  intro:"Nous trouvons, vérifions et négocions avec les fabricants, pour tout type de produit. Vous n'achetez pas une liste de fournisseurs : vous gagnez une capacité d'achat.",
-  svc:[["Recherche de fournisseurs","Identification, comparaison, vérification et présélection en Chine, Turquie et Europe."],["Négociation","Prix unitaires, MOQ, délais, paiement, personnalisation, packaging."],["Contrôle qualité","Échantillons, inspections avant, pendant et après production par des partenaires sur place."],["Suivi des commandes","Confirmation, validation des échantillons, suivi de fabrication, quantités."],["Achats externalisés","Votre service achats, pour les besoins récurrents."]],
+  intro:"Nous trouvons, vérifions et négocions avec les fabricants, pour tout type de produit. Vous gagnez une capacité d'achat.",
+  svc:[["Recherche de fournisseurs","Identification, comparaison, vérification et présélection en Chine, Turquie et Europe."],["Négociation","Prix unitaires, MOQ, délais, paiement, personnalisation, packaging."],["Contrôle qualité","Échantillons, inspections avant, pendant et après production."],["Suivi des commandes","Confirmation, validation des échantillons, suivi de fabrication."],["Achats externalisés","Votre service achats, pour les besoins récurrents."]],
   who:"Distributeurs, chaînes de magasins, marques",model:"Honoraires de recherche, commission sur achats, forfait QC, abonnement"},
  {code:"CS-02",name:"TRADE",short:"Import-export",
-  intro:"Nous faisons circuler vos marchandises entre pays, du départ usine à l'arrivée à destination, que nous ayons sourcé vos produits ou non.",
-  svc:[["Importation","Chine, Turquie, Asie et Europe vers la France et l'Europe."],["Transport international","Maritime, aérien, ferroviaire, routier et multimodal via des transitaires partenaires."],["Douane & réglementation","Préparation documentaire et coordination avec des représentants en douane habilités."],["Exportation","Développez vos ventes en Allemagne, en Belgique, au Maroc ou aux Émirats."],["Flux internationaux","Coordination multi-fournisseurs, multi-entrepôts, multi-pays."]],
+  intro:"Nous faisons circuler vos marchandises entre pays, du départ usine à l'arrivée, que nous ayons sourcé vos produits ou non.",
+  svc:[["Importation","Chine, Turquie, Asie et Europe vers la France et l'Europe."],["Transport international","Maritime, aérien, ferroviaire, routier et multimodal."],["Douane & réglementation","Documents et coordination avec des représentants en douane habilités."],["Exportation","Vendez en Allemagne, en Belgique, au Maroc ou aux Émirats."],["Flux internationaux","Coordination multi-fournisseurs, multi-entrepôts, multi-pays."]],
   who:"Importateurs, PME industrielles, fabricants",model:"Frais de coordination, forfaits import, contrats annuels de flux"},
  {code:"CS-03",name:"LOGISTICS",short:"Stockage & fulfillment",
   intro:"Un opérateur logistique externalisé pour le B2C comme pour le B2B, depuis notre hub de Caen.",
-  svc:[["Stockage","Réception, contrôle des quantités, mise en stock, inventaires, suivi des niveaux."],["Fulfillment e-commerce","Picking, packing, emballage personnalisé, étiquettes, expédition, suivi."],["Logistique B2B","Cartons, palettes, réassort de magasins et de distributeurs."],["Retours","Inspection, remise en stock, reconditionnement, retours fournisseurs."],["Kitting","Coffrets, kits promotionnels, étiquetage, box mensuelles."]],
-  who:"Marques e-commerce, grossistes, réseaux de magasins",model:"Réception, stockage, préparation par commande, retours, transport refacturé"},
+  svc:[["Stockage","Réception, contrôle des quantités, mise en stock, inventaires."],["Fulfillment e-commerce","Picking, packing, emballage personnalisé, expédition, suivi."],["Logistique B2B","Cartons, palettes, réassort de magasins et de distributeurs."],["Retours","Inspection, remise en stock, reconditionnement."],["Kitting","Coffrets, kits promotionnels, étiquetage, box mensuelles."]],
+  who:"Marques e-commerce, grossistes, réseaux de magasins",model:"Réception, stockage, préparation par commande, retours"},
  {code:"CS-04",name:"DISTRIBUTION",short:"Commerce de gros & représentation",
-  intro:"Nous représentons des marques sur nos marchés et commercialisons leurs produits auprès des revendeurs et des professionnels.",
-  svc:[["Distribution de marques","Une marque étrangère sans réseau en France ? Nous importons, stockons et vendons."],["Distribution exclusive","Accords par produit ou territoire, avec des objectifs réalistes et des engagements de stock maîtrisés."],["Commerce de gros","Achat en volume et revente aux magasins indépendants, revendeurs et boutiques spécialisées."],["Marketplace B2B","Mise en relation fabricants · distributeurs, à mesure que le réseau grandit."]],
+  intro:"Nous représentons des marques sur nos marchés et vendons leurs produits aux revendeurs et aux professionnels.",
+  svc:[["Distribution de marques","Une marque sans réseau en France ? Nous importons, stockons et vendons."],["Distribution exclusive","Accords par produit ou territoire, avec des objectifs réalistes."],["Commerce de gros","Achat en volume et revente aux magasins et revendeurs."],["Marketplace B2B","Mise en relation fabricants · distributeurs."]],
   who:"Marques étrangères, fabricants, revendeurs",model:"Marge commerciale, accords de distribution"},
  {code:"CS-05",name:"TECHNOLOGY",short:"Plateforme opérationnelle",
-  intro:"Une plateforme qui réunit fournisseurs, achats, stocks, commandes, transports et marges. D'abord l'outil de nos équipes, ensuite celui de nos clients.",
-  svc:[["Supplier Management","Fiches fournisseurs, historique, tarifs négociés, documents."],["Procurement","Demandes de devis, comparaison, bons de commande, validations."],["Inventory","Stocks disponibles et réservés, seuils d'alerte, multi-entrepôts."],["Order & Shipping","Commandes, préparation, transporteurs, suivi des livraisons."],["Financial Dashboard","Coût rendu, coût par commande, marge par produit et par fournisseur."]],
+  intro:"Fournisseurs, achats, stocks, commandes, transports et marges réunis. D'abord l'outil de nos équipes, ensuite celui de nos clients.",
+  svc:[["Supplier Management","Fiches fournisseurs, historique, tarifs négociés."],["Procurement","Devis, comparaison, bons de commande, validations."],["Inventory","Stocks disponibles et réservés, seuils d'alerte, multi-entrepôts."],["Order & Shipping","Commandes, préparation, transporteurs, suivi."],["Financial Dashboard","Coût rendu, coût par commande, marge par produit."]],
   who:"Tous les clients CENTR",model:"Inclus dans nos offres, abonnements à terme"},
  {code:"CS-06",name:"NETWORK",short:"Réseau de partenaires",
-  intro:"Entrepôts, transporteurs, transitaires, inspecteurs, distributeurs locaux. Le réseau qui nous permet d'intervenir dans un pays avant d'y être implantés.",
-  svc:[["Partenaires vérifiés","Chaque partenaire est évalué sur la qualité, les délais et la fiabilité."],["Offre coordonnée","Un contrat avec CENTR, chaque intervenant dans ses responsabilités."],["Ouverture de marchés","Formalités, entrepôt local, distributeur et livraison mobilisés pour vous."],["Apporteurs d'affaires","Consultants, agents, experts-comptables et transitaires recommandent CENTR."]],
+  intro:"Entrepôts, transporteurs, transitaires, inspecteurs, distributeurs locaux. Le réseau qui nous fait intervenir dans un pays avant d'y être implantés.",
+  svc:[["Partenaires vérifiés","Évalués sur la qualité, les délais et la fiabilité."],["Offre coordonnée","Un contrat avec CENTR, chaque intervenant dans ses responsabilités."],["Ouverture de marchés","Formalités, entrepôt local, distributeur et livraison mobilisés."],["Apporteurs d'affaires","Consultants, agents et transitaires recommandent CENTR."]],
   who:"Clients en expansion internationale",model:"Intégré aux prestations CENTR"}
 ];
+const MK=[
+ ["FR","France","Marché socle",1,"Opérationnel","Hub de Caen, sourcing, fulfillment, distribution B2B."],
+ ["BE·LU","Belgique & Luxembourg","Extension naturelle",1,"Opérationnel","Expédition transfrontalière, distribution, retours."],
+ ["CN","Chine","Réseau d'approvisionnement",1,"Partenaires actifs","Fabricants, agents, contrôle qualité, transitaires."],
+ ["TR","Turquie","Alternative d'approvisionnement",2,"En développement","Textile, maison, accessoires, emballages."],
+ ["DE","Allemagne","Marché industriel et commercial",2,"En développement","Distributeurs, importateurs, grossistes spécialisés."],
+ ["AE","Émirats arabes unis","Hub Europe · Moyen-Orient · Afrique · Asie",3,"Horizon","Import-export, réexportation, distributeurs régionaux."],
+ ["MA","Maroc","Porte d'entrée vers l'Afrique",3,"Horizon","Réseau de distributeurs et partenaires d'importation."]
+];
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+/* desktop tabs */
 const tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
-function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
 DIVS.forEach((d,i)=>{
   const b=document.createElement('button');
   b.className='div-tab';b.type='button';b.id='tab-'+i;b.setAttribute('role','tab');b.setAttribute('aria-controls','panel');
@@ -796,17 +955,46 @@ function select(i,focus){
 }
 select(0);
 
+/* phone division cards */
+document.getElementById('r-div').innerHTML=DIVS.map(d=>`<article class="dv">
+  <div class="dv-top"><span class="dv-name">CENTR ${d.name}</span><span class="dv-code">${d.code}</span></div>
+  <h3>${esc(d.short)}</h3><p>${esc(d.intro)}</p>
+  <ul>${d.svc.map(s=>`<li>${esc(s[0])}</li>`).join('')}</ul>
+  <div class="who"><b>Pour qui</b>${esc(d.who)}</div></article>`).join('');
+
+/* markets: table + phone accordion */
+document.getElementById('mk-body').innerHTML=MK.map(m=>`<tr><td class="cc">${esc(m[0])}</td><td class="country">${esc(m[1])}</td><td>${esc(m[2])}</td><td><span class="ph ph-${m[3]}">${esc(m[4])}</span></td><td class="what">${esc(m[5])}</td></tr>`).join('');
+document.getElementById('mk-list').innerHTML=MK.map((m,i)=>`<details class="mk-item"${i===0?' open':''}><summary><span class="cc">${esc(m[0])}</span><span class="nm">${esc(m[1])}<small>${esc(m[2])}</small></span><span class="ph ph-${m[3]}">${esc(m[4])}</span></summary><div class="body"><p>${esc(m[5])}</p></div></details>`).join('');
+
+/* dots for rails */
+document.querySelectorAll('.dots[data-for]').forEach(dots=>{
+  const rail=document.getElementById(dots.dataset.for);if(!rail)return;
+  const n=rail.children.length;dots.innerHTML='<i></i>'.repeat(n);
+  const upd=()=>{const w=rail.children[0]?.getBoundingClientRect().width||1;const i=Math.min(n-1,Math.round(rail.scrollLeft/(w+10)));[...dots.children].forEach((d,j)=>d.classList.toggle('on',j===i))};
+  rail.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});upd();
+});
+
+/* comparison toggle */
+const cmp=document.getElementById('cmp');
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  cmp.classList.toggle('vs-a',b.dataset.vs==='a');cmp.classList.toggle('vs-o',b.dataset.vs==='o');
+}));
+
+/* menu */
 const menuBtn=document.getElementById('menu-btn'),menu=document.getElementById('mobile-menu');
 menuBtn.addEventListener('click',()=>{const open=menu.hidden;menu.hidden=!open;menuBtn.setAttribute('aria-expanded',open);menuBtn.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu')});
 menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.hidden=true;menuBtn.setAttribute('aria-expanded',false)}));
 
+/* copy */
 document.querySelectorAll('.copy').forEach(btn=>btn.addEventListener('click',()=>{
   const v=btn.dataset.copy,el=btn.previousElementSibling;
   const done=()=>{btn.textContent='Copié';setTimeout(()=>btn.textContent='Copier',1600)};
   try{navigator.clipboard.writeText(v).then(done).catch(()=>selectText(el))}catch(e){selectText(el)}
 }));
-function selectText(el){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}
+function selectText(el){if(!el)return;const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}
 
+/* brief → WhatsApp */
 document.getElementById('brief').addEventListener('submit',e=>{
   e.preventDefault();
   const out=document.getElementById('out');
