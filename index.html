@@ -1,5 +1,9 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CENTR Group</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="CENTR Group — Global Commerce Infrastructure. Sourcing, import-export, logistique, distribution et technologie pour les entreprises qui achètent et vendent des marchandises.">
 <meta name="theme-color" content="#0A1730">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +35,10 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+html{color-scheme:light}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
 a{color:inherit}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
@@ -502,6 +509,8 @@ footer a:hover{color:var(--navy-fg)}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
+</head>
+<body>
 
 <header class="nav">
   <div class="wrap">
@@ -1006,3 +1015,5 @@ document.getElementById('brief').addEventListener('submit',e=>{
   out.innerHTML='Brief prêt. <a href="'+url+'" target="_blank" rel="noopener">Ouvrir dans WhatsApp →</a> ou envoyez-le à contact@centrsupply.com.';
 });
 </script>
+</body>
+</html>
