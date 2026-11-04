@@ -1,1121 +1,820 @@
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Centr Supply | Logistique, import et produits pros à Caen</title>
+<title>CENTR Group</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Centr Supply : entrepôt e-commerce à Caen, import et sourcing, expédition France et Benelux, produits pour les pros du Calvados.">
-<meta property="og:title" content="Centr Supply | Logistique, import et produits pros à Caen">
-<meta property="og:description" content="Préparation de commandes dès 0,79 €, stockage offert, import sur commande et produits pros en petites quantités.">
-<meta name="theme-color" content="#f3f2ef">
+<meta name="description" content="CENTR Group — Global Commerce Infrastructure. Sourcing, import-export, logistique, distribution et technologie pour les entreprises qui achètent et vendent des marchandises.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout : une maquette 3D lumineuse plein écran (le monde Centr Supply : entrepôt, import, expédition, commerces),
-   fiche à gauche, onglets de scènes en bas, puis le contenu du site sur fond clair. Couleurs de la marque : anthracite + orange. */
+/* Layout: institutional infrastructure group — deep navy bands (hero, group, closing) alternate with cool white working sections; International Orange marks only the flow of goods and the actions */
 :root{
-  --paper:#F3F2EF;     /* fond clair, légèrement chaud */
-  --card:#FFFFFF;
-  --ink:#1C1D1F;       /* anthracite Centr Supply */
-  --muted:#6B6C70;
-  --line:rgba(28,29,31,.1);
-  --orange:#FF7A3D;    /* accent unique */
-  --orange-ink:#D9561A;
-  --orange-soft:#FFEDE3;
-  --ok:#1F9D63;
-  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
-  --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
-  --ease:cubic-bezier(.16,1,.3,1);
-  --shadow:0 1px 2px rgba(28,29,31,.06),0 12px 40px rgba(28,29,31,.1);
-  color-scheme:light;
+  --bg:#F4F6F9; --surface:#FFFFFF; --ink:#0A1730; --muted:#55627A; --line:#D5DBE5;
+  --navy:#0A1730; --navy-2:#11234A; --navy-fg:#EEF2F8; --navy-muted:#9AA8C2; --navy-line:#22365E;
+  --orange:#FF4F1A; --orange-ink:#FFFFFF; --steel:#8FA6CC; --link:#C93A0E;
+  --ok:#11875C; --warn:#B26B00; --risk:#C2412D;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1200px;
 }
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#070F1F; --surface:#0D1A33; --ink:#EEF2F8; --muted:#97A5BE; --line:#1E2F52;
+  --navy:#040A16; --navy-2:#0A1730; --navy-fg:#EEF2F8; --navy-muted:#8E9CB8; --navy-line:#1A2B4D;
+  --orange:#FF6A3D; --orange-ink:#FFFFFF; --steel:#8FA6CC; --link:#FF8A63;
+  --ok:#3CC891; --warn:#F2B04A; --risk:#FF7A66; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#070F1F; --surface:#0D1A33; --ink:#EEF2F8; --muted:#97A5BE; --line:#1E2F52;
+  --navy:#040A16; --navy-2:#0A1730; --navy-fg:#EEF2F8; --navy-muted:#8E9CB8; --navy-line:#1A2B4D;
+  --orange:#FF6A3D; --orange-ink:#FFFFFF; --steel:#8FA6CC; --link:#FF8A63;
+  --ok:#3CC891; --warn:#F2B04A; --risk:#FF7A66; color-scheme:dark}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--muted);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
-h1,h2,h3,h4,strong,b{color:var(--ink)}
-h1,h2,h3{font-family:var(--f-display);letter-spacing:-.02em;line-height:1.05;text-wrap:balance;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-stretch:112%;line-height:1.04;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-size:clamp(1.9rem,4.4vw,3.3rem);font-weight:750}
+h3{font-size:1.22rem;font-weight:700;font-stretch:105%;letter-spacing:-.01em}
 p{margin:0}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
-.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-ink)}
-.ico{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:8px}
-[hidden]{display:none!important}
+.mono{font-family:var(--mono);font-size:.76rem;letter-spacing:.05em}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);display:flex;gap:.6rem;align-items:center}
+.eyebrow::before{content:"";width:18px;height:2px;background:currentColor;flex:none}
+.lede{color:var(--muted);font-size:1.1rem;max-width:58ch}
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:grid;gap:16px;margin-bottom:clamp(32px,5vw,48px);max-width:780px}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.dark{background:var(--navy);color:var(--navy-fg)}
+.dark .lede{color:var(--navy-muted)}
 
-.btn{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;padding:13px 22px;border-radius:999px;font-weight:700;font-size:15px;font-family:inherit;border:1.5px solid transparent;cursor:pointer;transition:transform .3s var(--ease),background .2s,box-shadow .3s,border-color .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn .ico{width:17px;height:17px}
-.btn-orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(255,122,61,.35)}
-.btn-orange:hover{background:var(--orange-ink)}
-.btn-line{background:#fff;border-color:var(--line);color:var(--ink)}
-.btn-line:hover{border-color:var(--ink)}
-.btn-dark{background:var(--ink);color:#fff}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font:600 .95rem/1 var(--body);padding:15px 22px;border-radius:2px;text-decoration:none;border:1.5px solid currentColor;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn-primary{background:var(--orange);color:var(--orange-ink);border-color:var(--orange)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent}
+.btn-ghost:hover{background:var(--navy-fg);color:var(--navy)}
+.btn .arr{font-family:var(--mono)}
 
-/* Navigation */
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top, 0px);background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;gap:28px;padding-block:13px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-stretch:112%;font-size:19px;color:var(--ink);letter-spacing:-.01em}
-.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:900;font-size:16px;position:relative}
-.logo-mark::after{content:"";position:absolute;right:-3px;bottom:-3px;width:9px;height:9px;border-radius:50%;background:var(--orange);border:2px solid #fff}
-.nav-links{display:flex;gap:26px;margin-left:auto;font-size:15px}
-.nav-links a{color:var(--muted)}
-.nav-links a:hover{color:var(--ink)}
-.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;width:42px;height:42px;cursor:pointer;place-items:center}
+/* nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--navy);color:var(--navy-fg);border-bottom:1px solid var(--navy-line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.logo{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:1.3rem;letter-spacing:.07em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo small{font-family:var(--mono);font-stretch:100%;font-weight:400;font-size:.62rem;letter-spacing:.18em;color:var(--navy-muted);padding-left:10px;border-left:1px solid var(--navy-line)}
+.logo-mark{width:22px;height:22px;position:relative;flex:none}
+.logo-mark i{position:absolute;background:currentColor}
+.logo-mark i:nth-child(1){left:0;right:0;top:10px;height:2px}
+.logo-mark i:nth-child(2){top:0;bottom:0;left:10px;width:2px}
+.logo-mark i:nth-child(3){inset:6px;background:var(--orange);border-radius:50%}
+.nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.9rem}
+.nav-links a{text-decoration:none;color:var(--navy-muted)}
+.nav-links a:hover{color:var(--navy-fg)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav .btn{padding:11px 16px;font-size:.86rem}
+.menu-btn{all:unset;cursor:pointer;display:none;width:42px;height:42px;place-items:center;border:1px solid var(--navy-line);border-radius:2px}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--navy-fg);box-shadow:0 6px 0 var(--navy-fg),0 -6px 0 var(--navy-fg)}
+.menu-btn:focus-visible{outline:2px solid var(--orange)}
+.mobile-menu{background:var(--navy);border-bottom:1px solid var(--navy-line)}
+.mobile-menu ul{list-style:none;margin:0;padding:8px 0 20px;display:grid}
+.mobile-menu a{display:block;padding:14px 0;text-decoration:none;font-family:var(--display);font-stretch:115%;font-weight:700;font-size:1.3rem;color:var(--navy-fg);border-bottom:1px solid var(--navy-line)}
+@media (max-width:960px){.nav-links{display:none}.menu-btn{display:grid}}
+@media (max-width:560px){.nav .btn-primary{display:none}.logo small{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,96px) clamp(48px,8vw,104px)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,5vw,64px);align-items:center}
+.hero-copy{display:grid;gap:24px;min-width:0}
+.hero h1{font-size:clamp(2.35rem,6.4vw,5.3rem);font-weight:800;font-stretch:118%}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-ctas .btn-ghost{color:var(--navy-fg)}
+.hero-meta{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:8px 32px;border-top:1px solid var(--navy-line);padding-top:20px}
+.hero-meta div{display:grid;gap:2px}
+.hero-meta b{font-family:var(--display);font-stretch:118%;font-weight:750;font-size:1.6rem;line-height:1}
+.hero-meta span{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-muted)}
+.map{background:var(--navy-2);border:1px solid var(--navy-line);border-radius:4px;padding:18px;min-width:0}
+.map-top{display:flex;justify-content:space-between;gap:10px;color:var(--navy-muted);padding-bottom:12px;border-bottom:1px solid var(--navy-line)}
+.live{display:inline-flex;align-items:center;gap:7px}
+.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--orange) 70%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.map svg{display:block;width:100%;height:auto}
+.lane{fill:none;stroke:var(--navy-line);stroke-width:1.5}
+.flow{fill:none;stroke:var(--orange);stroke-width:2;stroke-dasharray:4 14;animation:flow 2.8s linear infinite}
+.flow.out{stroke:var(--steel)}
+@keyframes flow{to{stroke-dashoffset:-72}}
+.node{fill:var(--navy-2);stroke:var(--navy-fg);stroke-width:1.5}
+.node-lbl{font-family:var(--mono);font-size:11px;fill:var(--navy-fg);letter-spacing:.06em}
+.node-sub{font-family:var(--mono);font-size:9.5px;fill:var(--navy-muted);letter-spacing:.06em}
+.hub-ring{fill:none;stroke:var(--orange);stroke-width:1;opacity:.35}
+.hub-core{fill:var(--orange)}
+.hub-txt{font-family:var(--display);font-weight:800;font-size:10px;fill:#FFFFFF;letter-spacing:1.2px}
+.ticker{margin-top:12px;border-top:1px solid var(--navy-line);padding-top:12px;display:grid;gap:7px}
+.tick{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;font-family:var(--mono);font-size:.7rem;color:var(--navy-fg)}
+.tick span:nth-child(2){overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--navy-muted)}
+.tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:2px;border:1px solid currentColor;white-space:nowrap}
+.t-sea{color:var(--steel)}.t-qc{color:var(--orange)}.t-wh{color:#5FD3A8}
+.map-note{margin-top:10px;font-family:var(--mono);font-size:.62rem;color:var(--navy-muted)}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .hero-ctas .btn{width:100%}
+  .hero-meta{grid-template-columns:repeat(3,1fr);gap:8px 14px}
+  .hero-meta b{font-size:1.35rem}
+  .hero-meta span{font-size:.6rem}
+  .map{padding:14px;margin-inline:-4px}
+}
+
+/* fragmentation */
+.frag{background:var(--surface);border-bottom:1px solid var(--line)}
+.frag-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.frag-grid>*{min-width:0}
+.chain{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chain span{font-family:var(--mono);font-size:.74rem;padding:7px 10px;border:1px dashed var(--line);border-radius:2px;color:var(--muted);background:var(--bg)}
+.one{border:1.5px solid var(--ink);padding:clamp(20px,3vw,28px);display:grid;gap:18px;background:var(--bg)}
+.one-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.one-bar div{background:var(--navy);color:var(--navy-fg);font:600 .78rem/1.2 var(--body);padding:13px 6px;text-align:center}
+.one-bar div:last-child{background:var(--orange);color:var(--orange-ink)}
+.one ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.one li{display:grid;grid-template-columns:22px 1fr;gap:6px}
+.one li::before{content:"→";font-family:var(--mono);color:var(--orange)}
+.big{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(3.2rem,8vw,6rem);line-height:.9;letter-spacing:-.03em}
+.big small{display:block;font-family:var(--body);font-stretch:100%;font-weight:500;font-size:1rem;letter-spacing:0;color:var(--muted);margin-top:10px}
+@media (max-width:860px){.frag-grid{grid-template-columns:1fr}}
+@media (max-width:420px){.one-bar{grid-template-columns:1fr 1fr}}
+
+/* divisions */
+.div-shell{display:grid;grid-template-columns:320px 1fr;border:1px solid var(--line);background:var(--surface)}
+.div-tabs{display:flex;flex-direction:column;border-right:1px solid var(--line)}
+.div-tab{all:unset;cursor:pointer;display:grid;grid-template-columns:52px 1fr;gap:4px;align-items:baseline;padding:20px 22px;border-bottom:1px solid var(--line);transition:background .2s}
+.div-tab:last-child{border-bottom:0}
+.div-tab .code{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.div-tab .nm{font-family:var(--display);font-stretch:118%;font-weight:700;font-size:1.04rem;letter-spacing:.02em}
+.div-tab .ds{grid-column:2;font-size:.84rem;color:var(--muted)}
+.div-tab:hover{background:var(--bg)}
+.div-tab[aria-selected="true"]{background:var(--navy);color:var(--navy-fg);box-shadow:inset 3px 0 0 var(--orange)}
+.div-tab[aria-selected="true"] .code,.div-tab[aria-selected="true"] .ds{color:var(--navy-muted)}
+.div-tab:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+.div-panel{padding:clamp(20px,4vw,44px);display:grid;gap:24px;align-content:start;min-width:0}
+.div-panel h3{font-size:clamp(1.5rem,3vw,2.2rem);font-stretch:118%}
+.div-panel .intro{color:var(--muted);max-width:60ch;font-size:1.03rem}
+.svc{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc div{background:var(--surface);padding:16px 18px;display:grid;gap:5px;align-content:start}
+.svc b{font-weight:600}
+.svc span{font-size:.88rem;color:var(--muted)}
+.div-foot{display:flex;flex-wrap:wrap;gap:12px 28px;padding-top:18px;border-top:1px solid var(--line);font-size:.9rem}
+.div-foot .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
 @media (max-width:900px){
-  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:6px max(20px, env(safe-area-inset-left, 0px)) 14px;display:none}
-  .nav-links a{padding:13px 0;border-bottom:1px solid var(--line);font-size:17px}
-  .nav.open .nav-links{display:flex}
-  .nav .btn-orange{display:none}
-  .burger{display:grid}
+  .div-shell{grid-template-columns:1fr}
+  .div-tabs{display:grid;grid-template-columns:repeat(3,1fr);border-right:0;border-bottom:1px solid var(--line)}
+  .div-tab{grid-template-columns:1fr;gap:2px;padding:14px 12px;border-bottom:0;border-right:1px solid var(--line);border-top:1px solid var(--line)}
+  .div-tab:nth-child(-n+3){border-top:0}
+  .div-tab:nth-child(3n){border-right:0}
+  .div-tab .ds{display:none}
+  .div-tab .nm{font-size:.9rem}
+  .div-tab[aria-selected="true"]{box-shadow:inset 0 -3px 0 var(--orange)}
+}
+@media (max-width:480px){
+  .div-tabs{grid-template-columns:1fr 1fr}
+  .div-tab{border-top:1px solid var(--line)!important;border-right:1px solid var(--line)!important}
+  .div-tab:nth-child(-n+2){border-top:0!important}
+  .div-tab:nth-child(2n){border-right:0!important}
+  .svc{grid-template-columns:1fr}
 }
 
-/* ===== Monde 3D ===== */
-.world{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:#EDEFF1}
-.world canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
-.world.dragging canvas{cursor:grabbing}
-.loading{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:opacity .6s;pointer-events:none}
-.world.ready .loading{opacity:0}
-
-.card{position:absolute;z-index:3;left:max(24px, env(safe-area-inset-left, 0px));top:50%;transform:translateY(-46%);width:min(400px, calc(100% - 48px));background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-radius:6px;box-shadow:var(--shadow);padding:28px 28px 24px;display:grid;gap:14px}
-@media (min-width:1300px){.card{left:calc((100vw - 1240px)/2 + 20px)}}
-.card::before{content:"";position:absolute;left:0;top:28px;width:4px;height:44px;background:var(--orange);border-radius:0 3px 3px 0}
-.card .eyebrow{display:flex;gap:10px;align-items:center}
-.card h1,.card h2{font-size:clamp(28px,3vw,38px);font-weight:800;font-stretch:104%;line-height:1.05}
-.card p{font-size:15.5px;line-height:1.6}
-.card .tag{justify-self:start;font-family:var(--f-mono);font-size:12.5px;color:var(--orange-ink);background:var(--orange-soft);padding:6px 11px;border-radius:99px}
-.card .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
-.card-body{display:grid;gap:14px;transition:opacity .35s,transform .45s var(--ease)}
-.card-body.out{opacity:0;transform:translateY(8px)}
-
-.tabs3d{position:absolute;z-index:3;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:4px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-radius:999px;padding:5px;box-shadow:var(--shadow);max-width:calc(100% - 32px);overflow-x:auto;scrollbar-width:none}
-.tabs3d::-webkit-scrollbar{display:none}
-.tabs3d button{all:unset;flex:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;font-size:14px;font-weight:700;color:var(--muted);white-space:nowrap;position:relative;overflow:hidden;transition:color .2s,background .2s}
-.tabs3d button:hover{color:var(--ink)}
-.tabs3d button .n{font-family:var(--f-mono);font-size:11px;opacity:.7}
-.tabs3d button.on{background:var(--ink);color:#fff}
-.tabs3d button .bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--orange)}
-.tabs3d button:focus-visible{outline:2px solid var(--orange)}
-
-.tools3d{position:absolute;z-index:3;right:max(20px, env(safe-area-inset-right, 0px));bottom:22px;display:flex;gap:4px;background:rgba(255,255,255,.94);border-radius:999px;padding:5px;box-shadow:var(--shadow)}
-.tools3d button{width:36px;height:36px;border:0;border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center}
-.tools3d button:hover{background:var(--orange-soft);color:var(--orange-ink)}
-.tools3d .ico{width:17px;height:17px}
-
-.hot{position:absolute;z-index:2;left:0;top:0;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;pointer-events:auto;opacity:0;transition:opacity .4s;cursor:pointer}
-.hot.on{opacity:1}
-.hot i{width:14px;height:14px;border-radius:50%;background:var(--orange);border:3px solid #fff;box-shadow:0 0 0 0 rgba(255,122,61,.6);animation:ring 2s infinite;flex:none}
-@keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,122,61,.55)}80%,100%{box-shadow:0 0 0 14px rgba(255,122,61,0)}}
-.hot span{background:#fff;color:var(--ink);font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:99px;box-shadow:0 4px 14px rgba(28,29,31,.14);white-space:nowrap}
-.hot em{display:none;position:absolute;left:22px;top:30px;width:230px;background:var(--ink);color:#fff;font-style:normal;font-size:13px;line-height:1.5;padding:10px 12px;border-radius:8px;box-shadow:var(--shadow)}
-.hot.open em,.hot:hover em{display:block}
-.hot.open span,.hot:hover span{background:var(--ink);color:#fff}
-
-@media (max-width:800px){
-  .world{height:auto;min-height:0;display:flex;flex-direction:column}
-  .stage3d{position:relative;height:62svh;min-height:380px}
-  .card{position:relative;left:auto;top:auto;transform:none;width:auto;margin:0;border-radius:0;box-shadow:none;padding:22px 20px 26px;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
-  .card::before{top:24px}
-  .tabs3d{bottom:12px;left:12px;right:12px;transform:none;max-width:none}
-  .tabs3d button{padding:8px 12px;font-size:13px}
-  .tools3d{display:none}
-  .hot span{font-size:11.5px;padding:4px 8px}
-  .hot em{width:190px}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);border-top:2px solid var(--ink)}
+.step{padding:22px 18px 0 0;display:grid;gap:8px;align-content:start;position:relative}
+.step::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--ink)}
+.step:last-child::before{background:var(--orange);border-color:var(--orange)}
+.step .mono{color:var(--orange)}
+.step p{font-size:.9rem;color:var(--muted)}
+@media (max-width:980px){.steps{grid-template-columns:repeat(3,1fr);row-gap:36px}}
+@media (max-width:620px){
+  .steps{grid-template-columns:1fr;border-top:0;border-left:2px solid var(--ink);row-gap:0;margin-left:6px}
+  .step{padding:0 0 26px 24px}
+  .step::before{top:2px;left:-7px}
+  .step:last-child{padding-bottom:0}
 }
-@media (min-width:801px){.stage3d{position:absolute;inset:0}}
 
-/* ===== Sections ===== */
-section{position:relative;padding-block:100px}
-.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:44px}
-.sec-head h2{font-size:clamp(32px,4.2vw,54px);font-weight:800;font-stretch:104%}
-.sec-head p{font-size:18px;max-width:52ch}
-@media (max-width:900px){.sec-head{grid-template-columns:1fr;gap:14px}section{padding-block:70px}}
+/* clients */
+.cl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--navy-line);border:1px solid var(--navy-line)}
+.cl{background:var(--navy);padding:clamp(20px,3vw,28px);display:grid;gap:10px;align-content:start}
+.cl .mono{color:var(--orange)}
+.cl p{color:var(--navy-muted);font-size:.93rem}
+.needs{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.needs span{font-family:var(--mono);font-size:.66rem;padding:4px 8px;border:1px solid var(--navy-line);border-radius:2px;color:var(--navy-fg)}
+@media (max-width:900px){.cl-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.cl-grid{grid-template-columns:1fr}}
 
-.clients{padding-block:36px;background:#fff;border-bottom:1px solid var(--line)}
-.clients .wrap{display:flex;align-items:center;gap:18px 52px;flex-wrap:wrap}
-.clients p{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
-.clients ul{list-style:none;margin:0;padding:0;display:flex;gap:18px 52px;flex-wrap:wrap}
-.clients li{font-family:var(--f-display);font-weight:800;font-stretch:118%;font-size:26px;color:var(--ink)}
+/* markets */
+.mk-wrap{border:1px solid var(--line);background:var(--surface)}
+table.mk{width:100%;border-collapse:collapse;font-size:.94rem}
+.mk th{text-align:left;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:14px 18px;border-bottom:1px solid var(--line)}
+.mk td{padding:18px;border-bottom:1px solid var(--line);vertical-align:top}
+.mk tr:last-child td{border-bottom:0}
+.mk .cc{font-family:var(--mono);font-weight:500;color:var(--orange);white-space:nowrap}
+.mk .country{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:1.05rem}
+.mk td.what{color:var(--muted)}
+.ph{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.68rem;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.ph::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.ph-1{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+.ph-2{color:var(--link);background:color-mix(in srgb,var(--orange) 12%,transparent)}
+.ph-3{color:var(--muted);background:color-mix(in srgb,var(--muted) 14%,transparent)}
+@media (max-width:760px){
+  .mk thead{display:none}
+  .mk,.mk tbody,.mk tr,.mk td{display:block;width:100%}
+  .mk tr{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:18px;border-bottom:1px solid var(--line)}
+  .mk tr:last-child{border-bottom:0}
+  .mk td{padding:0;border:0}
+  .mk td.cc{grid-row:1;grid-column:1;padding-top:3px}
+  .mk td.country{grid-row:1;grid-column:2}
+  .mk td.role,.mk td.status,.mk td.what{grid-column:1/-1}
+  .mk td.role{font-weight:500;margin-top:4px}
+  .mk td.status{margin:4px 0}
+}
 
-.pain-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.pain{background:#fff;border-radius:6px;padding:28px 26px;display:grid;gap:12px;align-content:start;box-shadow:0 1px 2px rgba(28,29,31,.05);border-top:3px solid transparent;transition:border-color .3s,box-shadow .3s}
-.pain:hover{border-top-color:var(--orange);box-shadow:var(--shadow)}
-.pain .who{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-ink)}
-.pain .before{font-size:15px;color:#9A9BA0;text-decoration:line-through;text-decoration-color:rgba(28,29,31,.25)}
-.pain .after{font-size:16.5px;color:#3A3B3F}
-@media (max-width:900px){.pain-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:600px){.pain-grid{grid-template-columns:1fr}}
+/* platform */
+.plat{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,64px);align-items:center}
+.plat>*{min-width:0}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:26px}
+.mods div{border-top:1px solid var(--line);padding-top:10px}
+.mods b{font-family:var(--mono);font-size:.76rem;font-weight:500;display:block}
+.mods span{font-size:.86rem;color:var(--muted)}
+.app{border:1px solid var(--line);background:var(--surface);border-radius:4px;overflow:hidden;box-shadow:0 30px 60px -30px color-mix(in srgb,var(--navy) 40%,transparent)}
+.app-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.app-bar b{color:var(--ink);font-weight:500}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.kpis div{padding:14px 16px;border-right:1px solid var(--line);min-width:0}
+.kpis div:last-child{border-right:0}
+.kpis .v{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:1.45rem;font-variant-numeric:tabular-nums}
+.kpis .l{font-size:.72rem;color:var(--muted);line-height:1.3}
+.rows{display:grid}
+.row{display:grid;grid-template-columns:80px 1.4fr 1fr auto 50px;gap:12px;align-items:center;padding:11px 16px;border-bottom:1px solid var(--line);font-size:.8rem;font-variant-numeric:tabular-nums}
+.row.head{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.row .m{font-family:var(--mono);font-size:.72rem}
+.st{font-family:var(--mono);font-size:.64rem;padding:3px 7px;border-radius:2px;white-space:nowrap}
+.st-sea{color:var(--steel);background:color-mix(in srgb,var(--steel) 18%,transparent)}
+.st-qc{color:var(--warn);background:color-mix(in srgb,var(--warn) 14%,transparent)}
+.st-ok{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+.st-risk{color:var(--risk);background:color-mix(in srgb,var(--risk) 12%,transparent)}
+.app-note{padding:10px 16px;font-family:var(--mono);font-size:.62rem;color:var(--muted)}
+@media (max-width:960px){.plat{grid-template-columns:1fr}}
+@media (max-width:600px){
+  .mods{grid-template-columns:1fr}
+  .kpis .v{font-size:1.15rem}
+  .kpis div{padding:12px}
+  .row.head{display:none}
+  .row{grid-template-columns:1fr auto;gap:2px 10px}
+  .row .po{grid-column:1;color:var(--muted)}
+  .row .eta{grid-column:2;grid-row:1;text-align:right}
+  .row .prod{grid-column:1/-1;font-weight:500;font-size:.88rem}
+  .row .lane-c{grid-column:1}
+  .row .stc{grid-column:2;grid-row:3;justify-self:end}
+}
 
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.tab{font:inherit;font-weight:700;font-size:15px;padding:11px 19px;border-radius:99px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:all .2s}
-.tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
-.panel-box{background:#fff;border-radius:6px;padding:clamp(24px,4vw,46px);box-shadow:0 1px 2px rgba(28,29,31,.05)}
-.tpanel{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px}
-.tpanel h3{font-size:clamp(24px,2.8vw,34px);font-weight:800;margin-bottom:12px}
-.tpanel p{font-size:17px;margin-bottom:18px}
-.tpanel ul{list-style:none;margin:0;padding:0;display:grid}
-.tpanel li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);color:#3A3B3F}
-.tpanel li .ico{color:var(--orange);margin-top:2px}
-.link{display:inline-flex;align-items:center;gap:8px;color:var(--orange-ink);font-weight:700}
-.link .ico{width:18px;height:18px}
-@media (max-width:800px){.tpanel{grid-template-columns:1fr;gap:18px}}
+/* group */
+.group-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(36px,6vw,80px);align-items:start}
+.group-grid>*{min-width:0}
+.org{display:grid;gap:12px}
+.org-top{border:1.5px solid var(--orange);padding:18px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.org-top b{font-family:var(--display);font-stretch:122%;font-weight:800;font-size:1.3rem;letter-spacing:.05em}
+.org-stem{height:22px;border-left:1px dashed var(--navy-line);margin-left:50%}
+.org-divs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.org-divs div{border:1px solid var(--navy-line);padding:14px 12px;display:grid;gap:2px}
+.org-divs b{font-family:var(--display);font-stretch:115%;font-weight:700;font-size:.92rem;letter-spacing:.04em}
+.org-divs span{font-family:var(--mono);font-size:.62rem;color:var(--navy-muted);letter-spacing:.06em}
+.org-roles{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.org-roles span{font-family:var(--mono);font-size:.64rem;color:var(--navy-muted);padding:4px 8px;border:1px dashed var(--navy-line)}
+.timeline{display:grid;margin-top:8px}
+.tl{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--navy-line)}
+.tl:last-child{border-bottom:1px solid var(--navy-line)}
+.tl .yr{font-family:var(--mono);font-size:.78rem;color:var(--orange);padding-top:3px}
+.tl b{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:1.1rem;display:block}
+.tl p{color:var(--navy-muted);font-size:.92rem;margin-top:2px}
+.tl.now .yr::after{content:" ●";animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.2}}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--navy-line);border:1px solid var(--navy-line);margin-top:clamp(40px,6vw,64px)}
+.pillars div{background:var(--navy);padding:24px;display:grid;gap:8px}
+.pillars .mono{color:var(--orange)}
+.pillars p{color:var(--navy-muted);font-size:.92rem}
+@media (max-width:900px){.group-grid{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}}
+@media (max-width:480px){.org-divs{grid-template-columns:1fr 1fr}.tl{grid-template-columns:1fr;gap:4px}}
 
-.ticker{background:var(--ink);overflow:hidden;padding-block:16px}
-.ticker-track{display:flex;gap:52px;width:max-content;animation:tick 40s linear infinite;font-family:var(--f-display);font-weight:800;font-stretch:115%;font-size:22px;text-transform:uppercase;white-space:nowrap;color:#fff}
-.ticker-track span:nth-child(even){color:var(--orange)}
-@keyframes tick{to{transform:translateX(-50%)}}
+/* engagement */
+.eng{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.eng>div{padding:clamp(20px,3vw,28px);border:1px solid var(--line);display:grid;gap:10px;align-content:start;background:var(--surface)}
+.eng>div.key{background:var(--navy);color:var(--navy-fg);border-color:var(--navy);box-shadow:inset 0 3px 0 var(--orange)}
+.eng>div.key p{color:var(--navy-muted)}
+.eng>div.key .mono{color:var(--orange)}
+.eng p{color:var(--muted);font-size:.94rem}
+.eng .mono{color:var(--muted)}
+@media (max-width:860px){.eng{grid-template-columns:1fr}}
 
-.logi{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:48px;align-items:start}
-.logi-side{display:grid;gap:18px;position:sticky;top:100px}
-.logi-side h2{font-size:clamp(32px,4.2vw,52px);font-weight:800;font-stretch:104%}
-.logi-side p{font-size:18px}
-.cond{display:grid;gap:10px}
-.cond div{display:flex;gap:10px;align-items:center;font-size:15px;color:#3A3B3F}
-.cond .ico{width:18px;height:18px;color:var(--ok)}
-.cond .no .ico{color:#D2453A}
-.dl{display:inline-flex;gap:10px;align-items:center;font-weight:700;color:var(--ink);border-bottom:2px solid var(--orange);padding-bottom:3px;justify-self:start}
-.dl .ico{color:var(--orange-ink);width:18px;height:18px}
-.board{background:#fff;border-radius:6px;box-shadow:0 1px 2px rgba(28,29,31,.05);overflow:hidden}
-.svc{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:center;padding:22px 26px;border-bottom:1px solid var(--line);transition:background .25s}
-.svc:last-child{border-bottom:0}
-.svc:hover{background:#FCFBFA}
-.svc .si{width:46px;height:46px;border-radius:12px;background:var(--orange-soft);color:var(--orange-ink);display:grid;place-items:center}
-.svc h3{font-size:18.5px;margin-bottom:4px;font-stretch:104%}
-.svc p{font-size:15px}
-.svc .price{text-align:right;display:grid;line-height:1.15}
-.svc .price small{font-size:11.5px;font-family:var(--f-mono);color:var(--muted)}
-.svc .price b{font-family:var(--f-display);font-stretch:106%;font-size:29px;font-weight:900;font-variant-numeric:tabular-nums}
-.svc.feature .price b{color:var(--orange-ink)}
-@media (max-width:900px){.logi{grid-template-columns:1fr}.logi-side{position:static}}
-@media (max-width:560px){.svc{grid-template-columns:auto minmax(0,1fr);padding:18px}.svc .price{grid-column:2;text-align:left;display:flex;gap:6px;align-items:baseline}.svc .price b{font-size:23px}}
+/* comparison */
+table.cmp{width:100%;border-collapse:collapse}
+.cmp th,.cmp td{padding:16px 18px;border-bottom:1px solid var(--line);text-align:left;font-size:.93rem;vertical-align:top}
+.cmp thead th{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+.cmp thead th.c{color:var(--orange)}
+.cmp td.c{background:color-mix(in srgb,var(--orange) 8%,transparent);font-weight:600;color:var(--ink)}
+.cmp tbody th{font-weight:600}
+.cmp td{color:var(--muted)}
+@media (max-width:700px){
+  .cmp thead{display:none}
+  .cmp,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block;width:100%}
+  .cmp tr{border:1px solid var(--line);background:var(--surface);margin-bottom:10px}
+  .cmp tbody th{padding:12px 14px;border-bottom:1px solid var(--line);font-family:var(--display);font-stretch:112%}
+  .cmp td{display:grid;grid-template-columns:120px 1fr;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}
+  .cmp td:last-child{border-bottom:0}
+  .cmp td::before{content:attr(data-l);font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:400;padding-top:2px}
+  .cmp td.c::before{color:var(--orange)}
+}
 
-.process-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
-.pstep{display:grid;gap:10px;align-content:start;padding-top:20px;border-top:2px solid var(--line);position:relative}
-.pstep::before{content:"";position:absolute;top:-2px;left:0;height:2px;width:0;background:var(--orange);transition:width 1.2s var(--ease)}
-.pstep.in::before{width:100%}
-.pstep .n{font-family:var(--f-mono);font-size:12px;color:var(--orange-ink);letter-spacing:.1em}
-.pstep h3{font-size:21px}
-.pstep p{font-size:15.5px}
-@media (max-width:900px){.process-steps{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.process-steps{grid-template-columns:1fr}}
-
-.imp-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.imp{background:#fff;border-radius:6px;padding:30px;display:grid;gap:15px;align-content:start;box-shadow:0 1px 2px rgba(28,29,31,.05)}
-.imp.alt{background:var(--ink)}
-.imp.alt h3,.imp.alt strong{color:#fff}
-.imp.alt p,.imp.alt .rows div{color:#C9CACE}
-.imp.alt .chip{border-color:rgba(255,255,255,.18);color:#E6E6E8}
-.imp h3{font-size:27px;font-weight:800}
+/* hub + contact */
+.hub{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,64px)}
+.hub>*{min-width:0}
+.facts{display:grid;margin-top:26px;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.facts .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+form.brief{border:1.5px solid var(--ink);padding:clamp(20px,3vw,34px);display:grid;gap:16px;background:var(--surface)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{display:grid;gap:6px;min-width:0}
+.f label,.f .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.f input,.f select,.f textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:2px;padding:12px;width:100%}
+.f textarea{min-height:110px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px color-mix(in srgb,var(--orange) 22%,transparent)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-size:13px;padding:6px 12px;border-radius:99px;border:1px solid var(--line);color:#3A3B3F}
-.rows{display:grid;gap:8px}
-.rows div{display:flex;gap:10px;font-size:15px;color:#3A3B3F}
-.rows .ico{width:18px;height:18px;color:var(--orange);margin-top:3px}
-.chain{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 1px 2px rgba(28,29,31,.05)}
-.chain div{display:flex;align-items:center;gap:12px;padding:18px 20px;font-weight:700;color:var(--ink);font-size:15px;border-right:1px solid var(--line)}
-.chain div:last-child{border-right:0;background:var(--orange);color:#fff}
-.chain .ico{color:var(--orange)}
-.chain div:last-child .ico{color:#fff}
-.note{margin-top:14px;font-size:14px}
-@media (max-width:900px){.imp-grid{grid-template-columns:1fr}.chain{grid-template-columns:1fr 1fr}.chain div:nth-child(2){border-right:0}.chain div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.chips label{display:inline-flex;cursor:pointer;position:relative}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{font-size:.86rem;padding:9px 12px;border:1px solid var(--line);border-radius:2px;background:var(--bg);transition:.15s}
+.chips input:checked+span{background:var(--navy);color:var(--navy-fg);border-color:var(--navy)}
+.chips input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
+.form-out{font-size:.88rem;color:var(--muted)}
+.form-out a{color:var(--link);font-weight:600}
+.contact-line{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-family:var(--mono);font-size:.84rem;min-width:0;word-break:break-all}
+.copy{all:unset;cursor:pointer;font-family:var(--mono);font-size:.68rem;padding:4px 8px;border:1px solid var(--line);border-radius:2px;color:var(--muted);word-break:normal}
+.copy:hover{color:var(--ink);border-color:var(--ink)}
+.copy:focus-visible{outline:2px solid var(--orange)}
+@media (max-width:900px){.hub{grid-template-columns:1fr}}
+@media (max-width:540px){.f-row{grid-template-columns:1fr}.facts div{grid-template-columns:1fr;gap:2px}form.brief .btn{width:100%}}
 
-.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.cat{background:#fff;border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start;box-shadow:0 1px 2px rgba(28,29,31,.05);transition:transform .3s var(--ease),box-shadow .3s}
-.cat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.cat .ico{color:var(--orange);width:26px;height:26px;margin-bottom:4px}
-.cat h3{font-size:17px;font-stretch:104%}
-.cat p{font-size:14.5px}
-.cat-cta{grid-column:span 4;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--ink);padding:28px}
-.cat-cta h3{font-size:23px;color:#fff}
-.cat-cta p{color:#C9CACE}
-.cat-cta .btn-light{background:var(--orange);color:#fff}
-@media (max-width:1000px){.cats{grid-template-columns:repeat(3,minmax(0,1fr))}.cat-cta{grid-column:span 3}}
-@media (max-width:720px){.cats{grid-template-columns:1fr 1fr}.cat-cta{grid-column:span 2}}
-@media (max-width:420px){.cats{grid-template-columns:1fr}.cat-cta{grid-column:span 1}}
+/* closing + footer */
+.closing .wrap{display:grid;gap:26px;justify-items:start}
+.closing h2{font-size:clamp(2.1rem,6vw,4.6rem);font-stretch:122%;max-width:17ch}
+.closing h2 em{font-style:normal;color:var(--orange)}
+.closing .btn-ghost{color:var(--navy-fg)}
+@media (max-width:560px){.closing .btn{width:100%}}
+footer{padding-block:48px calc(32px + env(safe-area-inset-bottom,0px));font-size:.86rem;color:var(--navy-muted);border-top:1px solid var(--navy-line)}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+footer h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--navy-fg);margin:0 0 10px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--navy-fg)}
+.legal{grid-column:1/-1;border-top:1px solid var(--navy-line);padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:.66rem}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr 1fr}footer .wrap>div:first-child{grid-column:1/-1}}
 
-.why-list{display:grid;margin-top:24px}
-.why-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;padding:28px 0;border-top:1px solid var(--line);align-items:baseline}
-.why-row:last-child{border-bottom:1px solid var(--line)}
-.why-row h3{font-size:clamp(23px,2.8vw,36px);font-weight:800;font-stretch:104%;transition:color .3s}
-.why-row:hover h3{color:var(--orange-ink)}
-.why-row p{font-size:17px}
-@media (max-width:700px){.why-row{grid-template-columns:1fr;gap:8px}}
-
-.contact{padding-block:0 100px}
-.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:44px;align-items:start;background:#fff;border-radius:6px;padding:clamp(24px,4vw,48px);box-shadow:0 1px 2px rgba(28,29,31,.05)}
-.contact-grid h2{font-size:clamp(32px,4.2vw,52px);font-weight:800}
-.contact-grid .lead{font-size:18px;margin-top:14px;max-width:44ch}
-.direct{display:grid;gap:10px;margin-top:26px}
-.direct a{display:flex;align-items:center;gap:14px;padding:15px 17px;border:1px solid var(--line);border-radius:10px;transition:border-color .2s,transform .3s var(--ease)}
-.direct a:hover{border-color:var(--orange);transform:translateX(4px)}
-.direct .ico{color:var(--orange-ink);width:24px;height:24px}
-.direct div{display:grid;color:var(--ink);font-weight:700;min-width:0}
-.direct span{font-weight:400;color:var(--muted);font-size:14px;overflow-wrap:anywhere}
-form{display:grid;gap:15px;background:var(--paper);border-radius:6px;padding:clamp(20px,3vw,30px)}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.field{display:grid;gap:7px}
-.field label{font-size:13px;font-weight:700;color:var(--ink)}
-.field input,.field select,.field textarea{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;width:100%;transition:border-color .2s,box-shadow .2s}
-.field textarea{min-height:120px;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px var(--orange-soft)}
-.field .err{display:none;font-size:13px;color:#D2453A}
-.field.bad .err{display:block}
-.field.bad input,.field.bad textarea{border-color:#D2453A}
-form .btn-light{background:var(--orange);color:#fff}
-.help{font-size:13px}
-.wa-fallback{font-size:14px;color:var(--orange-ink);font-weight:700}
-@media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
-@media (max-width:520px){.row2{grid-template-columns:1fr}}
-
-footer{background:var(--ink);color:#B9BABE;padding-block:52px 36px;font-size:15px}
-footer .logo{color:#fff}
-footer .logo-mark{background:#fff;color:var(--ink)}
-footer .logo-mark::after{border-color:var(--ink)}
-.foot{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(2,minmax(0,1fr));gap:40px}
-.foot h4{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8E8F94;margin:0 0 14px;font-weight:500}
-.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;color:#fff}
-.legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:13px}
-@media (max-width:720px){.foot{grid-template-columns:1fr}}
-
-.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0) * 80ms)}
-.js .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
-</head>
-<body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
-  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2.5l2.2 10.5h10.8L21 7.5H6.4"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></symbol>
-  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.5" y="8.5" width="17" height="4" rx="1"/><path d="M5 12.5V20h14v-7.5M12 8.5V20M12 8.5C10 4 6.5 5 7.5 7.5 8 8.5 12 8.5 12 8.5Zm0 0c2-4.5 5.5-3.5 4.5-1-.5 1-4.5 1-4.5 1Z"/></symbol>
-  <symbol id="i-return" viewBox="0 0 24 24"><path d="M9 5 4 10l5 5"/><path d="M4 10h10a6 6 0 0 1 0 12h-3"/></symbol>
-  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.2V4.5h7.7l9.3 9.3-7.7 7.7-9.3-9.3Z"/><circle cx="8" cy="9" r="1.3"/></symbol>
-  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14l-4-4M20 16H6l4 4"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-5 4v-4.2A2.5 2.5 0 0 1 4 13.5v-8Z"/><path d="M8 8.5h8M8 12h5"/></symbol>
-  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.5 6h11v10h-11zM13.5 9.5h4L21 13v3h-7.5"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
-  <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 2.8 20.5 7.5v9L12 21.2 3.5 16.5v-9L12 2.8Z"/><path d="m3.5 7.5 8.5 4.7 8.5-4.7M12 12.2v9"/></symbol>
-  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4 18-7Z"/></symbol>
-  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></symbol>
-  <symbol id="i-seal" viewBox="0 0 24 24"><path d="M12 2.5l2.4 1.8 3-.2.9 2.9 2.4 1.8-1 2.8 1 2.8-2.4 1.8-.9 2.9-3-.2L12 21.5l-2.4-1.8-3 .2-.9-2.9-2.4-1.8 1-2.8-1-2.8 2.4-1.8.9-2.9 3 .2L12 2.5Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
-  <symbol id="i-boat" viewBox="0 0 24 24"><path d="M3 15h18l-2.5 5h-13L3 15ZM6 15V9h12v6M9 9V5h6v4"/></symbol>
-  <symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M2.5 9 12 4l9.5 5v11h-19V9Z"/><path d="M6.5 20v-7h11v7M6.5 16h11"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></symbol>
-  <symbol id="i-sign" viewBox="0 0 24 24"><path d="M12 3v18M5 6h12l2.5 2.5L17 11H5zM19 13H7l-2.5 2.5L7 18h12z"/></symbol>
-  <symbol id="i-spray" viewBox="0 0 24 24"><path d="M8 10h6v11H8zM9 10V7h4v3M13 7h3l2-2M17 9l2.5-.5M17 11.5l2 1"/></symbol>
-  <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6V9ZM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3c0 1.5 1.5 1.5 1.5 3M12 3c0 1.5 1.5 1.5 1.5 3"/></symbol>
-  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18V6M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"/><circle cx="7" cy="11" r="1.8"/></symbol>
-  <symbol id="i-shirt" viewBox="0 0 24 24"><path d="M8.5 3.5 3 6.5l2 4 2-1V20h10V9.5l2 1 2-4-5.5-3c-.5 1.5-2 2.5-3.5 2.5s-3-1-3.5-2.5Z"/></symbol>
-  <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6.5" r="2.5"/><circle cx="6" cy="17.5" r="2.5"/><path d="M8 8.2 20 18M8 15.8 20 6"/></symbol>
-  <symbol id="i-flower" viewBox="0 0 24 24"><path d="M12 20c-4.5 0-8-2.5-9-6 2.5-.5 5 0 7 1.5M12 20c4.5 0 8-2.5 9-6-2.5-.5-5 0-7 1.5M12 20c-2.5-2-3.5-5-3.5-8S10 6 12 4c2 2 3.5 5 3.5 8s-1 6-3.5 8Z"/></symbol>
-  <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v11h14V9M10 13h4"/></symbol>
-  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 10v10h16V10M3 4h18l-1 6H4L3 4ZM9.5 20v-5h5v5"/></symbol>
-  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4.5 19.5 5.6 16A8.5 8.5 0 1 1 8.4 18.6l-3.9.9Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.4-2.4-1.8-2.8-2.8l.8-1-1-2L9 8.5Z"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></symbol>
-  <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6V3Z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></symbol>
-  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
-  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
-  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
-  <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></symbol>
-  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5L8 5.5Z"/></symbol>
-  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></symbol>
-</svg>
-<header class="nav" id="nav">
+<header class="nav">
   <div class="wrap">
-    <a href="#top" class="logo" aria-label="Centr Supply, accueil"><span class="logo-mark">C</span>Centr Supply</a>
-    <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
-      <a href="#logistique">Logistique</a>
-      <a href="#import">Sourcing et import</a>
-      <a href="#produits">Produits pros</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="#contact" class="btn btn-orange">Demander un devis</a>
-    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><svg class="ico"><use href="#i-menu"/></svg></button>
+    <a class="logo" href="#top" aria-label="CENTR Group, accueil"><span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i></span>CENTR<small>GROUP</small></a>
+    <ul class="nav-links">
+      <li><a href="#divisions">Divisions</a></li>
+      <li><a href="#methode">Méthode</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#marches">Marchés</a></li>
+      <li><a href="#groupe">Le groupe</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="btn btn-primary" href="#contact">Soumettre un brief <span class="arr">→</span></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu"><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <div class="wrap">
+      <ul>
+        <li><a href="#divisions">Divisions</a></li>
+        <li><a href="#methode">Méthode</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#marches">Marchés</a></li>
+        <li><a href="#groupe">Le groupe</a></li>
+        <li><a href="#contact" style="color:var(--orange)">Soumettre un brief →</a></li>
+      </ul>
+    </div>
   </div>
 </header>
 
 <main id="top">
-<div class="world" id="world">
-  <div class="stage3d" id="stage3d">
-    <div class="loading">Chargement de la maquette</div>
-    <div id="hots"></div>
-    <nav class="tabs3d" id="tabs3d" aria-label="Scènes de la maquette"></nav>
-    <div class="tools3d" role="group" aria-label="Contrôles de la vue">
-      <button id="play3d" aria-label="Mettre la visite en pause" title="Pause"><svg class="ico"><use href="#i-pause"/></svg></button>
-      <button id="rot3d" aria-label="Tourner la vue" title="Tourner la vue"><svg class="ico"><use href="#i-rotate"/></svg></button>
+<!-- HERO -->
+<section class="hero dark">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Global Commerce Infrastructure</div>
+      <h1>L'infrastructure qui relie la production mondiale <em>aux marchés.</em></h1>
+      <p class="lede">CENTR organise l'approvisionnement, l'import, le stockage et la distribution des marchandises de ses clients. Un interlocuteur, un contrat, une visibilité complète sur toute la chaîne.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Parler à un opérateur <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#divisions">Nos divisions</a>
+      </div>
+      <div class="hero-meta">
+        <div><b>6</b><span>Divisions</span></div>
+        <div><b>7</b><span>Corridors</span></div>
+        <div><b>1</b><span>Contrat</span></div>
+      </div>
+    </div>
+
+    <div class="map" aria-label="Schéma du réseau CENTR : origines de production, hub CENTR, marchés de distribution">
+      <div class="map-top mono"><span>CENTR NETWORK</span><span class="live">Flux actifs</span></div>
+      <svg viewBox="0 0 560 360" role="img" aria-hidden="true">
+        <path class="lane" d="M78 60 C 180 60, 200 180, 280 180"/>
+        <path class="lane" d="M78 130 C 180 130, 200 180, 280 180"/>
+        <path class="lane" d="M78 230 C 180 230, 200 180, 280 180"/>
+        <path class="lane" d="M78 300 C 180 300, 200 180, 280 180"/>
+        <path class="flow" d="M78 60 C 180 60, 200 180, 280 180"/>
+        <path class="flow" d="M78 130 C 180 130, 200 180, 280 180" style="animation-delay:-.7s"/>
+        <path class="flow" d="M78 230 C 180 230, 200 180, 280 180" style="animation-delay:-1.4s"/>
+        <path class="flow" d="M78 300 C 180 300, 200 180, 280 180" style="animation-delay:-2s"/>
+        <path class="lane" d="M280 180 C 360 180, 380 40, 470 40"/>
+        <path class="lane" d="M280 180 C 360 180, 380 110, 470 110"/>
+        <path class="lane" d="M280 180 C 360 180, 380 180, 470 180"/>
+        <path class="lane" d="M280 180 C 360 180, 380 250, 470 250"/>
+        <path class="lane" d="M280 180 C 360 180, 380 320, 470 320"/>
+        <path class="flow out" d="M280 180 C 360 180, 380 40, 470 40"/>
+        <path class="flow out" d="M280 180 C 360 180, 380 110, 470 110" style="animation-delay:-.5s"/>
+        <path class="flow out" d="M280 180 C 360 180, 380 180, 470 180" style="animation-delay:-1.1s"/>
+        <path class="flow out" d="M280 180 C 360 180, 380 250, 470 250" style="animation-delay:-1.7s"/>
+        <path class="flow out" d="M280 180 C 360 180, 380 320, 470 320" style="animation-delay:-2.3s"/>
+        <circle class="node" cx="78" cy="60" r="6"/><text class="node-lbl" x="16" y="42">CNSZX</text><text class="node-sub" x="16" y="80">Shenzhen</text>
+        <circle class="node" cx="78" cy="130" r="6"/><text class="node-lbl" x="16" y="112">CNYIW</text><text class="node-sub" x="16" y="150">Yiwu</text>
+        <circle class="node" cx="78" cy="230" r="6"/><text class="node-lbl" x="16" y="212">TRIST</text><text class="node-sub" x="16" y="250">Istanbul</text>
+        <circle class="node" cx="78" cy="300" r="6"/><text class="node-lbl" x="16" y="282">EU</text><text class="node-sub" x="16" y="320">Usines UE</text>
+        <circle class="hub-ring" cx="280" cy="180" r="46"/>
+        <circle class="hub-ring" cx="280" cy="180" r="31" style="opacity:.6"/>
+        <circle class="hub-core" cx="280" cy="180" r="21"/>
+        <text class="hub-txt" x="280" y="184" text-anchor="middle">CENTR</text>
+        <text class="node-sub" x="280" y="246" text-anchor="middle">SOURCING · QC · IMPORT · STOCK</text>
+        <circle class="node" cx="470" cy="40" r="6"/><text class="node-lbl" x="484" y="44">FRCFR</text>
+        <circle class="node" cx="470" cy="110" r="6"/><text class="node-lbl" x="484" y="114">BEANR</text>
+        <circle class="node" cx="470" cy="180" r="6"/><text class="node-lbl" x="484" y="184">DEHAM</text>
+        <circle class="node" cx="470" cy="250" r="6"/><text class="node-lbl" x="484" y="254">AEJEA</text>
+        <circle class="node" cx="470" cy="320" r="6"/><text class="node-lbl" x="484" y="324">MACAS</text>
+      </svg>
+      <div class="ticker">
+        <div class="tick"><span class="tag t-qc">QC</span><span>Inspection avant expédition · Yiwu → Caen</span><span>PASS</span></div>
+        <div class="tick"><span class="tag t-sea">MER</span><span>40' HC · Shenzhen → Le Havre · FOB</span><span>J+31</span></div>
+        <div class="tick"><span class="tag t-wh">STOCK</span><span>Réception 12 palettes · mise en stock</span><span>OK</span></div>
+      </div>
+      <p class="map-note">Codes UN/LOCODE · flux illustratifs</p>
     </div>
   </div>
-  <div class="card" id="card" aria-live="polite">
-    <div class="card-body" id="cardBody">
-      <span class="eyebrow">Caen · Calvados</span>
-      <h1>Stocker, expédier, importer. En simple.</h1>
-      <p>Logistique e-commerce, import et produits pour pros, depuis notre entrepôt de Caen. <strong>Un seul interlocuteur</strong>, des <strong>prix clairs</strong>, sans engagement.</p>
-      <span class="tag">Préparation dès 0,79 € HT / commande</span>
-      <div class="ctas"><a href="#contact" class="btn btn-orange">Demander un devis <svg class="ico"><use href="#i-arrow"/></svg></a><a href="#logistique" class="btn btn-line">Voir les tarifs</a></div>
+</section>
+
+<!-- FRAGMENTATION -->
+<section class="frag">
+  <div class="wrap frag-grid">
+    <div>
+      <div class="eyebrow">Le problème</div>
+      <h2 style="margin-top:16px">Importer, c'est gérer dix prestataires qui ne se parlent pas.</h2>
+      <p class="lede" style="margin-top:18px">Chacun a ses tarifs, ses délais, ses outils et ses contraintes. Le coût caché, c'est votre temps, vos erreurs de coordination et vos marges qui s'érodent.</p>
+      <div class="chain" aria-label="Acteurs d'une chaîne d'import classique">
+        <span>Agent de sourcing</span><span>Fabricant</span><span>Contrôle qualité</span><span>Transitaire</span><span>Commissionnaire en douane</span><span>Transporteur</span><span>Entrepôt</span><span>Préparateur de commandes</span><span>Distributeur</span><span>3 logiciels + Excel + WhatsApp</span>
+      </div>
+    </div>
+    <div class="one">
+      <div class="big">10 → 1<small>interlocuteur pour faire circuler vos marchandises</small></div>
+      <div class="one-bar" aria-hidden="true"><div>Sourcing</div><div>Import</div><div>Stock</div><div>Distribution</div></div>
+      <ul>
+        <li>CENTR pilote la relation client, les flux, les données et le réseau de partenaires.</li>
+        <li>Les opérations réglementées sont réalisées par des professionnels habilités, coordonnés par nos équipes.</li>
+        <li>Vous suivez tout depuis un seul tableau de bord, du bon de commande à la livraison.</li>
+      </ul>
     </div>
   </div>
-</div>
+</section>
+
+<!-- DIVISIONS -->
+<section id="divisions">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Six divisions, une chaîne</div>
+      <h2>Chaque maillon du commerce international, sous une même marque.</h2>
+      <p class="lede">Commencez par un besoin précis. Ajoutez les autres divisions quand vos volumes le justifient.</p>
+    </div>
+    <div class="div-shell">
+      <div class="div-tabs" role="tablist" aria-label="Divisions CENTR" id="tabs"></div>
+      <div class="div-panel" role="tabpanel" id="panel" tabindex="0"></div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODE -->
+<section id="methode" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Méthode</div>
+      <h2>Un flux complet, de votre brief à votre client final.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="mono">BRIEF</span><h3>Cadrage</h3><p>Produit, volumes, prix cible, marché, contraintes réglementaires.</p></div>
+      <div class="step"><span class="mono">SOURCING</span><h3>Fournisseurs</h3><p>Présélection, vérification, négociation : prix, MOQ, délais, paiement.</p></div>
+      <div class="step"><span class="mono">QC</span><h3>Contrôle qualité</h3><p>Échantillons, inspections en production et avant expédition.</p></div>
+      <div class="step"><span class="mono">TRADE</span><h3>Transport & douane</h3><p>Mer, air, rail, route. Documents et formalités coordonnés avec des représentants habilités.</p></div>
+      <div class="step"><span class="mono">LOGISTICS</span><h3>Stock & préparation</h3><p>Réception, stockage, picking, kitting, expéditions B2C et B2B, retours.</p></div>
+      <div class="step"><span class="mono">DISTRIBUTION</span><h3>Mise en marché</h3><p>Livraison à vos clients, revendeurs ou magasins, en France et en Europe.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- CLIENTS -->
-<section class="clients" aria-label="Boutiques clientes">
-  <div class="wrap">
-    <p>Elles expédient depuis notre entrepôt</p>
-    <ul>
-      <li>Pure Paris</li>
-      <li>MiswakSmile</li>
-      <li>U Glam</li>
-    </ul>
-  </div>
-</section>
-
-<!-- DOULEURS -->
-<section id="douleurs">
+<section class="dark" id="clients">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="reveal">Ce qu'on vous simplifie</h2>
-      <p class="reveal" style="--i:1">Six situations qu'on règle tous les jours pour des boutiques, des revendeurs et des commerces.</p>
+      <div class="eyebrow">Pour qui</div>
+      <h2>Toute entreprise qui achète et vend des marchandises.</h2>
+      <p class="lede">Tous secteurs, toutes catégories de produits. Nous privilégions les relations récurrentes aux missions ponctuelles.</p>
     </div>
-    <div class="pain-grid">
-      <article class="pain reveal"><span class="who">Vendre en ligne</span><p class="before">Gérer soi-même le stock, les colis et les transporteurs.</p><p class="after"><strong>Vous envoyez le stock, on s'occupe du reste.</strong> Préparation, emballage, expédition.</p></article>
-      <article class="pain reveal" style="--i:1"><span class="who">Revendre</span><p class="before">Stocker ses lots chez soi ou payer un local toute l'année.</p><p class="after"><strong>Vos lots sont stockés à Caen.</strong> Vous payez à l'usage, pas au mètre carré.</p></article>
-      <article class="pain reveal" style="--i:2"><span class="who">Créer des packs</span><p class="before">Assembler packs et coffrets à la main, commande après commande.</p><p class="after"><strong>On les assemble pour vous</strong>, au rythme de vos ventes.</p></article>
-      <article class="pain reveal"><span class="who">Gérer les retours</span><p class="before">Des retours compliqués à récupérer et à traiter, surtout depuis l'étranger.</p><p class="after"><strong>Une adresse de retour en France.</strong> On contrôle et on remet en stock.</p></article>
-      <article class="pain reveal" style="--i:1"><span class="who">Équiper un commerce</span><p class="before">Des minimums de commande trop élevés pour vos besoins.</p><p class="after"><strong>Petites quantités, réponse sur WhatsApp</strong>, livraison dans le Calvados.</p></article>
-      <article class="pain reveal" style="--i:2"><span class="who">Importer</span><p class="before">Trouver un fournisseur fiable et faire venir la marchandise.</p><p class="after"><strong>On source, on contrôle, on réceptionne à Caen.</strong></p></article>
+    <div class="cl-grid">
+      <div class="cl"><span class="mono">CLIENT · 01</span><h3>Marques e-commerce</h3><p>Des marques qui ont déjà de la traction et veulent sécuriser leur chaîne d'approvisionnement.</p><div class="needs"><span>Sourcing</span><span>Import</span><span>Fulfillment</span><span>Retours</span></div></div>
+      <div class="cl"><span class="mono">CLIENT · 02</span><h3>Grossistes & distributeurs</h3><p>Ils achètent en volume et réassortissent régulièrement. Nous structurons leurs achats et leur logistique B2B.</p><div class="needs"><span>Négociation</span><span>QC</span><span>Palettes</span><span>Distribution B2B</span></div></div>
+      <div class="cl"><span class="mono">CLIENT · 03</span><h3>Fabricants</h3><p>Asiatiques, turcs ou européens qui veulent accéder au marché européen sans monter leur propre réseau.</p><div class="needs"><span>Représentation</span><span>Stock UE</span><span>Prospection</span></div></div>
+      <div class="cl"><span class="mono">CLIENT · 04</span><h3>Chaînes de magasins</h3><p>Un fournisseur centralisé, un stock national et le réapprovisionnement de chaque point de vente.</p><div class="needs"><span>Achats</span><span>Réassort</span><span>Visibilité stock</span></div></div>
+      <div class="cl"><span class="mono">CLIENT · 05</span><h3>Importateurs</h3><p>Ils savent importer. Ils veulent de meilleurs prix, plus de fournisseurs et moins d'opérationnel.</p><div class="needs"><span>Diversification</span><span>Délais</span><span>Externalisation</span></div></div>
+      <div class="cl"><span class="mono">CLIENT · 06</span><h3>PME industrielles</h3><p>D'excellents produits, peu de ressources pour exporter. Nous devenons leur bras commercial et logistique.</p><div class="needs"><span>Export</span><span>Distributeurs</span><span>Flux internationaux</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- PROFILS -->
-<section id="profils" style="padding-top:0">
+<!-- MARCHES -->
+<section id="marches">
   <div class="wrap">
-    <div class="sec-head"><h2 class="reveal">Selon votre activité</h2></div>
-    <div class="tabs reveal" role="tablist" aria-label="Choisir votre profil">
-      <button class="tab" role="tab" aria-selected="true" aria-controls="p2" id="t2">Je vends en ligne</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3" tabindex="-1">Je veux importer ou revendre</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p1" id="t1" tabindex="-1">Je suis un commerce</button>
+    <div class="sec-head">
+      <div class="eyebrow">Corridors</div>
+      <h2>Un réseau d'abord, des implantations ensuite.</h2>
+      <p class="lede">Nous intervenons dans un pays par nos partenaires, puis nous nous y implantons quand les volumes le justifient.</p>
     </div>
-    <div class="panel-box reveal" style="--i:1">
-      <div class="tpanel" role="tabpanel" id="p2" aria-labelledby="t2">
-        <div>
-          <h3>Vous vendez, on s'occupe des colis.</h3>
-          <p>Boutiques en ligne, marques, vendeurs sur marketplaces : on gère la <strong>préparation</strong>, le <strong>kitting</strong> et les <strong>retours</strong>, à votre volume.</p>
-          <a href="#logistique" class="link">Voir la logistique <svg class="ico"><use href="#i-arrow"/></svg></a>
-        </div>
-        <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg><span><strong>Stock en France</strong>, expéditions rapides</span></li>
-          <li><svg class="ico"><use href="#i-check"/></svg><span>Coffrets et kits assemblés pour vous</span></li>
-          <li><svg class="ico"><use href="#i-check"/></svg><span><strong>Traitement des retours</strong>, y compris pour les vendeurs hors Europe</span></li>
-        </ul>
-      </div>
-      <div class="tpanel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
-        <div>
-          <h3>On importe et on stocke. Vous revendez.</h3>
-          <p>Des <strong>lots prêts à partir</strong> depuis Caen, ou un <strong>import sur commande</strong> de votre produit, personnalisé à votre marque si besoin.</p>
-          <a href="#import" class="link">Voir le sourcing et l'import <svg class="ico"><use href="#i-arrow"/></svg></a>
-        </div>
-        <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg><span>Lots disponibles avec minimum de commande</span></li>
-          <li><svg class="ico"><use href="#i-check"/></svg><span>Prix <strong>départ entrepôt</strong>, transport en sus</span></li>
-          <li><svg class="ico"><use href="#i-check"/></svg><span>Recherche de fournisseurs, échantillons, contrôle</span></li>
-          <li><svg class="ico"><use href="#i-check"/></svg><span>Réception et stockage à Caen</span></li>
-        </ul>
-      </div>
-      <div class="tpanel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
-        <div>
-          <h3>Commandez ce qu'il vous faut, en petite quantité.</h3>
-          <p>Restaurants, salons, boutiques, hôtels, locations courte durée : on fournit <strong>en petites quantités</strong> et on livre vite dans le Calvados.</p>
-          <a href="#produits" class="link">Voir les produits pros <svg class="ico"><use href="#i-arrow"/></svg></a>
-        </div>
-        <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg><span><strong>Avis clients et signalétique</strong> pour votre vitrine et votre comptoir</span></li>
-          <li><svg class="ico"><use href="#i-check"/></svg><span>Packaging, hygiène, textile pro, consommables</span></li>
-          <li><svg class="ico"><use href="#i-check"/></svg><span>Produits à votre logo, même en petite série</span></li>
-          <li><svg class="ico"><use href="#i-check"/></svg><span>Réponse rapide sur <strong>WhatsApp</strong></span></li>
-        </ul>
-      </div>
+    <div class="mk-wrap">
+      <table class="mk">
+        <thead><tr><th>Code</th><th>Marché</th><th>Rôle dans le réseau</th><th>Statut</th><th>Ce que nous y faisons</th></tr></thead>
+        <tbody>
+          <tr><td class="cc">FR</td><td class="country">France</td><td class="role">Marché socle</td><td class="status"><span class="ph ph-1">Opérationnel</span></td><td class="what">Hub de Caen, sourcing, fulfillment, distribution B2B.</td></tr>
+          <tr><td class="cc">BE · LU</td><td class="country">Belgique & Luxembourg</td><td class="role">Extension naturelle</td><td class="status"><span class="ph ph-1">Opérationnel</span></td><td class="what">Expédition transfrontalière, distribution, retours.</td></tr>
+          <tr><td class="cc">CN</td><td class="country">Chine</td><td class="role">Réseau d'approvisionnement</td><td class="status"><span class="ph ph-1">Partenaires actifs</span></td><td class="what">Fabricants, agents, contrôle qualité, transitaires.</td></tr>
+          <tr><td class="cc">TR</td><td class="country">Turquie</td><td class="role">Alternative d'approvisionnement</td><td class="status"><span class="ph ph-2">En développement</span></td><td class="what">Textile, maison, accessoires, emballages.</td></tr>
+          <tr><td class="cc">DE</td><td class="country">Allemagne</td><td class="role">Marché industriel et commercial</td><td class="status"><span class="ph ph-2">En développement</span></td><td class="what">Distributeurs, importateurs, grossistes spécialisés.</td></tr>
+          <tr><td class="cc">AE</td><td class="country">Émirats arabes unis</td><td class="role">Hub Europe · Moyen-Orient · Afrique · Asie</td><td class="status"><span class="ph ph-3">Horizon</span></td><td class="what">Import-export, réexportation, distributeurs régionaux.</td></tr>
+          <tr><td class="cc">MA</td><td class="country">Maroc</td><td class="role">Porte d'entrée vers l'Afrique</td><td class="status"><span class="ph ph-3">Horizon</span></td><td class="what">Réseau de distributeurs et partenaires d'importation.</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<!-- BANDEAU LED -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Préparation de commandes</span><span>Kitting</span><span>Retours e-commerce</span><span>Cross-docking</span><span>Sourcing Chine</span><span>Import en lots</span><span>NFC</span><span>Packaging</span>
-    <span>Préparation de commandes</span><span>Kitting</span><span>Retours e-commerce</span><span>Cross-docking</span><span>Sourcing Chine</span><span>Import en lots</span><span>NFC</span><span>Packaging</span>
-  </div>
-</div>
-
-<!-- LOGISTIQUE -->
-<section id="logistique">
-  <div class="wrap logi">
-    <div class="logi-side">
-      <span class="eyebrow reveal">Logistique e-commerce à Caen</span>
-      <h2 class="reveal" style="--i:1">Votre stock à Caen. On s'occupe du reste.</h2>
-      <p class="reveal" style="--i:2">Petits ou moyens volumes, sans engagement de durée. <strong>Vous payez ce que vous utilisez.</strong></p>
-      <a class="dl reveal" href="plaquette-centr-supply-fr.pdf" download><svg class="ico"><use href="#i-down"/></svg>Télécharger la plaquette et les tarifs</a>
-      <div class="cond reveal" style="--i:3">
-        <div><svg class="ico"><use href="#i-check"/></svg>Colis, cartons et palettes</div>
-        <div><svg class="ico"><use href="#i-check"/></svg>Palettes : livraison avec hayon obligatoire</div>
-        <div class="no"><svg class="ico"><use href="#i-x"/></svg>Pas de semi-remorque complet</div>
+<!-- PLATEFORME -->
+<section id="plateforme" style="padding-top:0">
+  <div class="wrap plat">
+    <div>
+      <div class="eyebrow">Centr Technology</div>
+      <h2 style="margin-top:16px">Le système nerveux de vos opérations.</h2>
+      <p class="lede" style="margin-top:18px">Fournisseurs, achats, stocks, commandes et transports dans un seul espace. Nos équipes l'utilisent chaque jour. Nos clients y suivent leurs flux.</p>
+      <div class="mods">
+        <div><b>SUPPLIERS</b><span>Fiches, tarifs négociés, évaluations</span></div>
+        <div><b>PROCUREMENT</b><span>Devis, bons de commande, validations</span></div>
+        <div><b>INVENTORY</b><span>Multi-entrepôts, seuils, traçabilité</span></div>
+        <div><b>ORDERS</b><span>Commandes fournisseurs et clients</span></div>
+        <div><b>SHIPPING</b><span>Transporteurs, étiquettes, suivi</span></div>
+        <div><b>FINANCE</b><span>Coût rendu, marge par produit</span></div>
       </div>
     </div>
-    <div class="board reveal" style="--i:1">
-      <article class="svc feature"><div class="si"><svg class="ico"><use href="#i-cart"/></svg></div><div><h3>Préparation de commandes</h3><p>On reçoit vos commandes, on prépare et on expédie depuis la France. <strong>Articles en plus offerts.</strong> Emballage fourni de 0,10 à 0,30 €, ou offert si vous fournissez le vôtre.</p></div><div class="price"><small>à partir de</small><b>0,79 €</b><small>par commande</small></div></article>
-      <article class="svc"><div class="si"><svg class="ico"><use href="#i-archive"/></svg></div><div><h3>Stockage</h3><p>Offert. Au-delà de 3 mois sans mouvement : 2 € par bac de 26 L et par mois. <strong>Aucun frais fixe</strong>, transport refacturé au prix coûtant.</p></div><div class="price"><small>stockage</small><b>Offert</b><small>3 mois glissants</small></div></article>
-      <article class="svc"><div class="si"><svg class="ico"><use href="#i-gift"/></svg></div><div><h3>Kitting et conditionnement</h3><p>Coffrets, packs, lots, ré-étiquetage, mise sous sachet. <strong>Du temps gagné</strong> pour vous.</p></div><div class="price"><small>à partir de</small><b>0,50 €</b><small>par kit</small></div></article>
-      <article class="svc"><div class="si"><svg class="ico"><use href="#i-return"/></svg></div><div><h3>Retours e-commerce</h3><p>Vos clients renvoient en France, on contrôle et on remet en stock. <strong>Pratique si vous êtes basé hors d'Europe.</strong></p></div><div class="price"><small>à partir de</small><b>2 €</b><small>par retour</small></div></article>
-      <article class="svc"><div class="si"><svg class="ico"><use href="#i-tag"/></svg></div><div><h3>Réception pour revendeurs</h3><p><strong>Pas de local ?</strong> On reçoit vos lots, on trie, on étiquette et on expédie à chaque vente.</p></div><div class="price"><small>à partir de</small><b>0,30 €</b><small>par article</small></div></article>
-      <article class="svc"><div class="si"><svg class="ico"><use href="#i-swap"/></svg></div><div><h3>Cross-docking</h3><p>Réception, regroupement et réexpédition rapide, sans stockage long.</p></div><div class="price"><small>à partir de</small><b>8 €</b><small>par palette</small></div></article>
+    <div class="app" aria-label="Exemple d'interface de la plateforme CENTR">
+      <div class="app-bar"><span><b>CENTR</b> / Flux entrants</span><span>Exemple</span></div>
+      <div class="kpis">
+        <div><div class="v">14</div><div class="l">Commandes ouvertes</div></div>
+        <div><div class="v">96,4 %</div><div class="l">Taux de service</div></div>
+        <div><div class="v">2</div><div class="l">Risques de rupture</div></div>
+      </div>
+      <div class="rows">
+        <div class="row head"><span>PO</span><span>Produit</span><span>Corridor</span><span>Statut</span><span>ETA</span></div>
+        <div class="row"><span class="m po">PO-2611</span><span class="prod">Rangement plastique · 2 400 u</span><span class="m lane-c">CNYIW → FRCFR</span><span class="stc"><span class="st st-sea">En mer</span></span><span class="m eta">28/11</span></div>
+        <div class="row"><span class="m po">PO-2614</span><span class="prod">Coffrets cosmétiques · 5 000 u</span><span class="m lane-c">CNSZX → FRCFR</span><span class="stc"><span class="st st-qc">Inspection</span></span><span class="m eta">12/12</span></div>
+        <div class="row"><span class="m po">PO-2617</span><span class="prod">Linge de maison · 1 200 u</span><span class="m lane-c">TRIST → BEANR</span><span class="stc"><span class="st st-ok">Livré</span></span><span class="m eta">03/11</span></div>
+        <div class="row"><span class="m po">SKU-0418</span><span class="prod">Stock sous seuil · 9 jours</span><span class="m lane-c">FRCFR</span><span class="stc"><span class="st st-risk">Réassort</span></span><span class="m eta">—</span></div>
+      </div>
+      <div class="app-note">Données fictives, à titre d'illustration.</div>
     </div>
   </div>
 </section>
 
-<!-- PROCESSUS -->
+<!-- ENGAGEMENT -->
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head"><h2 class="reveal">Simple à démarrer</h2><p class="reveal" style="--i:1">Quatre étapes, et vos commandes partent de Caen.</p></div>
-    <div class="process-steps">
-      <div class="pstep reveal"><span class="n">ÉTAPE 1</span><svg class="ico" style="color:var(--halo)"><use href="#i-chat"/></svg><h3>On en parle</h3><p>Vos produits, vos volumes, vos besoins. On vous fait un devis.</p></div>
-      <div class="pstep reveal" style="--i:1"><span class="n">ÉTAPE 2</span><svg class="ico" style="color:var(--halo)"><use href="#i-truck"/></svg><h3>Vous envoyez</h3><p>Votre stock arrive à Caen, on le contrôle et on le range.</p></div>
-      <div class="pstep reveal" style="--i:2"><span class="n">ÉTAPE 3</span><svg class="ico" style="color:var(--halo)"><use href="#i-box"/></svg><h3>On prépare</h3><p>Chaque commande est préparée et emballée avec soin.</p></div>
-      <div class="pstep reveal" style="--i:3"><span class="n">ÉTAPE 4</span><svg class="ico" style="color:var(--halo)"><use href="#i-send"/></svg><h3>Ça part</h3><p>Expédition, suivi, et un point régulier sur votre stock.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- IMPORT -->
-<section id="import" style="padding-top:0">
-  <div class="wrap">
     <div class="sec-head">
-      <h2 class="reveal">Sourcing et import</h2>
-      <p class="reveal" style="--i:1">On trouve le produit, on le fait venir, il arrive dans <strong>notre entrepôt de Caen</strong>. Un seul interlocuteur du fournisseur jusqu'à la livraison.</p>
+      <div class="eyebrow">Modèles d'engagement</div>
+      <h2>Commencez par une mission. Restez pour une chaîne complète.</h2>
     </div>
-    <div class="imp-grid">
-      <article class="imp reveal">
-        <h3>Revendeurs</h3>
-        <p><strong>Lots disponibles</strong> ou <strong>import sur commande</strong>, avec un minimum de commande raisonnable.</p>
-        <div class="chips"><span class="chip">Rangement</span><span class="chip">Mobilier pliant</span><span class="chip">Déstockage</span><span class="chip">Maison</span><span class="chip">Animaux</span></div>
-        <div class="rows">
-          <div><svg class="ico"><use href="#i-check"/></svg><span>Prix <strong>départ entrepôt</strong>, transport en sus</span></div>
-          <div><svg class="ico"><use href="#i-check"/></svg><span>Lots entiers ou fractionnés</span></div>
-          <div><svg class="ico"><use href="#i-check"/></svg><span>Catalogue des lots sur demande</span></div>
-        </div>
-      </article>
-      <article class="imp alt reveal" style="--i:1">
-        <h3>Entreprises</h3>
-        <p>Vous avez un besoin, <strong>on trouve le produit</strong> et on le <strong>personnalise à votre marque</strong>, même en petite série.</p>
-        <div class="chips"><span class="chip">NFC</span><span class="chip">Packaging</span><span class="chip">Sacs kraft</span><span class="chip">Textile pro</span><span class="chip">Kits locations</span><span class="chip">Objets publicitaires</span></div>
-        <div class="rows">
-          <div><svg class="ico"><use href="#i-check"/></svg><span>Échantillon avant production</span></div>
-          <div><svg class="ico"><use href="#i-check"/></svg><span>Contrôle qualité avant départ</span></div>
-          <div><svg class="ico"><use href="#i-check"/></svg><span>Livraison ou retrait à Caen</span></div>
-        </div>
-      </article>
-    </div>
-    <div class="chain reveal" style="--i:2">
-      <div><svg class="ico"><use href="#i-search"/></svg>Recherche fournisseur</div>
-      <div><svg class="ico"><use href="#i-seal"/></svg>Échantillon et contrôle</div>
-      <div><svg class="ico"><use href="#i-boat"/></svg>Transport et douane</div>
-      <div><svg class="ico"><use href="#i-warehouse"/></svg>Réception à Caen</div>
-    </div>
-    <p class="note reveal">Transport et dédouanement réalisés avec nos transitaires partenaires.</p>
-  </div>
-</section>
-
-<!-- PRODUITS -->
-<section id="produits" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="reveal">Produits pour pros</h2>
-      <p class="reveal" style="--i:1">Tout ce qu'il faut pour équiper un commerce, <strong>en petites quantités</strong> et livré vite. Quelques exemples de ce qu'on fournit :</p>
-    </div>
-    <div class="cats">
-      <article class="cat reveal"><svg class="ico"><use href="#i-star"/></svg><h3>Avis et fidélisation</h3><p>Plaques NFC, QR codes, cartes de fidélité</p></article>
-      <article class="cat reveal" style="--i:1"><svg class="ico"><use href="#i-sign"/></svg><h3>Signalétique et affichage</h3><p>Panneaux, porte-menus lumineux, vitrophanie</p></article>
-      <article class="cat reveal" style="--i:2"><svg class="ico"><use href="#i-box"/></svg><h3>Packaging et emballage</h3><p>Boîtes, sacs kraft, papier de soie à votre logo</p></article>
-      <article class="cat reveal" style="--i:3"><svg class="ico"><use href="#i-spray"/></svg><h3>Hygiène et entretien</h3><p>Papier, essuie-tout, gants, lessive, en volume</p></article>
-      <article class="cat reveal"><svg class="ico"><use href="#i-cup"/></svg><h3>Consommables CHR</h3><p>Pour cafés, hôtels et restaurants</p></article>
-      <article class="cat reveal" style="--i:1"><svg class="ico"><use href="#i-bed"/></svg><h3>Hôtellerie et locations</h3><p>Kits d'accueil, linge, produits d'accueil</p></article>
-      <article class="cat reveal" style="--i:2"><svg class="ico"><use href="#i-shirt"/></svg><h3>Textile pro</h3><p>Tabliers, tee-shirts, tenues à votre logo</p></article>
-      <article class="cat reveal" style="--i:3"><svg class="ico"><use href="#i-gift"/></svg><h3>Objets publicitaires</h3><p>Goodies, cartes NFC, cadeaux clients</p></article>
-      <article class="cat reveal"><svg class="ico"><use href="#i-scissors"/></svg><h3>Beauté et salons</h3><p>Produits pros pour coiffeurs et instituts</p></article>
-      <article class="cat reveal" style="--i:1"><svg class="ico"><use href="#i-flower"/></svg><h3>Ambiance et parfum</h3><p>Diffuseurs, parfums d'ambiance, bougies</p></article>
-      <article class="cat reveal" style="--i:2"><svg class="ico"><use href="#i-archive"/></svg><h3>Rangement et mobilier</h3><p>Bacs, étagères, chaises pliantes</p></article>
-      <article class="cat reveal" style="--i:3"><svg class="ico"><use href="#i-store"/></svg><h3>Équipement de comptoir</h3><p>Présentoirs, supports, accessoires de caisse</p></article>
-      <article class="cat cat-cta reveal">
-        <div><h3>Votre besoin n'est pas dans la liste ?</h3><p>On le source pour vous, à votre marque si besoin.</p></div>
-        <a href="#contact" class="btn btn-light">Demander un devis <svg class="ico"><use href="#i-arrow"/></svg></a>
-      </article>
+    <div class="eng">
+      <div><span class="mono">MISSION</span><h3>Ponctuelle</h3><p>Une recherche de fournisseur, une inspection, une importation. Périmètre et prix définis à l'avance.</p></div>
+      <div><span class="mono">RÉCURRENT</span><h3>Mensuel</h3><p>Vos achats ou votre logistique confiés chaque mois. Réception, stockage, préparation et transport facturés clairement.</p></div>
+      <div class="key"><span class="mono">COMPTE STRATÉGIQUE</span><h3>Annuel ou pluriannuel</h3><p>Une partie importante de votre chaîne d'approvisionnement et de distribution, pilotée par une équipe dédiée.</p></div>
     </div>
   </div>
 </section>
 
-<!-- POURQUOI -->
+<!-- POSITIONNEMENT -->
 <section style="padding-top:0">
   <div class="wrap">
-    <span class="eyebrow reveal">Pourquoi nous plutôt qu'un gros logisticien</span>
-    <div class="why-list">
-      <div class="why-row reveal"><h3>Petites quantités</h3><p>Pas besoin de commander une palette pour être pris au sérieux. On s'adapte à <strong>votre volume réel</strong>.</p></div>
-      <div class="why-row reveal"><h3>Réponse sur WhatsApp</h3><p>Une question, une photo, un devis. Pas de ticket, pas de standard, <strong>un vrai interlocuteur</strong>.</p></div>
-      <div class="why-row reveal"><h3>Local, à Caen</h3><p>Livraison rapide dans le Calvados, retrait possible, et un entrepôt que vous pouvez <strong>venir voir</strong>.</p></div>
-      <div class="why-row reveal"><h3>Tout au même endroit</h3><p>Produits, import et logistique chez <strong>un seul prestataire</strong>. Moins d'intermédiaires, moins d'erreurs.</p></div>
+    <div class="sec-head">
+      <div class="eyebrow">Positionnement</div>
+      <h2>La couverture d'un grand opérateur, la réactivité d'un partenaire.</h2>
     </div>
+    <table class="cmp">
+      <thead><tr><th></th><th>Agent indépendant</th><th>Grand opérateur</th><th class="c">CENTR</th></tr></thead>
+      <tbody>
+        <tr><th>Périmètre</th><td data-l="Agent">Sourcing seul</td><td data-l="Grand opérateur">Transport et entrepôt</td><td class="c" data-l="CENTR">Du sourcing à la distribution</td></tr>
+        <tr><th>Accessible aux PME</th><td data-l="Agent">Oui</td><td data-l="Grand opérateur">Rarement</td><td class="c" data-l="CENTR">Oui, dès les premiers volumes</td></tr>
+        <tr><th>Process et traçabilité</th><td data-l="Agent">Variables</td><td data-l="Grand opérateur">Élevés</td><td class="c" data-l="CENTR">Standardisés, suivis sur plateforme</td></tr>
+        <tr><th>Interlocuteur</th><td data-l="Agent">Une personne</td><td data-l="Grand opérateur">Des services</td><td class="c" data-l="CENTR">Un opérateur dédié</td></tr>
+        <tr><th>Flexibilité</th><td data-l="Agent">Forte</td><td data-l="Grand opérateur">Faible</td><td class="c" data-l="CENTR">Petites et grandes quantités</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
+<!-- GROUPE -->
+<section class="dark" id="groupe">
   <div class="wrap">
-    <div class="contact-grid">
+    <div class="sec-head">
+      <div class="eyebrow">Le groupe</div>
+      <h2>Nous construisons l'un des grands opérateurs mondiaux du commerce B2B.</h2>
+      <p class="lede">Un groupe qui possède et coordonne des actifs commerciaux, logistiques et technologiques sur plusieurs continents. Chaque étape est construite sur des opérations rentables.</p>
+    </div>
+    <div class="group-grid">
+      <div class="org" aria-label="Architecture du groupe">
+        <div class="org-top"><b>CENTR GROUP</b><span class="mono" style="color:var(--navy-muted)">HOLDING</span></div>
+        <div class="org-roles"><span>Stratégie</span><span>Allocation du capital</span><span>Acquisitions</span><span>Grands partenariats</span></div>
+        <div class="org-stem" aria-hidden="true"></div>
+        <div class="org-divs">
+          <div><b>SOURCING</b><span>Approvisionnement</span></div>
+          <div><b>TRADE</b><span>Import-export</span></div>
+          <div><b>LOGISTICS</b><span>Entrepôts</span></div>
+          <div><b>DISTRIBUTION</b><span>Commerce de gros</span></div>
+          <div><b>TECHNOLOGY</b><span>Logiciels</span></div>
+          <div><b>NETWORK</b><span>Partenaires</span></div>
+        </div>
+      </div>
       <div>
-        <h2 class="reveal">Parlons de votre besoin.</h2>
-        <p class="lead reveal" style="--i:1">Votre cas n'est pas sur la page ? Écrivez-nous quand même. On revient vers vous avec <strong>un devis clair</strong>, sans engagement.</p>
-        <div class="direct">
-          <a class="reveal" style="--i:2" id="waLink" href="https://wa.me/33775758121" target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg><div>WhatsApp<span>+33 7 75 75 81 21 · le plus rapide</span></div></a>
-          <a class="reveal" style="--i:3" id="mailLink" href="mailto:contact@centrsupply.com"><svg class="ico"><use href="#i-mail"/></svg><div>E-mail<span id="mailText">contact@centrsupply.com</span></div></a>
-          <a class="reveal" style="--i:4" href="plaquette-centr-supply-fr.pdf" download><svg class="ico"><use href="#i-file"/></svg><div>Plaquette et tarifs (PDF)<span>Version française</span></div></a>
-          <a class="reveal" style="--i:5" href="plaquette-centr-supply-en.pdf" download><svg class="ico"><use href="#i-file"/></svg><div>Brochure and pricing (PDF)<span>English version</span></div></a>
+        <div class="mono" style="color:var(--navy-muted);letter-spacing:.12em">FEUILLE DE ROUTE</div>
+        <div class="timeline">
+          <div class="tl now"><span class="yr">2026–2027</span><div><b>Sourcing & logistique</b><p>Premiers comptes récurrents, hub de Caen, rentabilité.</p></div></div>
+          <div class="tl"><span class="yr">2027–2028</span><div><b>Trade & distribution</b><p>Développement commercial européen, accords de distribution.</p></div></div>
+          <div class="tl"><span class="yr">2028–2030</span><div><b>Technologie</b><p>Plateforme propriétaire ouverte aux clients.</p></div></div>
+          <div class="tl"><span class="yr">2030–2033</span><div><b>Expansion internationale</b><p>Implantations et partenaires stratégiques hors d'Europe.</p></div></div>
+          <div class="tl"><span class="yr">2033–2036</span><div><b>Acquisitions</b><p>Intégration de sociétés logistiques, de distribution et de technologie.</p></div></div>
+          <div class="tl"><span class="yr">2036–2045</span><div><b>Groupe mondial</b><p>Réseau commercial et logistique sur plusieurs continents.</p></div></div>
         </div>
       </div>
-      <form id="quote" class="reveal" style="--i:2" novalidate>
-        <div class="row2">
-          <div class="field" id="f-name"><label for="name">Nom</label><input id="name" name="name" autocomplete="name" placeholder="Votre nom" required><span class="err">Indiquez votre nom.</span></div>
-          <div class="field"><label for="company">Entreprise</label><input id="company" name="company" autocomplete="organization" placeholder="Nom de l'entreprise"></div>
-        </div>
-        <div class="field"><label for="profile">Vous êtes</label>
-          <select id="profile" name="profile"><option>Un commerce</option><option>Un e-commerçant</option><option>Un revendeur</option><option>Une entreprise qui veut faire fabriquer</option></select>
-        </div>
-        <div class="field" id="f-msg"><label for="msg">Votre besoin</label><textarea id="msg" name="msg" placeholder="Produits, quantités, volumes de commandes par mois, délais..." required></textarea><span class="err">Décrivez votre besoin en quelques mots.</span></div>
-        <button type="submit" class="btn btn-light" style="justify-self:start">Demander un devis <svg class="ico"><use href="#i-wa"/></svg></button>
-        <p class="help">Le formulaire ouvre WhatsApp avec votre message prérempli.</p>
-        <a class="wa-fallback" id="waFallback" href="#" target="_blank" rel="noopener" hidden>WhatsApp ne s'est pas ouvert ? Cliquez ici pour envoyer le message.</a>
-      </form>
+    </div>
+    <div class="pillars">
+      <div><span class="mono">ACTIF · 01</span><h3>Le réseau</h3><p>Fournisseurs et partenaires vérifiés dans chaque corridor.</p></div>
+      <div><span class="mono">ACTIF · 02</span><h3>La plateforme</h3><p>Utilisée par nos équipes et nos clients, enrichie par chaque flux.</p></div>
+      <div><span class="mono">ACTIF · 03</span><h3>Les clients</h3><p>Un portefeuille professionnel qui génère des volumes réguliers.</p></div>
     </div>
   </div>
 </section>
 
+<!-- HUB + CONTACT -->
+<section id="contact">
+  <div class="wrap hub">
+    <div>
+      <div class="eyebrow">Hub opérationnel</div>
+      <h2 style="margin-top:16px">Basés en Normandie. Connectés au monde.</h2>
+      <p class="lede" style="margin-top:18px">Notre entrepôt de Caen reçoit, stocke et expédie vers la France, la Belgique, le Luxembourg et la Suisse, à proximité des ports du Havre et de Caen-Ouistreham.</p>
+      <div class="facts">
+        <div><span class="k">Hub</span><span>Caen, Calvados (14)</span></div>
+        <div><span class="k">Ports proches</span><span>Le Havre (FRLEH) · Caen-Ouistreham (FROUI)</span></div>
+        <div><span class="k">WhatsApp</span><span class="contact-line"><span>+33 7 75 75 81 21</span><button class="copy" type="button" data-copy="+33775758121">Copier</button></span></div>
+        <div><span class="k">E-mail</span><span class="contact-line"><span>contact@centrsupply.com</span><button class="copy" type="button" data-copy="contact@centrsupply.com">Copier</button></span></div>
+      </div>
+    </div>
+
+    <form class="brief" id="brief" novalidate>
+      <h3 style="font-size:1.45rem;font-stretch:115%">Soumettre un brief</h3>
+      <div class="f">
+        <span class="lbl">Besoin</span>
+        <div class="chips">
+          <label><input type="checkbox" id="n-src" value="Sourcing"><span>Sourcing</span></label>
+          <label><input type="checkbox" id="n-trd" value="Import-export"><span>Import-export</span></label>
+          <label><input type="checkbox" id="n-log" value="Logistique"><span>Logistique</span></label>
+          <label><input type="checkbox" id="n-dst" value="Distribution"><span>Distribution</span></label>
+          <label><input type="checkbox" id="n-oth" value="Autre"><span>Autre</span></label>
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f"><label for="f-name">Nom & société</label><input id="f-name" required placeholder="Marie Dupont · Maison D."></div>
+        <div class="f"><label for="f-type">Vous êtes</label>
+          <select id="f-type"><option>Marque e-commerce</option><option>Grossiste / distributeur</option><option>Fabricant</option><option>Chaîne de magasins</option><option>Importateur</option><option>PME industrielle</option><option>Autre</option></select></div>
+      </div>
+      <div class="f-row">
+        <div class="f"><label for="f-vol">Volume estimé</label>
+          <select id="f-vol"><option>Moins de 1 000 unités</option><option>1 000 à 10 000 unités</option><option>Plus de 10 000 unités</option><option>Récurrent mensuel</option></select></div>
+        <div class="f"><label for="f-mk">Marché visé</label><input id="f-mk" placeholder="France, Belgique…"></div>
+      </div>
+      <div class="f"><label for="f-msg">Votre projet</label><textarea id="f-msg" placeholder="Produit, prix cible, délais, contraintes…"></textarea></div>
+      <button class="btn btn-primary" type="submit">Préparer mon brief <span class="arr">→</span></button>
+      <p class="form-out" id="out" aria-live="polite">Votre brief s'ouvre dans WhatsApp, prêt à envoyer. Réponse sous 24 h ouvrées.</p>
+    </form>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing dark">
+  <div class="wrap">
+    <div class="eyebrow">CENTR Group</div>
+    <h2>L'infrastructure du commerce mondial <em>se construit maintenant.</em></h2>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#contact">Démarrer avec CENTR <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#groupe">Découvrir le groupe</a>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer>
+<footer class="dark">
   <div class="wrap">
-    <div class="foot">
-      <div>
-        <a href="#top" class="logo" style="margin-bottom:14px"><span class="logo-mark">C</span>Centr Supply</a>
-        <p style="max-width:38ch">Produits pour pros, sourcing et logistique e-commerce depuis notre entrepôt de Caen.</p>
-      </div>
-      <div><h4>Services</h4><ul><li><a href="#logistique">Logistique</a></li><li><a href="#import">Sourcing et import</a></li><li><a href="#produits">Produits pros</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="#contact">Demander un devis</a></li><li>Entrepôt : Caen, Calvados</li></ul></div>
+    <div>
+      <a class="logo" href="#top"><span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i></span>CENTR<small>GROUP</small></a>
+      <p style="margin-top:12px;max-width:34ch">Approvisionnement, import, stockage, distribution et technologie pour les entreprises qui achètent et vendent des marchandises.</p>
     </div>
-    <div class="legal">
-      <span>Centr Supply est une marque de la SAS ECOM CENTR, SIREN 990 905 879, RCS Paris.</span>
-      <span>© <span id="yr">2026</span> Centr Supply</span>
-    </div>
+    <div><h4>Divisions</h4><ul><li><a href="#divisions">Sourcing</a></li><li><a href="#divisions">Trade</a></li><li><a href="#divisions">Logistics</a></li><li><a href="#divisions">Distribution</a></li><li><a href="#divisions">Technology</a></li><li><a href="#divisions">Network</a></li></ul></div>
+    <div><h4>Groupe</h4><ul><li><a href="#methode">Méthode</a></li><li><a href="#clients">Clients</a></li><li><a href="#marches">Marchés</a></li><li><a href="#groupe">Vision</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li>contact@centrsupply.com</li><li>+33 7 75 75 81 21</li><li>Caen, Normandie</li></ul></div>
+    <div class="legal"><span>© 2026 CENTR Group · Centr Supply, marque de SAS ECOM CENTR · RCS Paris 990 905 879</span><span>Mentions légales · Confidentialité</span></div>
   </div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 <script>
-/* ===== À MODIFIER ===== */
-var WHATSAPP = "33775758121";
-var EMAIL = "contact@centrsupply.com";
-
-(function(){
-"use strict";
-document.documentElement.classList.add('js');
-var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-var fine = matchMedia('(pointer: fine)').matches;
-
-/* ---------- Page ---------- */
-var yr = document.getElementById('yr'); if(yr) yr.textContent = new Date().getFullYear();
-var waLink = document.getElementById('waLink'); if(waLink) waLink.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent("Bonjour Centr Supply, j'ai une demande :");
-var mailLink = document.getElementById('mailLink'); if(mailLink) mailLink.href = 'mailto:' + EMAIL;
-var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal, .pstep').forEach(function(el){ io.observe(el); });
-var nav = document.getElementById('nav'), burger = document.getElementById('burger');
-burger.addEventListener('click', function(){ var o = nav.classList.toggle('open'); burger.setAttribute('aria-expanded', o); burger.innerHTML = '<svg class="ico"><use href="#i-' + (o ? 'x' : 'menu') + '"/></svg>'; });
-document.querySelectorAll('#navLinks a').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); burger.innerHTML = '<svg class="ico"><use href="#i-menu"/></svg>'; }); });
-var tabs = [].slice.call(document.querySelectorAll('.tab'));
-function selectTab(t){ tabs.forEach(function(x){ var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !on; }); }
-tabs.forEach(function(t, i){
-  t.addEventListener('click', function(){ selectTab(t); });
-  t.addEventListener('keydown', function(e){ if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){ var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length]; selectTab(n); n.focus(); } });
-});
-var form = document.getElementById('quote'), fb = document.getElementById('waFallback');
-if(form) form.addEventListener('submit', function(e){
-  e.preventDefault();
-  var name = form.name.value.trim(), msg = form.msg.value.trim();
-  document.getElementById('f-name').classList.toggle('bad', !name);
-  document.getElementById('f-msg').classList.toggle('bad', !msg);
-  if(!name || !msg) return;
-  var company = form.company.value.trim();
-  var text = 'Bonjour Centr Supply,\n\nNom : ' + name + (company ? '\nEntreprise : ' + company : '') + '\nProfil : ' + form.profile.value + '\n\nBesoin :\n' + msg;
-  var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text);
-  fb.href = url; try { window.open(url, '_blank', 'noopener'); } catch(err){} fb.hidden = false;
-});
-['name','msg'].forEach(function(id){ var el = document.getElementById(id); if(el) el.addEventListener('input', function(e){ if(e.target.value.trim()) e.target.closest('.field').classList.remove('bad'); }); });
-
-/* ---------- Scènes ---------- */
-var STATIONS = [
-  {label:'Centr Supply', eyebrow:'Caen · Calvados', h:'Stocker, expédier, importer. En simple.',
-   p:"Logistique e-commerce, import et produits pour pros, depuis notre entrepôt de Caen. <strong>Un seul interlocuteur</strong>, des <strong>prix clairs</strong>, sans engagement.",
-   tag:'Préparation dès 0,79 € HT / commande', ctas:[['Demander un devis', '#contact', 1], ['Voir les tarifs', '#logistique']],
-   cam:[[2, 0, 16], 200, .55, .64]},
-  {label:'Entrepôt', eyebrow:'01 · Logistique e-commerce', h:"Votre stock à Caen. On s'occupe du reste.",
-   p:"Réception, stockage en bacs identifiés, préparation, kitting et retours. <strong>Stockage offert</strong>, aucun frais fixe, transport refacturé au prix coûtant.",
-   tag:'Préparation dès 0,79 € HT / commande', ctas:[['Voir les tarifs', '#logistique', 1], ['Demander un devis', '#contact']],
-   cam:[[1, 0, 3], 64, .62, .64],
-   hots:[[-7, 3, -3, 'Stockage', "Bacs identifiés à votre nom. Offert, puis 2 € / bac / mois après 3 mois sans mouvement."],
-         [8.5, 2, -4, 'Préparation', "Dès 0,79 € HT par commande. Articles en plus offerts, emballage offert si vous fournissez le vôtre."],
-         [10, 2, 5.5, 'Retours', "2 € par retour : contrôle et remise en stock. Une adresse de retour en France."],
-         [4, 2, 5.5, 'Kitting', "Coffrets, packs, ré-étiquetage, mise sous sachet. Dès 0,50 € par kit."],
-         [8, 2, 15, 'Réception', "Colis, cartons et palettes. Cross-docking dès 8 € par palette."]]},
-  {label:'Import', eyebrow:'02 · Sourcing et import', h:'On trouve le produit, on le fait venir.',
-   p:"Recherche fournisseur, échantillon, contrôle qualité, transport et douane avec nos transitaires partenaires. La marchandise arrive <strong>dans notre entrepôt de Caen</strong>.",
-   tag:'Lots entiers ou fractionnés', ctas:[["Voir l'import", '#import', 1], ['Demander un devis', '#contact']],
-   cam:[[-88, 0, 6], 135, 1.1, .6],
-   hots:[[-100, 9, 4, 'Fret maritime', "Transport et dédouanement réalisés avec nos transitaires partenaires."],
-         [-77, 4, -16, 'Lots revendeurs', "Lots disponibles ou import sur commande, prix départ entrepôt."],
-         [-86, 16, 22, 'Contrôle', "Échantillon avant production et contrôle qualité avant départ."]]},
-  {label:'Expédition', eyebrow:'03 · Expédition et retours', h:'Vos colis partent vite, partout.',
-   p:"Mondial Relay, Colis Privé et Chronopost Relais vers la <strong>France, la Belgique, le Luxembourg et la Suisse</strong>. Vos clients renvoient en France : on contrôle et on remet en stock.",
-   tag:'Retours dès 2 €', ctas:[['Voir les tarifs', '#logistique', 1], ['Demander un devis', '#contact']],
-   cam:[[80, 0, -2], 92, .45, .62],
-   hots:[[62, 4, -8, 'Points relais', "Mondial Relay, Colis Privé et Chronopost Relais, au choix de vos clients."],
-         [84, 5, 14, 'FR · BE · LU · CH', "Expéditions vers la France, la Belgique, le Luxembourg et la Suisse."],
-         [77, 3, -16, 'Transport', "Refacturé au prix coûtant, sans marge. Suivi transmis à vos clients."]]},
-  {label:'Commerces', eyebrow:'04 · Produits pour pros', h:'Les commerces du Calvados, équipés.',
-   p:"Plaques NFC avis Google, packaging à votre logo, hygiène, textile pro : <strong>en petites quantités</strong>, livrés vite dans le Calvados.",
-   tag:'Réponse rapide sur WhatsApp', ctas:[['Voir les produits', '#produits', 1], ['Demander un devis', '#contact']],
-   cam:[[12, 0, 63], 78, .3, .6],
-   hots:[[-14, 5, 62, 'Café', "Consommables CHR, porte-menus lumineux, plaques NFC avis Google."],
-         [-2, 7, 62, 'Salon', "Produits pros pour coiffeurs et instituts, en petites quantités."],
-         [10, 5, 62, 'Boutique', "Sacs kraft, papier de soie et boîtes à votre logo."],
-         [6, 3, 70.5, 'Livraison', "Livraison rapide dans le Calvados, ou retrait à Caen."]]}
+const DIVS=[
+ {code:"CS-01",name:"SOURCING",short:"Approvisionnement international",
+  intro:"Nous trouvons, vérifions et négocions avec les fabricants, pour tout type de produit. Vous n'achetez pas une liste de fournisseurs : vous gagnez une capacité d'achat.",
+  svc:[["Recherche de fournisseurs","Identification, comparaison, vérification et présélection en Chine, Turquie et Europe."],["Négociation","Prix unitaires, MOQ, délais, paiement, personnalisation, packaging."],["Contrôle qualité","Échantillons, inspections avant, pendant et après production par des partenaires sur place."],["Suivi des commandes","Confirmation, validation des échantillons, suivi de fabrication, quantités."],["Achats externalisés","Votre service achats, pour les besoins récurrents."]],
+  who:"Distributeurs, chaînes de magasins, marques",model:"Honoraires de recherche, commission sur achats, forfait QC, abonnement"},
+ {code:"CS-02",name:"TRADE",short:"Import-export",
+  intro:"Nous faisons circuler vos marchandises entre pays, du départ usine à l'arrivée à destination, que nous ayons sourcé vos produits ou non.",
+  svc:[["Importation","Chine, Turquie, Asie et Europe vers la France et l'Europe."],["Transport international","Maritime, aérien, ferroviaire, routier et multimodal via des transitaires partenaires."],["Douane & réglementation","Préparation documentaire et coordination avec des représentants en douane habilités."],["Exportation","Développez vos ventes en Allemagne, en Belgique, au Maroc ou aux Émirats."],["Flux internationaux","Coordination multi-fournisseurs, multi-entrepôts, multi-pays."]],
+  who:"Importateurs, PME industrielles, fabricants",model:"Frais de coordination, forfaits import, contrats annuels de flux"},
+ {code:"CS-03",name:"LOGISTICS",short:"Stockage & fulfillment",
+  intro:"Un opérateur logistique externalisé pour le B2C comme pour le B2B, depuis notre hub de Caen.",
+  svc:[["Stockage","Réception, contrôle des quantités, mise en stock, inventaires, suivi des niveaux."],["Fulfillment e-commerce","Picking, packing, emballage personnalisé, étiquettes, expédition, suivi."],["Logistique B2B","Cartons, palettes, réassort de magasins et de distributeurs."],["Retours","Inspection, remise en stock, reconditionnement, retours fournisseurs."],["Kitting","Coffrets, kits promotionnels, étiquetage, box mensuelles."]],
+  who:"Marques e-commerce, grossistes, réseaux de magasins",model:"Réception, stockage, préparation par commande, retours, transport refacturé"},
+ {code:"CS-04",name:"DISTRIBUTION",short:"Commerce de gros & représentation",
+  intro:"Nous représentons des marques sur nos marchés et commercialisons leurs produits auprès des revendeurs et des professionnels.",
+  svc:[["Distribution de marques","Une marque étrangère sans réseau en France ? Nous importons, stockons et vendons."],["Distribution exclusive","Accords par produit ou territoire, avec des objectifs réalistes et des engagements de stock maîtrisés."],["Commerce de gros","Achat en volume et revente aux magasins indépendants, revendeurs et boutiques spécialisées."],["Marketplace B2B","Mise en relation fabricants · distributeurs, à mesure que le réseau grandit."]],
+  who:"Marques étrangères, fabricants, revendeurs",model:"Marge commerciale, accords de distribution"},
+ {code:"CS-05",name:"TECHNOLOGY",short:"Plateforme opérationnelle",
+  intro:"Une plateforme qui réunit fournisseurs, achats, stocks, commandes, transports et marges. D'abord l'outil de nos équipes, ensuite celui de nos clients.",
+  svc:[["Supplier Management","Fiches fournisseurs, historique, tarifs négociés, documents."],["Procurement","Demandes de devis, comparaison, bons de commande, validations."],["Inventory","Stocks disponibles et réservés, seuils d'alerte, multi-entrepôts."],["Order & Shipping","Commandes, préparation, transporteurs, suivi des livraisons."],["Financial Dashboard","Coût rendu, coût par commande, marge par produit et par fournisseur."]],
+  who:"Tous les clients CENTR",model:"Inclus dans nos offres, abonnements à terme"},
+ {code:"CS-06",name:"NETWORK",short:"Réseau de partenaires",
+  intro:"Entrepôts, transporteurs, transitaires, inspecteurs, distributeurs locaux. Le réseau qui nous permet d'intervenir dans un pays avant d'y être implantés.",
+  svc:[["Partenaires vérifiés","Chaque partenaire est évalué sur la qualité, les délais et la fiabilité."],["Offre coordonnée","Un contrat avec CENTR, chaque intervenant dans ses responsabilités."],["Ouverture de marchés","Formalités, entrepôt local, distributeur et livraison mobilisés pour vous."],["Apporteurs d'affaires","Consultants, agents, experts-comptables et transitaires recommandent CENTR."]],
+  who:"Clients en expansion internationale",model:"Intégré aux prestations CENTR"}
 ];
-var cardBody = document.getElementById('cardBody'), tabsEl = document.getElementById('tabs3d'), tabBtns = [];
-var go = function(){}, stopAuto = function(){};
-function renderCard(i){
-  var s = STATIONS[i];
-  cardBody.classList.add('out');
-  setTimeout(function(){
-    var H = i === 0 ? 'h1' : 'h2';
-    cardBody.innerHTML = '<span class="eyebrow">' + s.eyebrow + '</span><' + H + '>' + s.h + '</' + H + '><p>' + s.p + '</p><span class="tag">' + s.tag + '</span><div class="ctas">' +
-      s.ctas.map(function(c){ return '<a href="' + c[1] + '" class="btn ' + (c[2] ? 'btn-orange' : 'btn-line') + '">' + c[0] + (c[2] ? ' <svg class="ico"><use href="#i-arrow"/></svg>' : '') + '</a>'; }).join('') + '</div>';
-    cardBody.classList.remove('out');
-  }, reduce ? 0 : 260);
-}
-
-/* ---------- 3D ---------- */
-function init3D(){
-if(!window.THREE){ return; }
-tabBtns = STATIONS.map(function(s, i){
-  var b = document.createElement('button'); b.type = 'button';
-  b.innerHTML = (i ? '<span class="n">0' + i + '</span>' : '') + s.label + '<span class="bar"></span>';
-  b.addEventListener('click', function(){ stopAuto(); go(i); });
-  tabsEl.appendChild(b); return b;
+const tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+DIVS.forEach((d,i)=>{
+  const b=document.createElement('button');
+  b.className='div-tab';b.type='button';b.id='tab-'+i;b.setAttribute('role','tab');b.setAttribute('aria-controls','panel');
+  b.innerHTML=`<span class="code">${d.code}</span><span class="nm">${d.name}</span><span class="ds">${esc(d.short)}</span>`;
+  b.addEventListener('click',()=>select(i));
+  b.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();select((i+1)%DIVS.length,true)}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();select((i-1+DIVS.length)%DIVS.length,true)}});
+  tabs.appendChild(b);
 });
-
-var stageEl = document.getElementById('stage3d'), worldEl = document.getElementById('world');
-var LOW = innerWidth < 800 || matchMedia('(pointer: coarse)').matches || (navigator.hardwareConcurrency || 8) <= 4;
-var renderer;
-try { renderer = new THREE.WebGLRenderer({antialias:!LOW, powerPreference:'high-performance'}); } catch(e){ return; }
-var DPR_MAX = Math.min(window.devicePixelRatio || 1, LOW ? 1.5 : 2), dpr = DPR_MAX;
-renderer.setPixelRatio(dpr);
-renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-stageEl.prepend(renderer.domElement);
-var scene = new THREE.Scene();
-var BG = 0xECEEF0;
-scene.background = new THREE.Color(BG);
-scene.fog = new THREE.Fog(BG, 170, 360);
-var camera = new THREE.PerspectiveCamera(30, 1, 1, 900);
-
-var hemi = new THREE.HemisphereLight(0xffffff, 0xa3adb8, LOW ? .62 : .54); scene.add(hemi);
-var sun = new THREE.DirectionalLight(0xfffaf2, LOW ? .5 : .56);
-sun.castShadow = true; sun.shadow.mapSize.set(LOW ? 1024 : 2048, LOW ? 1024 : 2048);
-var sc = sun.shadow.camera; sc.left = -60; sc.right = 60; sc.top = 60; sc.bottom = -60; sc.near = 1; sc.far = 260;
-sun.shadow.bias = -0.0006; sun.shadow.normalBias = .02;
-scene.add(sun); scene.add(sun.target);
-
-var cache = {};
-function M(c, o){ o = o || {}; var k = c + JSON.stringify(o); if(cache[k]) return cache[k];
-  var m = new THREE.MeshLambertMaterial({color:c}); if(o.e){ m.emissive = new THREE.Color(o.e); m.emissiveIntensity = o.ei || 1; }
-  if(o.t){ m.transparent = true; m.opacity = o.t; }
-  return (cache[k] = m);
+function select(i,focus){
+  [...tabs.children].forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1});
+  if(focus)tabs.children[i].focus();
+  const d=DIVS[i];panel.setAttribute('aria-labelledby','tab-'+i);
+  panel.innerHTML=`<div style="display:grid;gap:12px"><span class="mono" style="color:var(--orange)">${d.code} · CENTR ${d.name}</span><h3>${esc(d.short)}</h3><p class="intro">${esc(d.intro)}</p></div>
+  <div class="svc">${d.svc.map(s=>`<div><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join('')}</div>
+  <div class="div-foot"><div><span class="k">Pour qui</span>${esc(d.who)}</div><div><span class="k">Rémunération</span>${esc(d.model)}</div></div>`;
 }
-function box(w, h, d, c, x, y, z, parent, opt){
-  var m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), typeof c === 'object' ? c : M(c, opt));
-  m.position.set(x || 0, (y || 0) + h / 2, z || 0); m.castShadow = true; m.receiveShadow = true; (parent || scene).add(m); return m;
-}
-function cyl(rt, rb, h, c, x, y, z, parent, seg){
-  var m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg || 12), typeof c === 'object' ? c : M(c));
-  m.position.set(x || 0, (y || 0) + h / 2, z || 0); m.castShadow = true; m.receiveShadow = true; (parent || scene).add(m); return m;
-}
-function canvasTex(w, h, draw){ var cv = document.createElement('canvas'); cv.width = w; cv.height = h; draw(cv.getContext('2d'), w, h); var t = new THREE.CanvasTexture(cv); t.anisotropy = 8; return t; }
-function label(text, w, h, o){
-  o = o || {};
-  var t = canvasTex(1024, Math.round(1024 * h / w), function(g, W, H){
-    if(o.bg){ g.fillStyle = o.bg; g.fillRect(0, 0, W, H); }
-    g.fillStyle = o.color || '#1C1D1F'; g.font = (o.weight || 800) + ' ' + Math.round(H * (o.scale || .62)) + 'px Archivo, Arial, sans-serif';
-    g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(text, W / 2, H / 2 + H * .04);
-  });
-  var m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({map:t, transparent:!o.bg}));
-  return m;
-}
-function rnd(a, b){ return a + Math.random() * (b - a); }
-var C = {ground:0xE6E8EB, grass:0xD3E6D0, road:0xCACFD5, white:0xF5F5F3, wall:0xEEEFF1, roof:0xC4CAD1, ink:0x2A2B2F, orange:0xFF7A3D, kraft:0xD2A46A, glass:0xB4CADB, water:0x93C6E8, tree:0x7ECFA9, trunk:0xB09A80};
+select(0);
 
-/* Sol, herbe, routes */
-var ground = new THREE.Mesh(new THREE.PlaneGeometry(900, 900), M(C.ground)); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
-function flat(w, d, c, x, z, y){ var m = new THREE.Mesh(new THREE.PlaneGeometry(w, d), M(c)); m.rotation.x = -Math.PI / 2; m.position.set(x, y || .02, z); m.receiveShadow = true; scene.add(m); return m; }
-[[-40, -45, 60, 40], [40, -50, 50, 36], [-35, 60, 40, 46], [60, 70, 50, 40], [120, 30, 40, 70], [-10, 115, 120, 40]].forEach(function(g){ flat(g[2], g[3], C.grass, g[0], g[1], .01); });
-function road(x1, z1, x2, z2, w){
-  var dx = x2 - x1, dz = z2 - z1, L = Math.hypot(dx, dz), m = flat(L + w, w, C.road, (x1 + x2) / 2, (z1 + z2) / 2, .03);
-  m.rotation.z = -Math.atan2(dz, dx);
-  for(var s = 4; s < L - 2; s += 7){ var d = flat(3, .25, 0xffffff, x1 + dx * s / L, z1 + dz * s / L, .04); d.rotation.z = -Math.atan2(dz, dx); }
-}
-road(-75, 24, 125, 24, 7); road(22, 24, 22, 70, 7); road(-30, 70, 45, 70, 7); road(95, 24, 95, -30, 6); road(55, -18, 95, -18, 6);
+const menuBtn=document.getElementById('menu-btn'),menu=document.getElementById('mobile-menu');
+menuBtn.addEventListener('click',()=>{const open=menu.hidden;menu.hidden=!open;menuBtn.setAttribute('aria-expanded',open);menuBtn.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu')});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.hidden=true;menuBtn.setAttribute('aria-expanded',false)}));
 
-/* Arbres (instanciés) */
-var treeSpots = [];
-function treeRow(x1, z1, x2, z2, n){ for(var i = 0; i < n; i++){ var t = i / (n - 1 || 1); treeSpots.push([x1 + (x2 - x1) * t + rnd(-1, 1), z1 + (z2 - z1) * t + rnd(-1, 1), rnd(.8, 1.25)]); } }
-treeRow(-60, 30, 120, 30, 26); treeRow(-30, 17.5, -10, 17.5, 4); treeRow(28, 30, 28, 62, 6); treeRow(-30, 76, 42, 76, 8);
-for(var i = 0; i < 70; i++){ var a = rnd(0, Math.PI * 2), r = rnd(120, 220); treeSpots.push([20 + Math.cos(a) * r, 20 + Math.sin(a) * r * .8, rnd(.9, 1.6)]); }
-[[-40, -45], [40, -50], [-35, 45], [60, 70], [120, 40]].forEach(function(c){ for(var k = 0; k < 9; k++) treeSpots.push([c[0] + rnd(-16, 16), c[1] + rnd(-12, 12), rnd(.8, 1.3)]); });
-(function(){
-  var n = treeSpots.length, crown = new THREE.InstancedMesh(new THREE.SphereGeometry(1.5, 12, 10), M(C.tree), n), trunk = new THREE.InstancedMesh(new THREE.CylinderGeometry(.16, .22, 1.6, 6), M(C.trunk), n);
-  var o = new THREE.Object3D();
-  treeSpots.forEach(function(t, k){
-    o.position.set(t[0], .8 * t[2], t[1]); o.scale.set(t[2], t[2], t[2]); o.rotation.set(0, 0, 0); o.updateMatrix(); trunk.setMatrixAt(k, o.matrix);
-    o.position.set(t[0], 2.6 * t[2], t[1]); o.scale.set(t[2], t[2] * 1.25, t[2]); o.updateMatrix(); crown.setMatrixAt(k, o.matrix);
-  });
-  crown.castShadow = trunk.castShadow = true; crown.receiveShadow = true; scene.add(crown); scene.add(trunk);
-})();
+document.querySelectorAll('.copy').forEach(btn=>btn.addEventListener('click',()=>{
+  const v=btn.dataset.copy,el=btn.previousElementSibling;
+  const done=()=>{btn.textContent='Copié';setTimeout(()=>btn.textContent='Copier',1600)};
+  try{navigator.clipboard.writeText(v).then(done).catch(()=>selectText(el))}catch(e){selectText(el)}
+}));
+function selectText(el){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}
 
-/* Personnages miniatures */
-var walkers = [];
-function person(top, x, z, rotY, parent){
-  var g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = rotY || 0;
-  var skin = [0xE7B693, 0xC68B59, 0x8D5A3B, 0xF1CBA8][Math.floor(Math.random() * 4)];
-  var legL = new THREE.Group(), legR = new THREE.Group(); legL.position.set(-.13, .85, 0); legR.position.set(.13, .85, 0); g.add(legL); g.add(legR);
-  [legL, legR].forEach(function(l){ var m = new THREE.Mesh(new THREE.CylinderGeometry(.1, .085, .85, 8), M(0x2B2F38)); m.position.y = -.42; m.castShadow = true; l.add(m); });
-  var body = new THREE.Mesh(new THREE.CylinderGeometry(.24, .2, .7, 10), M(top)); body.position.y = 1.2; body.castShadow = true; g.add(body);
-  var head = new THREE.Mesh(new THREE.SphereGeometry(.16, 12, 10), M(skin)); head.position.y = 1.7; head.castShadow = true; g.add(head);
-  var hair = new THREE.Mesh(new THREE.SphereGeometry(.165, 12, 8, 0, Math.PI * 2, 0, Math.PI * .5), M(0x2A1E16)); hair.position.y = 1.72; g.add(hair);
-  (parent || scene).add(g); return {g:g, legL:legL, legR:legR};
-}
-function walkAnim(p, t){ p.legL.rotation.x = Math.sin(t) * .5; p.legR.rotation.x = -Math.sin(t) * .5; }
-
-/* Véhicules */
-function van(color, stripe, text){
-  var g = new THREE.Group();
-  box(4.4, 2.3, 2.2, color, -.3, .45, 0, g); box(1.5, 1.7, 2.16, color, 2.45, .45, 0, g);
-  box(.06, .8, 1.9, 0x3A4350, 3.2, 1.25, 0, g); box(4.42, .3, 2.22, stripe, -.3, 1.2, 0, g);
-  if(text){ var l = label(text, 3.2, .55, {color:'#1C1D1F', scale:.62}); l.position.set(-.3, 2.15, 1.115); g.add(l); var l2 = l.clone(); l2.rotation.y = Math.PI; l2.position.z = -1.115; g.add(l2); }
-  [[-1.6, 1.1], [2.2, 1.1], [-1.6, -1.1], [2.2, -1.1]].forEach(function(p){ var w = cyl(.45, .45, .35, 0x22252B, p[0], .275, p[1], g, 14); w.rotation.x = Math.PI / 2; w.position.y = .45; });
-  scene.add(g); return g;
-}
-function makePath(pts, loop){ if(loop) pts = pts.concat([pts[0]]); var segs = [], total = 0; for(var k = 0; k < pts.length - 1; k++){ var a = pts[k], b = pts[k + 1], L = Math.hypot(b[0] - a[0], b[1] - a[1]); segs.push({a:a, b:b, L:L}); total += L; } return {segs:segs, total:total}; }
-function samplePath(path, u){
-  var d = ((u % 1) + 1) % 1 * path.total;
-  for(var k = 0; k < path.segs.length; k++){ var s = path.segs[k]; if(d <= s.L || k === path.segs.length - 1){ var f = s.L ? Math.min(1, d / s.L) : 0; return {x:s.a[0] + (s.b[0] - s.a[0]) * f, z:s.a[1] + (s.b[1] - s.a[1]) * f, h:Math.atan2(-(s.b[1] - s.a[1]), s.b[0] - s.a[0])}; } d -= s.L; }
-}
-var movers = [];
-function addMover(obj, path, speed, off){ movers.push({o:obj, p:path, s:speed, off:off || 0}); }
-
-/* ===== Entrepôt Centr Supply (centre) ===== */
-var cladTex = canvasTex(256, 256, function(g, w, h){ g.fillStyle = '#E6E8EB'; g.fillRect(0, 0, w, h); g.fillStyle = '#D6D9DE'; for(var y = 0; y < h; y += 16) g.fillRect(0, y, w, 3); });
-cladTex.wrapS = cladTex.wrapT = THREE.RepeatWrapping;
-function cladMat(w, h){ var t = cladTex.clone(); t.needsUpdate = true; t.repeat.set(w / 6, h / 6); return new THREE.MeshLambertMaterial({map:t}); }
-var WH = new THREE.Group(); scene.add(WH);
-var floorM = new THREE.Mesh(new THREE.BoxGeometry(30, .3, 18), M(0xDCDDDF)); floorM.position.set(0, .15, 0); floorM.receiveShadow = true; WH.add(floorM);
-function wallB(w, h, d, x, z){ var m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), cladMat(Math.max(w, d), h)); m.position.set(x, h / 2 + .3, z); m.castShadow = m.receiveShadow = true; WH.add(m); return m; }
-wallB(30.4, 7, .4, 0, -9); wallB(.4, 7, 18, -15, 0); wallB(.4, 1.4, 18, 15, 0); wallB(30.4, 1.4, .4, 0, 9);
-box(30.6, .35, .6, C.ink, 0, 7.3, -9, WH); box(.6, .35, 18, C.ink, -15, 7.3, 0, WH);
-box(30.6, .2, .5, C.orange, 0, 1.7, 9, WH); box(.5, .2, 18, C.orange, 15, 1.7, 0, WH);
-// bandeau de toiture coupé (comme une maquette en coupe)
-box(30.6, .5, 3, C.roof, 0, 7, -7.7, WH); box(3, .5, 15, C.roof, -13.7, 7, 1.5, WH);
-// marquage au sol
-[[-5, 1.6, 20, .12], [8, -1, .12, 14]].forEach(function(m){ var l = flat(m[2], m[3], 0xF2C94C, m[0], m[1], .32); WH.add(l); });
-// étagères en résine noires + bacs (instanciés)
-(function(){
-  var units = []; [-6.4, -3.4, -.4].forEach(function(z){ for(var x = -13; x <= 0.5; x += 2.7) units.push([x, z]); });
-  for(var z2 = -6; z2 <= 5; z2 += 2.8) units.push([-14.2, z2, 1]);
-  var postG = new THREE.BoxGeometry(.08, 2.6, .08), slabG = new THREE.BoxGeometry(2.5, .06, .8), bacG = new THREE.BoxGeometry(.72, .42, .66), tagG = new THREE.BoxGeometry(.22, .1, .02);
-  var nU = units.length, posts = new THREE.InstancedMesh(postG, M(0x1E1F23), nU * 4), slabs = new THREE.InstancedMesh(slabG, M(0x1E1F23), nU * 4), bacs = new THREE.InstancedMesh(bacG, M(0x26272B), nU * 9), tags = new THREE.InstancedMesh(tagG, M(0xffffff), nU * 9);
-  var o = new THREE.Object3D(), gp = new THREE.Object3D(), ip = 0, is = 0, ib = 0;
-  units.forEach(function(u){
-    gp.position.set(u[0], .3, u[1]); gp.rotation.set(0, u[2] ? Math.PI / 2 : 0, 0); gp.updateMatrixWorld();
-    [[-1.2, -.36], [1.2, -.36], [-1.2, .36], [1.2, .36]].forEach(function(p){ o.position.set(p[0], 1.3, p[1]); o.updateMatrix(); o.matrix.premultiply(gp.matrixWorld); posts.setMatrixAt(ip++, o.matrix); });
-    [.08, .9, 1.72, 2.56].forEach(function(y, li){
-      o.position.set(0, y, 0); o.updateMatrix(); o.matrix.premultiply(gp.matrixWorld); slabs.setMatrixAt(is++, o.matrix);
-      if(li < 3) for(var k = 0; k < 3; k++){
-        o.position.set(-.8 + k * .8, y + .25, 0); o.updateMatrix(); o.matrix.premultiply(gp.matrixWorld); bacs.setMatrixAt(ib, o.matrix);
-        o.position.set(-.8 + k * .8, y + .27, .34); o.updateMatrix(); o.matrix.premultiply(gp.matrixWorld); tags.setMatrixAt(ib, o.matrix); ib++;
-      }
-    });
-  });
-  [posts, slabs, bacs].forEach(function(m){ m.castShadow = m.receiveShadow = true; WH.add(m); }); WH.add(tags);
-})();
-// postes de préparation
-var packers = [];
-[[6, -5.5], [10.5, -5.5], [6, -2.3], [10.5, -2.3]].forEach(function(p, k){
-  box(3.2, .08, 1.3, 0xEDEDEB, p[0], 1.2, p[1], WH); [[-1.5, -.55], [1.5, -.55], [-1.5, .55], [1.5, .55]].forEach(function(q){ box(.08, .9, .08, C.ink, p[0] + q[0], .3, p[1] + q[1], WH); });
-  for(var c = 0; c < 3; c++) box(.6, .42, .5, C.kraft, p[0] - .9 + c * .8, 1.28, p[1] + (c % 2) * .2 - .1, WH);
-  box(.45, .3, .35, 0xF4F4F2, p[0] + 1.1, 1.28, p[1] - .2, WH);
-  packers.push(person(k % 2 ? C.orange : 0x34363C, p[0], p[1] + 1.2, Math.PI, WH));
+document.getElementById('brief').addEventListener('submit',e=>{
+  e.preventDefault();
+  const out=document.getElementById('out');
+  const name=document.getElementById('f-name').value.trim();
+  if(!name){out.textContent="Indiquez votre nom et votre société pour préparer le brief.";document.getElementById('f-name').focus();return}
+  const needs=[...document.querySelectorAll('.chips input:checked')].map(i=>i.value).join(', ')||'À définir';
+  const txt=`Bonjour CENTR,\n\nNom & société : ${name}\nProfil : ${document.getElementById('f-type').value}\nBesoin : ${needs}\nVolume : ${document.getElementById('f-vol').value}\nMarché : ${document.getElementById('f-mk').value||'—'}\n\nProjet : ${document.getElementById('f-msg').value||'—'}`;
+  const url='https://wa.me/33775758121?text='+encodeURIComponent(txt);
+  out.innerHTML='Brief prêt. <a href="'+url+'" target="_blank" rel="noopener">Ouvrir dans WhatsApp →</a> ou envoyez-le à contact@centrsupply.com.';
 });
-// réception : palettes de cartons
-[[3.5, 4.5], [6.2, 4.5], [3.5, 7.2]].forEach(function(p){
-  box(1.8, .2, 1.4, 0xB89268, p[0], .3, p[1], WH);
-  for(var lv = 0; lv < 3; lv++) for(var c = 0; c < 2; c++) box(.8, .55, 1.25, C.kraft, p[0] - .42 + c * .85, .5 + lv * .56, p[1], WH);
-});
-// retours : table + bacs + personne
-box(3.2, .08, 1.3, 0xEDEDEB, 10.5, 1.2, 5.5, WH); [[-1.5, -.55], [1.5, -.55], [-1.5, .55], [1.5, .55]].forEach(function(q){ box(.08, .9, .08, C.ink, 10.5 + q[0], .3, 5.5 + q[1], WH); });
-box(.7, .4, .6, C.orange, 9.6, 1.28, 5.4, WH); box(.6, .45, .5, C.kraft, 11.3, 1.28, 5.6, WH);
-var returner = person(0x34363C, 10.5, 4.3, 0, WH);
-// chariot + préparateur qui circule
-var cartG = new THREE.Group(); WH.add(cartG);
-box(1.3, .08, .7, C.ink, 0, .45, 0, cartG); box(.08, 1, .7, C.ink, -.65, .45, 0, cartG); box(.72, .4, .6, 0x26272B, .1, .53, 0, cartG);
-var cartP = person(C.orange, -1.2, 0, Math.PI / 2, cartG);
-var cartPath = makePath([[-12.5, -1.9], [1.8, -1.9], [1.8, 1.9], [-12.5, 1.9]], true);
-// bureaux en façade avec l'enseigne
-var office = new THREE.Group(); office.position.set(-9, 0, 13.5); scene.add(office);
-box(12, 8.5, 9, C.white, 0, 0, 0, office);
-box(12.1, 1.3, 9.1, C.glass, 0, 2.3, 0, office); box(12.1, 1.3, 9.1, C.glass, 0, 5.3, 0, office);
-box(12.3, .4, 9.3, C.roof, 0, 8.5, 0, office); box(12.4, .15, 9.4, C.orange, 0, 8.35, 0, office);
-var signFace = canvasTex(1024, 256, function(g, w, h){
-  g.fillStyle = '#1C1D1F'; g.beginPath(); g.roundRect ? g.roundRect(24, 38, 180, 180, 36) : g.rect(24, 38, 180, 180); g.fill();
-  g.fillStyle = '#FFFFFF'; g.font = '900 140px Archivo, Arial, sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('C', 114, 136);
-  g.fillStyle = '#FF7A3D'; g.beginPath(); g.arc(196, 210, 22, 0, Math.PI * 2); g.fill();
-  g.fillStyle = '#1C1D1F'; g.textAlign = 'left'; g.font = '800 128px Archivo, Arial, sans-serif'; g.fillText('Centr Supply', 250, 136);
-});
-var sign = new THREE.Mesh(new THREE.PlaneGeometry(9.5, 2.37), new THREE.MeshBasicMaterial({map:signFace, transparent:true}));
-sign.position.set(0, 7.1, 4.56); office.add(sign);
-var sign2 = sign.clone(); sign2.rotation.y = Math.PI / 2; sign2.position.set(6.06, 7.1, 0); office.add(sign2);
-box(2.4, 2.6, .2, 0x3A4350, 3, 0, 4.5, office);
-// cour, quais et camionnettes
-flat(30, 13, 0xDDE0E3, 3, 15.5, .025);
-for(var q = 0; q < 4; q++) flat(.18, 7, 0xffffff, 5 + q * 3.5, 14, .035);
-var vans = [];
-var vPark = van(0xF7F7F5, C.orange, 'CENTR SUPPLY'); vPark.position.set(13, 0, 13); vPark.rotation.y = Math.PI / 2;
-var v1 = van(0xF7F7F5, 0x8B95A3, 'COLLECTE'); addMover(v1, makePath([[-60, 21.5], [120, 21.5], [120, 26.5], [-60, 26.5]], true), .016, 0);
-var v2 = van(0xF7F7F5, C.orange, 'CENTR SUPPLY'); addMover(v2, makePath([[22, 21.5], [92.5, 21.5], [92.5, -15.5], [57, -15.5], [57, -20.5], [97.5, -20.5], [97.5, 26.5], [24.5, 26.5], [24.5, 67.5], [-25, 67.5], [-25, 72.5], [19.5, 72.5], [19.5, 26.5]], true), .012, .3);
-var v3 = van(0xF7F7F5, 0x8B95A3, 'COLLECTE'); addMover(v3, makePath([[92.5, 21.5], [92.5, -28], [97.5, -28], [97.5, 26.5]], true), .03, .5);
-// quelques personnes dans la cour
-var yardP = [person(0x34363C, 9, 17, -2), person(C.orange, 10.5, 17.6, 2.4)];
-
-/* ===== Import : port, porte-conteneurs, grues (gauche) ===== */
-var water = new THREE.Mesh(new THREE.PlaneGeometry(140, 160), new THREE.MeshLambertMaterial({color:C.water})); water.rotation.x = -Math.PI / 2; water.position.set(-160, .05, 10); water.receiveShadow = true; scene.add(water);
-box(20, 1.2, 100, 0xD8DBDF, -80, 0, 10);
-flat(20, .2, 0xffffff, -80, -40, 1.25);
-var contCols = [C.orange, 0x9AA5B1, C.ink, 0xF2F2F0, 0xC7CDD4];
-(function(){
-  var list = [];
-  // pile sur le quai
-  for(var x = 0; x < 3; x++) for(var z = 0; z < 7; z++) for(var y = 0; y < 1 + ((x + z) % 3); y++) list.push([-84 + x * 2.6, 1.2 + y * 2.6, -22 + z * 6.4, 0]);
-  // conteneurs sur le navire
-  for(var x2 = 0; x2 < 3; x2++) for(var z3 = 0; z3 < 9; z3++) for(var y2 = 0; y2 < 2 + ((z3 * 7 + x2) % 3); y2++) list.push([-104 + x2 * 2.6, 3.6 + y2 * 2.6, -14 + z3 * 6.2, 1]);
-  var cm = new THREE.InstancedMesh(new THREE.BoxGeometry(2.4, 2.5, 6), new THREE.MeshLambertMaterial({color:0xffffff}), list.length), o = new THREE.Object3D(), col = new THREE.Color();
-  list.forEach(function(c, k){ o.position.set(c[0], c[1] + 1.25, c[2]); o.updateMatrix(); cm.setMatrixAt(k, o.matrix); col.setHex(contCols[(k * 7) % contCols.length]); cm.setColorAt(k, col); });
-  cm.castShadow = cm.receiveShadow = true; scene.add(cm);
-})();
-// coque du navire
-var ship = new THREE.Group(); ship.position.set(-101.5, 0, 12); scene.add(ship);
-box(10, 3.4, 64, C.ink, 0, -.4, 0, ship); box(10.1, .5, 64.1, C.orange, 0, 2.2, 0, ship);
-box(8, 7, 6, C.white, 0, 3, -28, ship); box(8.2, .8, 6.2, C.glass, 0, 8.5, -28, ship); cyl(.7, .7, 4, C.orange, 0, 10, -27, ship);
-var bow = new THREE.Mesh(new THREE.CylinderGeometry(5, 5, 3.4, 3, 1, false, 0, Math.PI), M(C.ink)); bow.rotation.y = Math.PI / 2; bow.scale.z = 1.6; bow.position.set(0, 1.3, 32); bow.castShadow = true; ship.add(bow);
-// grues portiques
-var cranes = [];
-[-12, 18].forEach(function(z){
-  var g = new THREE.Group(); g.position.set(-85, 1.2, z); scene.add(g);
-  [[-3, -3], [3, -3], [-3, 3], [3, 3]].forEach(function(p){ box(.6, 18, .6, C.white, p[0], 0, p[1], g); });
-  box(30, 1.2, 1.2, C.white, -9, 18, -3, g); box(30, 1.2, 1.2, C.white, -9, 18, 3, g); box(1.2, 1.2, 7, C.orange, -24, 18, 0, g); box(7, 1.2, 1.2, C.orange, 0, 12, 0, g);
-  var trolley = new THREE.Group(); trolley.position.set(-10, 17.4, 0); g.add(trolley); box(2.6, 1, 7, C.ink, 0, 0, 0, trolley);
-  var cable = box(.08, 6, .08, C.ink, 0, -6, 0, trolley); var spreader = box(2.6, .5, 6.2, C.orange, 0, -6.5, 0, trolley);
-  cranes.push({t:trolley, cable:cable, sp:spreader, ph:z});
-});
-// camion porte-conteneur entre le port et l'entrepôt
-var truck = new THREE.Group(); scene.add(truck);
-box(2.4, 2.4, 2.4, C.orange, 4.6, .6, 0, truck); box(8, .6, 2.4, C.ink, -.4, .6, 0, truck); box(7.2, 2.5, 2.4, 0x9AA5B1, -.6, 1.2, 0, truck);
-[[-3.6, 1.2], [-2.4, 1.2], [3.2, 1.2], [5, 1.2], [-3.6, -1.2], [-2.4, -1.2], [3.2, -1.2], [5, -1.2]].forEach(function(p){ var w = cyl(.5, .5, .4, 0x22252B, p[0], .3, p[1], truck, 12); w.rotation.x = Math.PI / 2; w.position.y = .5; });
-addMover(truck, makePath([[-72, 21.5], [14, 21.5], [14, 26.5], [-72, 26.5]], true), .014, .15);
-// avion cargo en vol
-var plane = new THREE.Group(); scene.add(plane);
-cyl(1.4, 1.1, 16, C.white, 0, 0, 0, plane, 14).rotation.z = Math.PI / 2;
-box(3.2, .3, 22, C.white, 0, 0, 0, plane); box(2, .25, 7, C.white, -7, .4, 0, plane); box(2.6, 3.8, .3, C.orange, -7.2, .6, 0, plane);
-plane.children.forEach(function(c){ c.castShadow = true; });
-
-/* ===== Expédition : relais colis, consignes, panneaux (droite) ===== */
-function relay(x, z, rot, name){
-  var g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = rot; scene.add(g);
-  box(7, 4.2, 5, C.white, 0, 0, 0, g); box(7.2, .3, 5.2, C.roof, 0, 4.2, 0, g); box(4, 2.2, .1, C.glass, 0, .3, 2.5, g);
-  box(7.2, .7, .5, C.orange, 0, 3.1, 2.6, g);
-  var l = label(name, 6.6, .66, {color:'#ffffff', scale:.6}); l.position.set(0, 3.45, 2.86); g.add(l);
-  // consigne à colis
-  var lk = new THREE.Group(); lk.position.set(5.2, 0, 1); g.add(lk);
-  box(2.4, 2.6, 1, 0xEDEEF0, 0, 0, 0, lk);
-  for(var r = 0; r < 3; r++) for(var c = 0; c < 3; c++) box(.66, .66, .05, (r + c) % 3 ? 0xD5D9DE : C.orange, -.75 + c * .75, .3 + r * .78, .5, lk);
-  return g;
-}
-relay(64, -26, 0, 'POINT RELAIS'); relay(80, -26, 0, 'RELAIS COLIS'); relay(66, -8, Math.PI, 'POINT RELAIS'); relay(110, 10, -Math.PI / 2, 'RELAIS COLIS');
-// panneau directionnel avec les pays
-var signPost = new THREE.Group(); signPost.position.set(88, 0, 16); scene.add(signPost);
-cyl(.18, .18, 6, 0x9AA5B1, 0, 0, 0, signPost);
-['FRANCE', 'BELGIQUE', 'LUXEMBOURG', 'SUISSE'].forEach(function(t, k){
-  var pl = label(t, 4.4, .8, {bg:k % 2 ? '#1C1D1F' : '#FF7A3D', color:'#ffffff', scale:.56}); pl.position.set((k % 2 ? -1 : 1) * 2.2, 5.4 - k * 1.05, 0); pl.rotation.y = k % 2 ? .25 : -.25; signPost.add(pl);
-  var back = pl.clone(); back.rotation.y += Math.PI; back.position.z -= .01; signPost.add(back);
-});
-// colis qui partent en file
-var parcelsOut = [];
-for(var pc = 0; pc < 6; pc++){ var pb = box(.9, .6, .7, C.kraft, 0, 0, 0); parcelsOut.push(pb); }
-var peopleRelay = [person(0x34363C, 63, -21.5, 0), person(0x6E8CF2, 79, -21.2, .4), person(C.orange, 66, -12.5, Math.PI)];
-
-/* ===== Commerces du Calvados (nord) ===== */
-function shop(x, z, w, h, color, awning, name, rot){
-  var g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = rot || 0; scene.add(g);
-  box(w, h, 7, color, 0, 0, 0, g); box(w + .2, .4, 7.2, C.roof, 0, h, 0, g);
-  box(w - 1.2, 2.4, .1, C.glass, 0, .3, 3.5, g);
-  var aw = box(w - .6, .2, 1.6, awning, 0, 3, 4.2, g); aw.rotation.x = .25;
-  var l = label(name, w - 1.2, .8, {bg:'#ffffff', color:'#1C1D1F', scale:.55}); l.position.set(0, 3.9, 3.56); g.add(l);
-  for(var f = 1; f < Math.floor(h / 3.2); f++) for(var k = 0; k < Math.floor(w / 2.6); k++) box(1.2, 1.4, .1, C.glass, -w / 2 + 1.5 + k * 2.6, 3.4 + f * 3.1 - 2.4, 3.52, g);
-  return g;
-}
-shop(-14, 59, 9, 6.5, 0xF5EFE6, C.orange, 'CAFÉ DU PORT', 0);
-shop(-2, 59, 8, 9.5, C.white, C.ink, 'SALON', 0);
-shop(10, 59, 8, 6.5, 0xEEF2F5, 0x9AA5B1, 'BOUTIQUE', 0);
-shop(22, 59, 8, 12.5, C.white, C.orange, 'HÔTEL', 0);
-shop(34, 59, 8, 6.5, 0xF2F2F0, 0x7ECFA9, 'FLEURISTE', 0);
-// terrasse du café
-for(var tt = 0; tt < 3; tt++){ var tx = -17 + tt * 3; cyl(.6, .6, .08, C.white, tx, .9, 65); cyl(.06, .06, .9, C.ink, tx, 0, 65); cyl(0, 1.6, .9, C.orange, tx, 2.2, 65, null, 10); cyl(.04, .04, 2.2, C.ink, tx, 0, 65); }
-// camionnette Centr Supply en livraison + livreur avec un carton
-var vDel = van(0xF7F7F5, C.orange, 'CENTR SUPPLY'); vDel.position.set(6, 0, 67.5); vDel.rotation.y = 0;
-var deliv = person(C.orange, 4, 65.6, Math.PI);
-var delBox = box(.6, .45, .5, C.kraft, 0, 1.15, .32, deliv.g);
-var townP = [person(0x34363C, -16, 66, 0), person(0x6E8CF2, -10, 64.5, 2.5), person(0xE98DB4, 17, 65, 1), person(0x34363C, 28, 64.8, -1)];
-
-/* ===== Points d'intérêt (HTML) ===== */
-var hotsEl = document.getElementById('hots'), hotNodes = [];
-STATIONS.forEach(function(s, si){
-  (s.hots || []).forEach(function(h){
-    var el = document.createElement('div'); el.className = 'hot'; el.tabIndex = 0;
-    el.innerHTML = '<i></i><span>' + h[3] + '</span><em>' + h[4] + '</em>';
-    el.addEventListener('click', function(ev){ ev.stopPropagation(); var o = !el.classList.contains('open'); hotNodes.forEach(function(n){ n.el.classList.remove('open'); }); el.classList.toggle('open', o); stopAuto(); });
-    hotsEl.appendChild(el); hotNodes.push({el:el, v:new THREE.Vector3(h[0], h[1], h[2]), st:si});
-  });
-});
-document.addEventListener('click', function(){ hotNodes.forEach(function(n){ n.el.classList.remove('open'); }); });
-
-/* ===== Caméra et visite ===== */
-var cur = 0, fly = null, orbit = {az:0, azT:0};
-var camPos = new THREE.Vector3(), camTgt = new THREE.Vector3(), tmpA = new THREE.Vector3(), tmpB = new THREE.Vector3(), YAX = new THREE.Vector3(0, 1, 0);
-function stationPose(i, outP, outT){
-  var s = STATIONS[i], c = s.cam; outT.fromArray(c[0]);
-  var aspect = (stageEl.clientWidth || 1) / (stageEl.clientHeight || 1), k = aspect < .8 ? 1.35 : aspect < 1.2 ? 1.15 : 1;
-  var d = c[1] * k; outP.set(outT.x + Math.sin(c[2]) * Math.cos(c[3]) * d, Math.sin(c[3]) * d, outT.z + Math.cos(c[2]) * Math.cos(c[3]) * d);
-}
-stationPose(0, camPos, camTgt);
-var fromP = new THREE.Vector3(), fromT = new THREE.Vector3(), toP = new THREE.Vector3(), toT = new THREE.Vector3();
-go = function(i){
-  if(i === cur && fly) return;
-  cur = i; tabBtns.forEach(function(b, k){ b.classList.toggle('on', k === i); b.setAttribute('aria-current', k === i ? 'true' : 'false'); });
-  renderCard(i);
-  fromP.copy(camPos); fromT.copy(camTgt); stationPose(i, toP, toT);
-  fly = {t:0, dur:reduce ? .01 : 2.4, arc:Math.min(40, fromT.distanceTo(toT) * .25)};
-  orbit.azT = 0;
-  if(innerWidth < 800) try { tabsEl.scrollTo({left:tabBtns[i].offsetLeft - tabsEl.clientWidth / 2 + tabBtns[i].offsetWidth / 2, behavior:'smooth'}); } catch(e){}
-};
-tabBtns[0].classList.add('on');
-
-/* Visite automatique */
-var auto = !reduce, autoT = 0, AUTO_DUR = 8;
-var playBtn = document.getElementById('play3d');
-function setAuto(v){ auto = v; autoT = 0; playBtn.innerHTML = '<svg class="ico"><use href="#i-' + (v ? 'pause' : 'play') + '"/></svg>'; playBtn.setAttribute('aria-label', v ? 'Mettre la visite en pause' : 'Reprendre la visite'); tabBtns.forEach(function(b){ b.querySelector('.bar').style.width = '0'; }); }
-stopAuto = function(){ if(auto) setAuto(false); };
-playBtn.addEventListener('click', function(){ setAuto(!auto); });
-document.getElementById('rot3d').addEventListener('click', function(){ stopAuto(); orbit.azT = orbit.azT > .4 ? -.6 : orbit.azT + .5; });
-setAuto(auto);
-
-/* Glisser pour tourner */
-var drag = null;
-renderer.domElement.addEventListener('pointerdown', function(e){ drag = {x:e.clientX, az:orbit.azT, moved:false}; });
-addEventListener('pointermove', function(e){ if(!drag) return; var d = e.clientX - drag.x; if(Math.abs(d) > 5){ drag.moved = true; worldEl.classList.add('dragging'); stopAuto(); } if(drag.moved) orbit.azT = Math.max(-1, Math.min(1, drag.az - d * .004)); });
-addEventListener('pointerup', function(){ drag = null; worldEl.classList.remove('dragging'); });
-
-function resize(){
-  var w = stageEl.clientWidth, h = stageEl.clientHeight; if(!w || !h) return;
-  renderer.setSize(w, h, false); camera.aspect = w / h; camera.fov = w / h < .8 ? 42 : 30; camera.updateProjectionMatrix();
-  if(!fly){ stationPose(cur, camPos, camTgt); }
-}
-resize();
-if(window.ResizeObserver) new ResizeObserver(resize).observe(stageEl); else addEventListener('resize', resize);
-
-var visible = true;
-new IntersectionObserver(function(es){ visible = es[0].isIntersecting; }).observe(stageEl);
-function ease(t){ return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
-var T = 0, last = performance.now(), perf = {acc:0, n:0}, firstFrame = true, hv = new THREE.Vector3();
-function frame(now){
-  requestAnimationFrame(frame);
-  var raw = (now - last) / 1000, dt = Math.min(.05, raw); last = now;
-  if(!visible) return;
-  T += reduce ? 0 : dt;
-  perf.acc += raw; perf.n++;
-  if(perf.acc > 1.5){ var avg = perf.acc / perf.n; perf.acc = perf.n = 0;
-    if(avg > 1 / 42 && dpr > .75){ dpr = Math.max(.75, dpr - .15); renderer.setPixelRatio(dpr); resize(); }
-    else if(avg < 1 / 57 && dpr < DPR_MAX){ dpr = Math.min(DPR_MAX, dpr + .1); renderer.setPixelRatio(dpr); resize(); } }
-
-  // vol de caméra
-  if(fly){
-    fly.t = Math.min(1, fly.t + Math.min(raw, .1) / fly.dur); var e = ease(fly.t);
-    camTgt.lerpVectors(fromT, toT, e); camPos.lerpVectors(fromP, toP, e); camPos.y += Math.sin(Math.PI * e) * fly.arc;
-    if(fly.t >= 1) fly = null;
-  }
-  orbit.az += (orbit.azT - orbit.az) * Math.min(1, dt * 4);
-  tmpA.copy(camPos).sub(camTgt).applyAxisAngle(YAX, orbit.az + Math.sin(T * .15) * .03).add(camTgt);
-  camera.position.copy(tmpA); camera.lookAt(camTgt);
-  var vw = stageEl.clientWidth, vh = stageEl.clientHeight; if(vw >= 800) camera.setViewOffset(vw, vh, -vw * .14, vh * .02, vw, vh); else camera.clearViewOffset();
-
-  // soleil qui suit la scène pour des ombres nettes
-  sun.position.set(camTgt.x + 45, 90, camTgt.z + 30); sun.target.position.copy(camTgt);
-  var span = cur === 0 && !fly ? 110 : 62; if(sc.right !== span){ sc.left = -span; sc.right = span; sc.top = span; sc.bottom = -span; sc.updateProjectionMatrix(); }
-
-  // visite auto
-  if(auto && !fly){
-    autoT += dt; tabBtns[cur].querySelector('.bar').style.width = Math.min(100, autoT / AUTO_DUR * 100) + '%';
-    if(autoT >= AUTO_DUR){ tabBtns[cur].querySelector('.bar').style.width = '0'; autoT = 0; go((cur + 1) % STATIONS.length); }
-  }
-
-  // vie de la maquette
-  movers.forEach(function(m){ var q = samplePath(m.p, T * m.s + m.off); m.o.position.set(q.x, 0, q.z); var d = ((q.h - m.o.rotation.y + Math.PI * 3) % (Math.PI * 2)) - Math.PI; m.o.rotation.y += d * Math.min(1, dt * 6); });
-  var cp = samplePath(cartPath, T * .03); cartG.position.set(cp.x, .3, cp.z); var dc = ((cp.h - cartG.rotation.y + Math.PI * 3) % (Math.PI * 2)) - Math.PI; cartG.rotation.y += dc * Math.min(1, dt * 6);
-  walkAnim(cartP, T * 7);
-  packers.forEach(function(p, k){ p.g.children[2].rotation.x = Math.sin(T * 3 + k) * .08; });
-  cranes.forEach(function(c, k){ var u = (Math.sin(T * .35 + c.ph) + 1) / 2; c.t.position.x = -4 - u * 18; var drop = 4 + Math.max(0, Math.sin(T * .7 + k)) * 6; c.cable.scale.y = drop / 6; c.cable.position.y = -drop / 2 - .5; c.sp.position.y = -drop - .5; });
-  var pa = T * .12; plane.position.set(-40 + Math.cos(pa) * 110, 46, 20 + Math.sin(pa) * 70); plane.rotation.y = -pa - Math.PI; plane.rotation.z = .12;
-  parcelsOut.forEach(function(b, k){ var u = ((T * .08 + k / parcelsOut.length) % 1); b.position.set(57 + u * 13, .3, -21.5 + Math.sin(u * Math.PI) * .2); b.visible = u < .92; });
-  walkAnim(deliv, T * 5); deliv.g.position.x = 4 + Math.sin(T * .4) * 1.5;
-  water.position.y = .05 + Math.sin(T * .8) * .03;
-
-  // points d'intérêt
-  var w = stageEl.clientWidth, h = stageEl.clientHeight, showH = !fly;
-  hotNodes.forEach(function(n){
-    var on = showH && n.st === cur;
-    if(on){ hv.copy(n.v).project(camera); var x = (hv.x + 1) / 2 * w, y = (1 - hv.y) / 2 * h; on = hv.z < 1 && x > 20 && x < w - 20 && y > 70 && y < h - 70; if(on) n.el.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) translate(-7px,-50%)'; }
-    n.el.classList.toggle('on', on); n.el.style.pointerEvents = on ? 'auto' : 'none';
-  });
-
-  renderer.render(scene, camera);
-  if(firstFrame){ firstFrame = false; worldEl.classList.add('ready'); }
-}
-requestAnimationFrame(frame);
-}
-var started = false; function start3D(){ if(started) return; started = true; init3D(); }
-if(document.fonts && document.fonts.load){ document.fonts.load('800 100px Archivo').then(start3D, start3D); setTimeout(start3D, 1500); } else start3D();
-})();
 </script>
-
-</body>
-</html>
