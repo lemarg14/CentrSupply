@@ -325,6 +325,17 @@ footer a{text-decoration:none}
 footer a:hover{color:var(--navy-fg)}
 .legal{grid-column:1/-1;border-top:1px solid var(--navy-line);padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:.66rem}
 
+/* catalogue band */
+.cat-band{padding-block:0 clamp(64px,9vw,120px)}
+.cat{display:grid;grid-template-columns:1fr auto;gap:24px 40px;align-items:center;background:var(--navy);color:var(--navy-fg);border-radius:4px;padding:clamp(24px,4vw,40px);position:relative;overflow:hidden}
+.cat::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border:1px dashed var(--navy-line);border-radius:50%;pointer-events:none}
+.cat>*{min-width:0;position:relative;z-index:1}
+.cat h3{font-size:clamp(1.5rem,3vw,2.1rem);font-stretch:118%;margin-top:10px}
+.cat p{color:var(--navy-muted);margin-top:8px;max-width:52ch}
+.cat .mono{color:var(--orange)}
+.cat-url{font-family:var(--mono);font-size:.7rem;color:var(--navy-muted);margin-top:10px;display:block}
+.nav-cat{color:var(--navy-fg);border-color:var(--navy-line)}
+
 /* fixed action bar (phone) */
 .mbar{display:none}
 .dots{display:none}
@@ -339,7 +350,10 @@ footer a:hover{color:var(--navy-fg)}
   body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   section{padding-block:44px;scroll-margin-top:60px}
   .nav .wrap{height:58px}
-  .nav .btn-primary{display:none}
+  .nav .btn-primary,.nav .nav-cat{display:none}
+  .cat-band{padding-block:0 44px}
+  .cat{grid-template-columns:1fr;border-radius:20px;padding:22px}
+  .cat .btn{width:100%;border-radius:14px}
   .logo{font-size:1.15rem}
   .logo small{display:none}
   h2{font-size:1.7rem;line-height:1.08}
@@ -352,8 +366,8 @@ footer a:hover{color:var(--navy-fg)}
   .dark .sec-head .eyebrow::after{color:var(--navy-muted)}
 
   /* action bar */
-  .mbar{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px var(--gr) calc(10px + env(safe-area-inset-bottom,0px)) var(--gl);background:color-mix(in srgb,var(--navy) 94%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--navy-line)}
-  .mbar .btn{border-radius:14px;padding:15px 12px;font-size:.95rem}
+  .mbar{display:grid;grid-template-columns:.8fr 1fr 1.1fr;gap:6px;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px var(--gr) calc(10px + env(safe-area-inset-bottom,0px)) var(--gl);background:color-mix(in srgb,var(--navy) 94%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--navy-line)}
+  .mbar .btn{border-radius:14px;padding:15px 6px;font-size:.86rem;gap:.4rem}
   .mbar .btn-ghost{color:var(--navy-fg);border-color:var(--navy-line);background:var(--navy-2)}
   .mbar .wa::before{content:"";width:8px;height:8px;border-radius:50%;background:#3CC891}
 
@@ -523,6 +537,7 @@ footer a:hover{color:var(--navy-fg)}
       <li><a href="#groupe">Le groupe</a></li>
     </ul>
     <div class="nav-right">
+      <a class="btn btn-ghost nav-cat" href="https://catalogue-centr.vercel.app" target="_blank" rel="noopener">Catalogue pro <span class="arr">↗</span></a>
       <a class="btn btn-primary" href="#contact">Soumettre un brief <span class="arr">→</span></a>
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu"><span></span></button>
     </div>
@@ -537,6 +552,7 @@ footer a:hover{color:var(--navy-fg)}
         <li><a href="#plateforme">Plateforme</a></li>
         <li><a href="#groupe">Le groupe</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="https://catalogue-centr.vercel.app" target="_blank" rel="noopener" style="color:var(--orange)">Catalogue pro ↗</a></li>
       </ul>
     </div>
   </div>
@@ -552,7 +568,7 @@ footer a:hover{color:var(--navy-fg)}
       <p class="lede">CENTR organise l'approvisionnement, l'import, le stockage et la distribution de vos marchandises. Un interlocuteur, un contrat, toute la chaîne.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#contact">Parler à un opérateur <span class="arr">→</span></a>
-        <a class="btn btn-ghost" href="#divisions">Nos divisions</a>
+        <a class="btn btn-ghost" href="https://catalogue-centr.vercel.app" target="_blank" rel="noopener">Catalogue pro <span class="arr">↗</span></a>
       </div>
       <div class="hero-meta">
         <div><b>6</b><span>Divisions</span></div>
@@ -645,6 +661,21 @@ footer a:hover{color:var(--navy-fg)}
     <div class="only-m">
       <div class="rail" id="r-div" aria-label="Divisions CENTR"></div>
       <div class="dots" data-for="r-div"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOGUE -->
+<section class="cat-band" id="catalogue">
+  <div class="wrap">
+    <div class="cat">
+      <div>
+        <span class="mono">CATALOGUE PROFESSIONNEL</span>
+        <h3>Des références disponibles, prêtes à commander.</h3>
+        <p>Parcourez notre catalogue réservé aux professionnels. Vous ne trouvez pas votre produit ? Nous le sourçons pour vous.</p>
+        <span class="cat-url">catalogue-centr.vercel.app</span>
+      </div>
+      <a class="btn btn-primary" href="https://catalogue-centr.vercel.app" target="_blank" rel="noopener">Ouvrir le catalogue <span class="arr">↗</span></a>
     </div>
   </div>
 </section>
@@ -894,7 +925,7 @@ footer a:hover{color:var(--navy-fg)}
       <p style="margin-top:12px;max-width:34ch">Approvisionnement, import, stockage, distribution et technologie pour les entreprises qui achètent et vendent des marchandises.</p>
     </div>
     <div class="fcol"><h4>Divisions</h4><ul><li><a href="#divisions">Sourcing</a></li><li><a href="#divisions">Trade</a></li><li><a href="#divisions">Logistics</a></li><li><a href="#divisions">Distribution</a></li><li><a href="#divisions">Technology</a></li><li><a href="#divisions">Network</a></li></ul></div>
-    <div class="fcol"><h4>Groupe</h4><ul><li><a href="#methode">Méthode</a></li><li><a href="#clients">Clients</a></li><li><a href="#marches">Marchés</a></li><li><a href="#groupe">Vision</a></li></ul></div>
+    <div class="fcol"><h4>Groupe</h4><ul><li><a href="#methode">Méthode</a></li><li><a href="#clients">Clients</a></li><li><a href="#marches">Marchés</a></li><li><a href="#groupe">Vision</a></li><li><a href="https://catalogue-centr.vercel.app" target="_blank" rel="noopener">Catalogue pro ↗</a></li></ul></div>
     <div class="fcol"><h4>Contact</h4><ul><li>contact@centrsupply.com</li><li>+33 7 75 75 81 21</li><li>Caen, Normandie</li></ul></div>
     <div class="legal"><span>© 2026 CENTR Group · Centr Supply, marque de SAS ECOM CENTR · RCS Paris 990 905 879</span><span>Mentions légales · Confidentialité</span></div>
   </div>
@@ -903,7 +934,8 @@ footer a:hover{color:var(--navy-fg)}
 <!-- fixed phone action bar -->
 <nav class="mbar" aria-label="Actions rapides">
   <a class="btn btn-ghost wa" href="https://wa.me/33775758121" target="_blank" rel="noopener">WhatsApp</a>
-  <a class="btn btn-primary" href="#contact">Soumettre un brief</a>
+  <a class="btn btn-ghost" href="https://catalogue-centr.vercel.app" target="_blank" rel="noopener">Catalogue</a>
+  <a class="btn btn-primary" href="#contact">Brief</a>
 </nav>
 
 <script>
